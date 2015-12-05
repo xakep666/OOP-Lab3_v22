@@ -3,20 +3,22 @@
 namespace NetworkService {
     class NetworkDescriptor : public ServiceDescriptor {
     private:
-        unsigned long intraffic,outtraffic;
+        ulong intraffic,outtraffic;
+        fduration linkduration;
         NetworkDescriptor();
     public:
-        NetworkDescriptor(unsigned long intraffic,
-                       unsigned long outtraffic,
-                       unsigned long address,
+        NetworkDescriptor(ulong intraffic,
+                       ulong outtraffic,
+                       ulong address,
                        ftimepoint &linktime,
                        fduration &linkduration,
                        Server * server);
-        unsigned long getInTraffic() const;
-        unsigned long getOutTraffic() const;
+        ulong getInTraffic() const;
+        ulong getOutTraffic() const;
         std::string getType() const;
         const ftimepoint & getLinkTime() const;
         const fduration & getLinkDuration() const;
+        void setDuration(fduration & linkduration);
         unsigned int calculatePrice() const;
     };
 }

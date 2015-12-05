@@ -1,24 +1,21 @@
 #ifndef FILEDESCRIPTOR
 #define FILEDESCRIPTOR
 namespace NetworkService {
-    class FileDescriptor : public ServiceDescriptor {
+    class FileDescriptor : public PostDescriptor {
     private:
-        unsigned long traffic;
-        Direction direction;
-        FileDescriptor();
+        fduration linkduration;
+        FileDescriptor ();
     public:
-        FileDescriptor(unsigned long traffic,
+        FileDescriptor(ulong traffic,
                        Direction direction,
-                       unsigned long address,
+                       ulong address,
                        ftimepoint &linktime,
                        fduration &linkduration,
                        Server * server);
-        Direction getDirection() const;
-        unsigned long getTraffic() const;
-        std::string getType() const;
-        const ftimepoint & getLinkTime() const;
-        const fduration & getLinkDuration() const;
+        const fduration & getDuration() const;
+        void setDuration(fduration & linkduration);
         unsigned int calculatePrice() const;
+        virtual ~FileDescriptor();
     };
 }
 #endif // FILEDESCRIPTOR

@@ -3,22 +3,23 @@
 namespace NetworkService {
     class PostDescriptor : public ServiceDescriptor {
     private:
-        unsigned long traffic;
+        ulong traffic;
         Direction direction;
         PostDescriptor();
     public:
-        PostDescriptor(unsigned long traffic,
+        PostDescriptor(ulong traffic,
                        Direction direction,
-                       unsigned long address,
+                       ulong address,
                        ftimepoint &linktime,
                        fduration &linkduration,
                        Server * server);
         Direction getDirection() const;
-        unsigned long getTraffic() const;
+        ulong getTraffic() const;
         std::string getType() const;
         const ftimepoint & getLinkTime() const;
         const fduration & getLinkDuration() const;
-        unsigned int calculatePrice() const;
+        virtual unsigned int calculatePrice() const;
+        virtual ~PostDescriptor();
     };
 }
 #endif // POSTDESCRIPTOR

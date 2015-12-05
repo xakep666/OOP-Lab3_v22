@@ -4,16 +4,22 @@
 #include <string>
 #include <vector>
 #include <utility>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <stdexcept>
 typedef std::chrono::system_clock Time;
 typedef std::chrono::milliseconds ms;
-typedef std::chrono::time_point<float> ftimepoint;
+typedef std::chrono::time_point<Time> ftimepoint;
 typedef std::chrono::duration<float> fduration;
 namespace NetworkService {
+    ///Direction of data transfer
     typedef enum {
-        SEND,
-        RECV
+        SEND, ///<sending
+        RECV, ///<reciving
     } Direction;
 }
+#include "helpers.h"
 #include "servicedescriptor.h"
 #include "postdescriptor.h"
 #include "filedescriptor.h"

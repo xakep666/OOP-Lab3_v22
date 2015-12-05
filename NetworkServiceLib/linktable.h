@@ -3,20 +3,21 @@
 namespace NetworkService {
     class LinkTable {
     private:
-        std::vector<std::pair<ServiceDescriptor *,unsigned long>> linktable;
+        std::vector<std::pair<ServiceDescriptor *,ulong>> linktable;
     public:
         LinkTable();
-        void addService(ServiceDescriptor * sdesc, unsigned long abonentaddr);
-        std::vector<ServiceDescriptor *> getServices(unsigned long abonentaddr) const;
-        std::vector<ServiceDescriptor *> getServices(unsigned long abonentaddr,ftimepoint &linktime) const;
-        void delService(unsigned long abonentaddr, ftimepoint &linktime);
-        template <class T> delService(unsigned long abonentaddr);
+        void addService(ServiceDescriptor * sdesc, ulong abonentaddr);
+        std::vector<ServiceDescriptor *> getServices(ulong abonentaddr) const;
+        std::vector<ServiceDescriptor *> getServices(ulong abonentaddr,ftimepoint &linktime) const;
+        void delService(ulong abonentaddr, ftimepoint &linktime);
+        template <class T> void delService(ulong abonentaddr);
         void delService(ServiceDescriptor *sdesc);
         std::vector<std::string> showTable() const;
-        std::pair<ServiceDescriptor *,unsigned long> & operator [] (int index);
+        std::pair<ServiceDescriptor *,ulong> & operator [] (int index);
         friend class MyIterator<LinkTable>;
-        MyIterator<LinkTable> begin();
-        MyIterator<LinkTable> end();
+        typedef MyIterator<LinkTable> Iterator;
+        Iterator begin();
+        Iterator end();
         virtual ~LinkTable();
     };
 }

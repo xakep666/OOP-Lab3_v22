@@ -9,9 +9,14 @@ QT       -= gui
 TARGET = NetworkServiceLib
 TEMPLATE = lib
 
+CONFIG += c++11
+
 DEFINES += NETWORKSERVICELIB_LIBRARY
 
-SOURCES +=
+SOURCES += \
+    server.cpp \
+    servicedescriptor.cpp \
+    helpers.cpp
 
 HEADERS += \
     servicedescriptor.h \
@@ -22,7 +27,8 @@ HEADERS += \
     linktable.h \
     myiterator.h \
     server.h \
-    application.h
+    application.h \
+    helpers.h
 
 unix {
     target.path = /usr/lib

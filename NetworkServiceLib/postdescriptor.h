@@ -5,21 +5,22 @@ namespace NetworkService {
     private:
         ulong traffic;
         Direction direction;
-        PostDescriptor();
     public:
+        PostDescriptor();
         PostDescriptor(ulong traffic,
                        Direction direction,
                        ulong address,
                        ftimepoint &linktime,
-                       fduration &linkduration,
                        Server * server);
         Direction getDirection() const;
         ulong getTraffic() const;
-        std::string getType() const;
+        virtual std::string getType() const;
         const ftimepoint & getLinkTime() const;
-        const fduration & getLinkDuration() const;
-        virtual unsigned int calculatePrice() const;
+        virtual ulong calculatePrice() const;
         virtual ~PostDescriptor();
+    protected:
+        void setTraffic(ulong);
+        void setDirection(Direction);
     };
 }
 #endif // POSTDESCRIPTOR

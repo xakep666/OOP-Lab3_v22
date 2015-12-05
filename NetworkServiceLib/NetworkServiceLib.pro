@@ -16,7 +16,10 @@ DEFINES += NETWORKSERVICELIB_LIBRARY
 SOURCES += \
     server.cpp \
     servicedescriptor.cpp \
-    helpers.cpp
+    helpers.cpp \
+    postdescriptor.cpp \
+    filedescriptor.cpp \
+    networkdescriptor.cpp
 
 HEADERS += \
     servicedescriptor.h \

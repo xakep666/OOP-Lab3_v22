@@ -5,8 +5,8 @@ namespace NetworkService {
     private:
         ulong intraffic,outtraffic;
         fduration linkduration;
-        NetworkDescriptor();
     public:
+        NetworkDescriptor();
         NetworkDescriptor(ulong intraffic,
                        ulong outtraffic,
                        ulong address,
@@ -16,10 +16,8 @@ namespace NetworkService {
         ulong getInTraffic() const;
         ulong getOutTraffic() const;
         std::string getType() const;
-        const ftimepoint & getLinkTime() const;
         const fduration & getLinkDuration() const;
-        void setDuration(fduration & linkduration);
-        unsigned int calculatePrice() const;
+        ulong calculatePrice() const;
     };
 }
 #endif // NETWORKDESCRIPTOR

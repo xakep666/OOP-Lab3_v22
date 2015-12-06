@@ -19,7 +19,8 @@ SOURCES += \
     helpers.cpp \
     postdescriptor.cpp \
     filedescriptor.cpp \
-    networkdescriptor.cpp
+    networkdescriptor.cpp \
+    linktable.cpp
 
 HEADERS += \
     servicedescriptor.h \

@@ -4,10 +4,10 @@ namespace NetworkService {
 template <class T> class MyIterator : public std::iterator<std::forward_iterator_tag,T> {
 private:
     T *memb;
-    int index;
+    uint index;
 public:
     MyIterator() : memb(nullptr),index(0) {}
-    explicit MyIterator(T *nmemb) : memb(nmemb),index(0) {}
+    explicit MyIterator(T *nmemb,uint idx) : memb(nmemb),index(idx) {}
 
     MyIterator(const MyIterator &it) {
             memb = it.memb;
@@ -33,10 +33,10 @@ public:
         return memb ? memb[index] : nullptr;
     }
     friend bool operator == (MyIterator &lv, MyIterator &rv) {
-        return lv.memb == rv.memb;
+        return lv.memb == rv.memb && lv.index==rv.index;
     }
     friend bool operator != (MyIterator &lv, MyIterator &rv) {
-        return lv.memb != rv.memb;
+        return lv.memb != rv.memb && lv.index==rv.index;
     }
     virtual ~MyIterator();
 };

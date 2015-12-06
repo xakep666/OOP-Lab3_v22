@@ -20,6 +20,7 @@ namespace NetworkService {
          */
         virtual ulong calculatePrice() const = 0;
         ulong getDestinationAddress() const;
+        const ftimepoint & getLinkTime() const;
         const Server * getServer() const;
         virtual ~ServiceDescriptor();
     protected:

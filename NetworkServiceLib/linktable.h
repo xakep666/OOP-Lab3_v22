@@ -9,11 +9,9 @@ namespace NetworkService {
         void addService(ServiceDescriptor * sdesc, ulong abonentaddr);
         std::vector<ServiceDescriptor *> getServices(ulong abonentaddr) const;
         std::vector<ServiceDescriptor *> getServices(ulong abonentaddr,ftimepoint &linktime) const;
-        void delService(ulong abonentaddr, ftimepoint &linktime);
-        template <class T> void delService(ulong abonentaddr);
-        void delService(ServiceDescriptor *sdesc);
+        void delService(uint index);
         std::vector<std::string> showTable() const;
-        std::pair<ServiceDescriptor *,ulong> & operator [] (int index);
+        const std::pair<ServiceDescriptor *,ulong> & operator [] (uint index) const;
         friend class MyIterator<LinkTable>;
         typedef MyIterator<LinkTable> Iterator;
         Iterator begin();

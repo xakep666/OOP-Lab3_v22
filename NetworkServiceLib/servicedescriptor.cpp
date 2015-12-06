@@ -55,3 +55,11 @@ void ServiceDescriptor::setServer(Server *srv) {
         throw std::invalid_argument("Cannot set associated server to nullptr");
     server=srv;
 }
+
+/*!
+ * \brief ServiceDescriptor::getLinkTime gets time when service was given
+ * \return reference to ftimepoint object
+ */
+const ftimepoint & ServiceDescriptor::getLinkTime() const {
+    return linktime;
+}

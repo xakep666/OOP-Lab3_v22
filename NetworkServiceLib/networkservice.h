@@ -8,6 +8,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <stdexcept>
+#include <algorithm>
+#include <typeinfo>
 typedef std::chrono::system_clock Time;
 typedef std::chrono::milliseconds ms;
 typedef std::chrono::time_point<Time> ftimepoint;

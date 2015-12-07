@@ -18,6 +18,8 @@ typedef std::chrono::system_clock Time;
 typedef std::chrono::milliseconds ms;
 typedef std::chrono::time_point<Time> ftimepoint;
 typedef std::chrono::duration<float> fduration;
+///coefficient for duration::count() to get minutes
+static const ulong minute_k = std::chrono::minutes::period::num / std::chrono::minutes::period::den;
 namespace NetworkService {
     ///Direction of data transfer
     typedef enum {

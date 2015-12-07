@@ -45,7 +45,7 @@ std::string NetworkDescriptor::getType() const {
 }
 
 ulong NetworkDescriptor::calculatePrice() const {
-    return getServer()->getCostPerMB()*(intraffic+outtraffic)+getServer()->getCostPerMin()*linkduration.count();
+    return getServer()->getCostPerMB()*(intraffic+outtraffic)+getServer()->getCostPerMin()*linkduration.count()*minute_k;
 }
 
 /*!

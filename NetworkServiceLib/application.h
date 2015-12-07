@@ -11,7 +11,7 @@ private:
 public:
     const uint ServicesNum = 3; ///currently we have 3 services: post,files,network
     Application();
-    void addServer(ulong addr,std::string &name,ulong costpermin,ulong costpermb);
+    void addServer(ulong addr,std::string name,ulong costpermin,ulong costpermb);
     void delServer(ulong addr);
     Server & getServer(ulong addr);
     void SetServerAddress(Server &srv, ulong newaddr);

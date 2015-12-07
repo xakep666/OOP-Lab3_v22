@@ -37,5 +37,5 @@ std::string FileDescriptor::getType() const {
 }
 
 ulong FileDescriptor::calculatePrice() const {
-    return getTraffic()*getServer()->getCostPerMB() + linkduration.count()*getServer()->getCostPerMin();
+    return getTraffic()*getServer()->getCostPerMB() + linkduration.count()*minute_k*getServer()->getCostPerMin();
 }

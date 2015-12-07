@@ -7,7 +7,7 @@ using namespace NetworkService;
  * \return human readable ip as string
  * \throws logic_error if convertation fails
  */
-std::string LongIPtoString(ulong &ip) {
+std::string LongIPtoString(ulong ip) {
     char ipstr [INET_ADDRSTRLEN];
     struct in_addr inaddr;
     inaddr.s_addr = ip;
@@ -23,7 +23,7 @@ std::string LongIPtoString(ulong &ip) {
  * \return long int IP representation
  * \throws logic_error if conversion fails
  */
-ulong stringToLongIP(std::string &src) {
+ulong stringToLongIP(std::string src) {
     struct in_addr tmp;
     int code = inet_pton(AF_INET,src.c_str(),&tmp);
     if (code<=0)
@@ -41,7 +41,7 @@ ulong stringToLongIP(std::string &src) {
  * IP is valid if it doesn`t starts or ends at 0
  * and does not starts or ends at 255
  */
-bool isValidIP(ulong &ip) {
+bool isValidIP(ulong ip) {
     const ulong IPSize = 32;
     if ( (ip&0xFF)==0 || (ip&0xFF)==0xFF)
         return false;

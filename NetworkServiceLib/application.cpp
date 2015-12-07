@@ -25,7 +25,7 @@ bool Application::isIPBusy(ulong addr) const {
  * \throws invalid_argument if IP is invalid
  * \throws logic_error if IP is busy
  */
-void Application::addServer(ulong addr, std::__cxx11::string &name, ulong costpermin, ulong costpermb) {
+void Application::addServer(ulong addr, std::string name, ulong costpermin, ulong costpermb) {
     if(!isValidIP(addr))
         throw std::invalid_argument("Cannot use this IP "+std::to_string(addr));
     if(isIPBusy(addr))
@@ -189,13 +189,7 @@ std::vector<std::string> Application::abonentInfo(ulong abonentaddr) const{
         });
     });
 
-    //WHERE CONVERSION OPERATORS?!!!!
-    struct in_addr iaddr;
-    iaddr.s_addr=abonentaddr;
-    char ipstr[INET_ADDRSTRLEN];
-    inet_ntop(AF_INET,&iaddr,ipstr,INET_ADDRSTRLEN);
-
-    result.push_back("User IP: "+std::string(ipstr));
+    result.push_back("User IP: "+LongIPtoString(abonentaddr));
     result.push_back("Post: Total traffic: "+std::to_string(counter[0].first)+" MB");
     result.push_back("Files: Total traffic: "+std::to_string(counter[1].first)+" MB , "+
                      "Total time: "+std::to_string(counter[1].second)+" Min");
@@ -261,7 +255,7 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
  * \throws logic_error in case of errors when opening file for writing
  * Method iterates over all records and saves all data to text(JSON) file using rapidjson library
  */
-void Application::saveToFile(std::__cxx11::string &path) {
+void Application::saveToFile(std::string &path) {
     std::ofstream destfile (path);
     if(!destfile.is_open())
         throw std::logic_error("Cannot open file \""+path+"\" for writing");
@@ -272,7 +266,7 @@ void Application::saveToFile(std::__cxx11::string &path) {
         using namespace rapidjson;
         Value server;
         server.SetObject();
-        server.AddMember("address",s.getAddress(),doc.GetAllocator());
+        server.AddMember("address",StringRef(LongIPtoString(s.getAddress()).c_str()),doc.GetAllocator());
         server.AddMember("name",StringRef(s.getName().c_str()),doc.GetAllocator());
         server.AddMember("mbcost",s.getCostPerMB(),doc.GetAllocator());
         server.AddMember("mincost",s.getCostPerMin(),doc.GetAllocator());
@@ -309,9 +303,9 @@ void Application::saveToFile(std::__cxx11::string &path) {
                 service.AddMember("outtraffic",nptr->getOutTraffic(),doc.GetAllocator());
                 service.AddMember("duration",nptr->getLinkDuration().count(),doc.GetAllocator());
             }
-            service.AddMember("source",p.second,doc.GetAllocator());
-            service.AddMember("destination",p.first->getDestinationAddress(),doc.GetAllocator());
-            service.AddMember("linktime",std::chrono::system_clock::to_time_t(p.first->getLinkTime()),doc.GetAllocator());
+            service.AddMember("source",StringRef(LongIPtoString(p.second).c_str()),doc.GetAllocator());
+            service.AddMember("destination",StringRef(LongIPtoString(p.first->getDestinationAddress()).c_str()),doc.GetAllocator());
+            service.AddMember("linktime",Time::to_time_t(p.first->getLinkTime()),doc.GetAllocator());
             services.PushBack(service,doc.GetAllocator());
         });
         server.AddMember("linktable",services,doc.GetAllocator());
@@ -322,4 +316,113 @@ void Application::saveToFile(std::__cxx11::string &path) {
     doc.Accept(writer);
     destfile << strbuf.GetString();
     destfile.close();
+}
+
+/*!
+ * \brief Application::readFromFile reads data from JSON file
+ * \param path path so source JSON file
+ * \throws invalid_argument if file was not opened for reading
+ * \throws logic_error on any parse error
+ * Method parses JSON File and recoveries all records
+ */
+void Application::readFromFile(std::string &path) {
+    std::ifstream srcfile(path);
+    if (!srcfile.is_open())
+        throw std::invalid_argument("Cannot open file \""+path+"\"for reading");
+    std::string docstr;
+    srcfile.seekg(0,std::ios::end);
+    docstr.reserve(srcfile.tellg());
+    srcfile.seekg(0,std::ios::beg);
+    docstr.assign((std::istreambuf_iterator<char>(srcfile)),
+                  std::istreambuf_iterator<char>());
+    using namespace rapidjson;
+    Document doc;
+    doc.Parse(docstr.c_str());
+    if(!doc.IsArray())
+        throw std::logic_error("Source file is not JSON array");
+    std::for_each(doc.Begin(),doc.End(),[&](Value &server){
+        if(!server.IsObject())
+            throw std::logic_error("JSON Array contains corrupted server object");
+        if(!server["address"].IsString() || isValidIP(stringToLongIP(server["address"].GetString())))
+            throw std::logic_error("Server object contains invalid IP");
+        ulong srvip = stringToLongIP(server["address"].GetString());
+        if(!server["name"].IsString())
+            throw std::logic_error("Server name must be string");
+        if(!server["mbcost"].IsUint())
+            throw std::logic_error("Cost per MB must be unsigned number");
+        if(!server["mincost"].IsUint())
+            throw std::logic_error("Cost per minute must be unsigned number");
+        if(!server["linktable"].IsArray())
+            throw std::logic_error("Linktable array is corrupted");
+        addServer(srvip,server["name"].GetString(),server["mbcost"].GetUint(),server["mincost"].GetUint());
+        Server * cur_server = &servers.back();
+        std::for_each(server["linktable"].Begin(),server["linktable"].End(),[&](Value &service){
+            if(!service.IsObject())
+                throw std::logic_error("Service record is not object");
+            if(!service["type"].IsString())
+                throw std::logic_error("Service type must be string");
+            std::string servicetype = service["type"].GetString();
+            if(servicetype!="Post" || servicetype!="Network" || servicetype!="File")
+                throw std::logic_error("Service type must be \"Post\", \"File\" or \"Network\"");
+            if(!service["source"].IsUint() || !isValidIP(stringToLongIP(service["source"].GetString())))
+                throw std::logic_error("Source address is invalid");
+            ulong srcip = stringToLongIP(service["source"].GetString());
+            if(!service["destination"].IsUint() || !isValidIP(stringToLongIP(service["destination"].GetString())))
+                throw std::logic_error("Destination address is invalid");
+            ulong dstip = stringToLongIP(service["destination"].GetString());
+            if(!service["linktime"].IsUint())
+                throw std::logic_error("Linktime must be unsigned number");
+            auto linktime = Time::from_time_t(service["linktime"].GetUint());
+            if(servicetype=="Post") {
+                if(!service["traffic"].IsUint())
+                    throw std::logic_error("Traffic must be unsigned number");
+                ulong traffic = service["traffic"].GetUint();
+                if(!service["direction"].IsString())
+                    throw std::logic_error("Direction must be string");
+                std::string directionstr = service["direction"].GetString();
+                if(directionstr=="send") {
+                    ServiceDescriptor *postdesc = new PostDescriptor(traffic,SEND,dstip,linktime,cur_server);
+                    addService(srvip,srcip,postdesc);
+                } else if (directionstr=="recv") {
+                    ServiceDescriptor *postdesc = new PostDescriptor(traffic,RECV,dstip,linktime,cur_server);
+                    addService(srvip,srcip,postdesc);
+                } else {
+                    throw std::logic_error("Direction must be \"send\" or \"recv\"");
+                }
+            }
+            if(servicetype=="File") {
+                if(!service["traffic"].IsUint())
+                    throw std::logic_error("Traffic must be unsigned number");
+                ulong traffic = service["traffic"].GetUint();
+                if(!service["direction"].IsString())
+                    throw std::logic_error("Direction must be string");
+                std::string directionstr = service["direction"].GetString();
+                if(!service["duration"].IsUint())
+                    throw std::logic_error("Duration must be unsigned number");
+                fduration duration(service["duration"].GetUint());
+                if(directionstr=="send") {
+                    ServiceDescriptor *postdesc = new FileDescriptor(traffic,SEND,dstip,linktime,duration,cur_server);
+                    addService(srvip,srcip,postdesc);
+                } else if (directionstr=="recv") {
+                    ServiceDescriptor *postdesc = new FileDescriptor(traffic,RECV,dstip,linktime,duration,cur_server);
+                    addService(srvip,srcip,postdesc);
+                } else {
+                    throw std::logic_error("Direction must be \"send\" or \"recv\"");
+                }
+            }
+            if(servicetype=="Network") {
+                if(!service["intraffic"].IsUint())
+                    throw std::logic_error("Input Traffic must be unsigned number");
+                ulong intraffic = service["intraffic"].GetUint();
+                if(!service["outtraffic"].IsUint())
+                    throw std::logic_error("Output Traffic must be unsigned number");
+                ulong outtraffic = service["outtraffic"].GetUint();
+                if(!service["duration"].IsUint())
+                    throw std::logic_error("Duration must be unsigned number");
+                fduration duration(service["duration"].GetUint());
+                addService(srvip,srcip,new NetworkDescriptor(intraffic,outtraffic,dstip,linktime,duration,cur_server));
+            }
+        });
+    });
+    srcfile.close();
 }

@@ -254,3 +254,72 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
     });
     return result;
 }
+
+/*!
+ * \brief Application::saveToFile saves all data to file in JSON format
+ * \param path Path to destination file
+ * \throws logic_error in case of errors when opening file for writing
+ * Method iterates over all records and saves all data to text(JSON) file using rapidjson library
+ */
+void Application::saveToFile(std::__cxx11::string &path) {
+    std::ofstream destfile (path);
+    if(!destfile.is_open())
+        throw std::logic_error("Cannot open file \""+path+"\" for writing");
+    using namespace rapidjson;
+    Document doc;
+    doc.SetArray();
+    std::for_each(begin(),end(),[&](const indexT &s){
+        using namespace rapidjson;
+        Value server;
+        server.SetObject();
+        server.AddMember("address",s.getAddress(),doc.GetAllocator());
+        server.AddMember("name",StringRef(s.getName().c_str()),doc.GetAllocator());
+        server.AddMember("mbcost",s.getCostPerMB(),doc.GetAllocator());
+        server.AddMember("mincost",s.getCostPerMin(),doc.GetAllocator());
+        Value services;
+        services.SetArray();
+        std::for_each(s.begin(),s.end(),[&](const indexT::indexT &p) {
+            Value service;
+            service.SetObject();
+            service.AddMember("type",StringRef(p.first->getType().c_str()),doc.GetAllocator());
+            if(typeid(*p.first)==typeid(PostDescriptor)) {
+                auto pptr = dynamic_cast<PostDescriptor *>(p.first);
+                service.AddMember("traffic",pptr->getTraffic(),doc.GetAllocator());
+                switch (pptr->getDirection()) {
+                case SEND:
+                    service.AddMember("direction","send",doc.GetAllocator());
+                case RECV:
+                    service.AddMember("direciton","recv",doc.GetAllocator());
+                }
+            }
+            if(typeid(*p.first)==typeid(FileDescriptor)) {
+                auto fptr = dynamic_cast<FileDescriptor *>(p.first);
+                service.AddMember("traffic",fptr->getTraffic(),doc.GetAllocator());
+                service.AddMember("duration",fptr->getLinkDuration().count(),doc.GetAllocator());
+                switch (fptr->getDirection()) {
+                case SEND:
+                    service.AddMember("direction","send",doc.GetAllocator());
+                case RECV:
+                    service.AddMember("direciton","recv",doc.GetAllocator());
+                }
+            }
+            if(typeid(*p.first)==typeid(NetworkDescriptor)) {
+                auto nptr = dynamic_cast<NetworkDescriptor *>(p.first);
+                service.AddMember("intraffic",nptr->getInTraffic(),doc.GetAllocator());
+                service.AddMember("outtraffic",nptr->getOutTraffic(),doc.GetAllocator());
+                service.AddMember("duration",nptr->getLinkDuration().count(),doc.GetAllocator());
+            }
+            service.AddMember("source",p.second,doc.GetAllocator());
+            service.AddMember("destination",p.first->getDestinationAddress(),doc.GetAllocator());
+            service.AddMember("linktime",std::chrono::system_clock::to_time_t(p.first->getLinkTime()),doc.GetAllocator());
+            services.PushBack(service,doc.GetAllocator());
+        });
+        server.AddMember("linktable",services,doc.GetAllocator());
+        doc.PushBack(server,doc.GetAllocator());
+    });
+    StringBuffer strbuf;
+    Writer<StringBuffer> writer(strbuf);
+    doc.Accept(writer);
+    destfile << strbuf.GetString();
+    destfile.close();
+}

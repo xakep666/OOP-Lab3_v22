@@ -11,6 +11,9 @@
 #include <algorithm>
 #include <typeinfo>
 #include <rapidjson/document.h>
+#include <rapidjson/writer.h>
+#include <rapidjson/stringbuffer.h>
+#include <fstream>
 typedef std::chrono::system_clock Time;
 typedef std::chrono::milliseconds ms;
 typedef std::chrono::time_point<Time> ftimepoint;

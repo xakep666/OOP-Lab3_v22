@@ -25,7 +25,7 @@ std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
     std::vector<ServiceDescriptor *> result;
-    std::for_each(linktable.begin(),linktable.end(),[&](std::pair<ServiceDescriptor *,ulong> item){
+    std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT item){
         if (item.second==abonentaddr)
             result.push_back(item.first);
     });
@@ -43,7 +43,7 @@ std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftime
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
     std::vector<ServiceDescriptor *> result;
-    std::for_each(linktable.begin(),linktable.end(),[&](std::pair<ServiceDescriptor *,ulong> item){
+    std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT item){
         if (item.second==abonentaddr && item.first->getLinkTime()==linktime)
             result.push_back(item.first);
     });
@@ -67,10 +67,10 @@ void LinkTable::delService(uint index) {
  */
 std::vector<std::string> LinkTable::showTable() const {
     std::vector<std::string> result;
-    std::for_each(linktable.begin(),linktable.end(),[&](std::pair<ServiceDescriptor *,ulong> pair){
-        std::string tmp(pair.first->getType()+"\t"+
-                        std::to_string(pair.first->getDestinationAddress())+"\t"+
-                        std::to_string(pair.first->calculatePrice())+"\t");
+    std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT pair){
+        std::string tmp("Type:"+pair.first->getType()+"\t"+
+                        "Destination address:"+std::to_string(pair.first->getDestinationAddress())+"\t"+
+                        "Price:"+std::to_string(pair.first->calculatePrice())+"\t");
         if(typeid(*pair.first)==typeid(PostDescriptor)) {
             auto tmpdesc = dynamic_cast<PostDescriptor *>(pair.first);
             switch (tmpdesc->getDirection()) {
@@ -90,7 +90,7 @@ std::vector<std::string> LinkTable::showTable() const {
                     tmp += "Recive\t";
             }
             tmp+=std::to_string(tmpdesc->getTraffic())+"MB\t";
-            tmp+=std::to_string(tmpdesc->getDuration().count())+"Min\t";
+            tmp+=std::to_string(tmpdesc->getLinkDuration().count())+"Min\t";
         }
         if(typeid(*pair.first)==typeid(NetworkDescriptor)) {
             auto tmpdesc = dynamic_cast<NetworkDescriptor *>(pair.first);
@@ -105,10 +105,10 @@ std::vector<std::string> LinkTable::showTable() const {
 /*!
  * \brief LinkTable::operator [] returns constant reference to record
  * \param index
- * \return constant reference to pair of descriptor and abonent address
+ * \return reference to pair of descriptor and abonent address
  * \throws invalid_argument if index is greater then table size
  */
-const std::pair<ServiceDescriptor *,ulong> & LinkTable::operator [](uint index) const {
+NetworkService::LinkTable::indexT &LinkTable::operator [](uint index) {
     if(index>=linktable.size())
         throw std::invalid_argument("Index ("+std::to_string(index)+
                                     ") is greater then size of table ("+std::to_string(linktable.size())+")");
@@ -119,14 +119,25 @@ const std::pair<ServiceDescriptor *,ulong> & LinkTable::operator [](uint index) 
  * \brief LinkTable::begin returns iterator for first item
  * \return iterator
  */
-LinkTable::Iterator LinkTable::begin() {
+LinkTable::Iterator LinkTable::begin(){
     return LinkTable::Iterator(this,0);
 }
+
+LinkTable::ConstIterator LinkTable::begin() const{
+    return LinkTable::ConstIterator(this,0);
+}
+
 
 /*!
  * \brief LinkTable::end returns iterator for end of table
  * \return iterator
  */
-LinkTable::Iterator LinkTable::end() {
-    return LinkTable::Iterator(this,linktable.size());
+LinkTable::ConstIterator LinkTable::end() const{
+    return LinkTable::ConstIterator(this,linktable.size());
+}
+
+LinkTable::~LinkTable() {
+    std::for_each(linktable.begin(),linktable.end(),[](LinkTable::indexT pair) {
+        delete pair.first;
+    });
 }

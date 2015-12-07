@@ -10,6 +10,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <typeinfo>
+#include <rapidjson/document.h>
 typedef std::chrono::system_clock Time;
 typedef std::chrono::milliseconds ms;
 typedef std::chrono::time_point<Time> ftimepoint;

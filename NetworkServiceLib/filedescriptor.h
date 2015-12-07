@@ -12,7 +12,7 @@ namespace NetworkService {
                        ftimepoint &linktime,
                        fduration &linkduration,
                        Server * server);
-        const fduration & getDuration() const;
+        const fduration & getLinkDuration() const;
         std::string getType() const;
         ulong calculatePrice() const;
         virtual ~FileDescriptor();

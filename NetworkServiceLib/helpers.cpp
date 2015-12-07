@@ -45,7 +45,7 @@ bool isValidIP(ulong &ip) {
     const ulong IPSize = 32;
     if ( (ip&0xFF)==0 || (ip&0xFF)==0xFF)
         return false;
-    if (((ip>>(IPSize-2))&0xFF)==0 || ((ip>>(IPSize-2))&0xFF)==0xFF)
+    if (((ip>>(IPSize-8))&0xFF)==0 || ((ip>>(IPSize-8))&0xFF)==0xFF)
         return false;
     return true;
 }

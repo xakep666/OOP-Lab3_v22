@@ -25,10 +25,10 @@ FileDescriptor::FileDescriptor(ulong traffic,
 }
 
 /*!
- * \brief FileDescriptor::getDuration get duration of file transfer
+ * \brief FileDescriptor::getLinkDuration get duration of file transfer
  * \return reference to duration
  */
-const fduration & FileDescriptor::getDuration() const {
+const fduration & FileDescriptor::getLinkDuration() const {
     return linkduration;
 }
 

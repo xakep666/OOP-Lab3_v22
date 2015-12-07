@@ -2,8 +2,10 @@
 #define LINKTABLE
 namespace NetworkService {
     class LinkTable {
+    public:
+        typedef std::pair<ServiceDescriptor *,ulong> indexT;
     private:
-        std::vector<std::pair<ServiceDescriptor *,ulong>> linktable;
+        std::vector<indexT> linktable;
     public:
         LinkTable();
         void addService(ServiceDescriptor * sdesc, ulong abonentaddr);
@@ -11,11 +13,14 @@ namespace NetworkService {
         std::vector<ServiceDescriptor *> getServices(ulong abonentaddr,ftimepoint &linktime) const;
         void delService(uint index);
         std::vector<std::string> showTable() const;
-        const std::pair<ServiceDescriptor *,ulong> & operator [] (uint index) const;
+        indexT & operator [] (uint index);
         friend class MyIterator<LinkTable>;
         typedef MyIterator<LinkTable> Iterator;
+        typedef MyConstIterator<LinkTable> ConstIterator;
         Iterator begin();
+        ConstIterator begin() const;
         Iterator end();
+        ConstIterator end() const;
         virtual ~LinkTable();
     };
 }

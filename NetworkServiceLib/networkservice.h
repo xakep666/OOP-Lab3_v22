@@ -1,5 +1,10 @@
 #ifndef NETWORKSERVICE
 #define NETWORKSERVICE
+/*!
+ * \file
+ * Файл, содержаший все необходимые определения и включения для работы библиотеки
+ * В приложении используйте его.
+ */
 #include <chrono>
 #include <string>
 #include <vector>
@@ -14,17 +19,16 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 #include <fstream>
-typedef std::chrono::system_clock Time;
-typedef std::chrono::milliseconds ms;
-typedef std::chrono::time_point<Time> ftimepoint;
-typedef std::chrono::duration<float> fduration;
-///coefficient for duration::count() to get minutes
-static const ulong minute_k = std::chrono::minutes::period::num / std::chrono::minutes::period::den;
+typedef std::chrono::system_clock Time; ///<Системные часы
+typedef std::chrono::milliseconds ms; ///<Милисекунда
+typedef std::chrono::time_point<Time> ftimepoint; ///<Специализация time_point для системных часов
+typedef std::chrono::duration<float> fduration; ///<Специализация duration для типа float
+static const ulong minute_k = std::chrono::minutes::period::num / std::chrono::minutes::period::den; ///<Коэфиициент для получения количества минут из объекта duration
 namespace NetworkService {
-    ///Direction of data transfer
+    ///Направление передачи данных
     typedef enum {
-        SEND, ///<sending
-        RECV, ///<reciving
+        SEND, ///<Передача
+        RECV, ///<Прием
     } Direction;
 }
 #include "helpers.h"

@@ -1,13 +1,17 @@
 #include "networkservice.h"
+/*!
+ * \file
+ * Файл, содержащий реализацию класса PostDescriptor
+ */
 using namespace NetworkService;
 
 /*!
- * \brief PostDescriptor::PostDescriptor initialises record with information about given service
- * \param traffic
- * \param direction
- * \param address
- * \param linktime
- * \param server
+ * \brief Создает запись об оказанной услуге, основываясь на параметрах
+ * \param traffic Количество переданных данных в MB
+ * \param direction Направление передачи
+ * \param address Адрес назначения
+ * \param linktime Времи оказания услуги
+ * \param server Указатель на сервер (объект Server), оказывающий услугу
  */
 PostDescriptor::PostDescriptor(ulong traffic,
                                Direction direction,
@@ -22,40 +26,49 @@ PostDescriptor::PostDescriptor(ulong traffic,
 }
 
 /*!
- * \brief PostDescriptor::getDirection
- * \return direction of data transfer
+ * \brief Получить направление передачи данных
+ * \return Направление передачи данных
  */
 Direction PostDescriptor::getDirection() const{
     return direction;
 }
 
 /*!
- * \brief PostDescriptor::getTraffic
- * \return traffic in MB
+ * \brief Получить количество переданных данных
+ * \return Количество переданных данных в MB
  */
 ulong PostDescriptor::getTraffic() const {
     return traffic;
 }
 
+/*!
+ * \brief Получение названия типа услуги
+ * \return Название типа услуги (строка "Post")
+ */
 std::string PostDescriptor::getType() const {
     return std::string("Post");
 }
 
+/*!
+ * \brief Рассчет стоимости оказанных услуг
+ * \return Стоимость оказанных услуг
+ * Рассчет стоимости оказанных услуг, на основании стоимости 1MB, установленной сервером
+ */
 ulong PostDescriptor::calculatePrice() const {
     return traffic*getServer()->getCostPerMB();
 }
 
 /*!
- * \brief PostDescriptor::setDirection changes direction to given
- * \param d
+ * \brief Изменения направления передачи данных
+ * \param d Направление передачи
  */
 void PostDescriptor::setDirection(Direction d) {
     direction = d;
 }
 
 /*!
- * \brief PostDescriptor::setTraffic changes traffic to given
- * \param t
+ * \brief Изменения количество переданной информации
+ * \param t Количество переданной информации (в MB)
  */
 void PostDescriptor::setTraffic(ulong t) {
     traffic = t;

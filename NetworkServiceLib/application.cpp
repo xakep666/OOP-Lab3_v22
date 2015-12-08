@@ -2,9 +2,10 @@
 using namespace NetworkService;
 
 /*!
- * \brief Application::isIPBusy checks if this IP is used by server or client
- * \param addr IP to check
- * \return true if IP is used, false otherwise
+ * \brief Проверка, занят ли адрес
+ * \param addr Проверяемый адрес
+ * \return true, если занят, false, если свободен
+ * Метод ищет проверяемый адрес в таблице используемых адресов
  */
 bool Application::isIPBusy(ulong addr) const {
     auto pos = std::find_if(usedIPs.begin(),usedIPs.end(),[addr](ulong _addr){
@@ -17,13 +18,15 @@ bool Application::isIPBusy(ulong addr) const {
 }
 
 /*!
- * \brief Application::addServer adds new server to table
- * \param addr server IP
- * \param name server name
- * \param costpermin cost of 1 minute of link
- * \param costpermb cost of 1MB of transmitted data
- * \throws invalid_argument if IP is invalid
- * \throws logic_error if IP is busy
+ * \brief Добавление нового сервера в таблицу
+ * \param addr IP адрес сервера
+ * \param name Имя сервера
+ * \param costpermin Стоимость 1 минуты связи
+ * \param costpermb Стоимость 1MB переданных данных
+ * \throws invalid_argument если IP адрес сервера неверный
+ * \throws logic_error если IP адрес занят(используется)
+ * Метод добавляет новый сервер в таблицу, в случае успешного добавления сервера
+ * IP адрес добавляется в таблицу используемых адресов
  */
 void Application::addServer(ulong addr, std::string name, ulong costpermin, ulong costpermb) {
     if(!isValidIP(addr))
@@ -39,9 +42,10 @@ void Application::addServer(ulong addr, std::string name, ulong costpermin, ulon
 }
 
 /*!
- * \brief Application::delServer removes server with given address from table
- * \param addr IP of removable server
- * \throws invalid_argument if IP is invalid or not used
+ * \brief Удаление сервера из таблицы
+ * \param addr IP адрес удаляемого сервера
+ * \throws invalid_argument если IP неверный или сервер с таким адресом не был наиден
+ * Метод удаляет сервер из таблицы серверов, также IP адрес удаляется из таблицы использованных адресов
  */
 void Application::delServer(ulong addr) {
     if(!isValidIP(addr))
@@ -57,10 +61,10 @@ void Application::delServer(ulong addr) {
 }
 
 /*!
- * \brief Application::getServer finds server with given IP
- * \param addr IP address of needed server
- * \return reference to Server object
- * \throws invalid_argument if IP is invalid or not used
+ * \brief Находит сервер в таблице по адресу
+ * \param addr IP адрес предполагаемого сервера
+ * \return ссылка на объект Server
+ * \throws invalid_argument если IP адрес неверный или сервера с таким адресом не найдено
  */
 Server & Application::getServer(ulong addr) {
     if(!isValidIP(addr))
@@ -75,10 +79,12 @@ Server & Application::getServer(ulong addr) {
 }
 
 /*!
- * \brief Application::SetServerAddress changes server IP to given
- * \param srv reference to Server object
- * \param newaddr address to set
- * \throw invalid_argument if IP is invalid or busy
+ * \brief Изменение IP адреса сервера
+ * \param srv Ссылка на объект Server
+ * \param newaddr Новый адрес
+ * \throw invalid_argument если адрес неверный или занят
+ * Метод меняет своиство address у объекта Server, проверяя новый адрес на занятость
+ * по таблице занятых адресов и на правильность
  */
 void Application::SetServerAddress(Server &srv, ulong newaddr) {
     if(!isValidIP(newaddr))
@@ -93,11 +99,16 @@ void Application::SetServerAddress(Server &srv, ulong newaddr) {
 }
 
 /*!
- * \brief Application::addService adds information about given service to server link table
- * \param serveraddr IP of server
- * \param abonentaddr IP of client
- * \param sdesc Descriptor of given service
- * Method also adds IP of client to table of used IPs if it was not found in table;
+ * \brief Добавление записи об оказанной услуге в "таблицу связи" сервера
+ * \param serveraddr IP адрес сервера
+ * \param abonentaddr IP адрес клиента
+ * \param sdesc Указатель на описатель сервиса (полиморфный ServiceDescriptor)
+ * \throw invalid_argument Если:
+ * - Неверный IP сервера
+ * - Неверный IP клиента
+ * - В качестве указателя на ServiceDescriptor передан нулевой указатель
+ * Метод ищет сервер в таблице серверов и добавляет в его "таблицу связи" информацию об оказанной услуге.
+ * Также метод добавляет IP адрес клиента в таблицу занятых адресов, если такого адреса там еще нет
  */
 void Application::addService(ulong serveraddr, ulong abonentaddr, ServiceDescriptor *sdesc) {
     if(!isValidIP(serveraddr))
@@ -112,10 +123,12 @@ void Application::addService(ulong serveraddr, ulong abonentaddr, ServiceDescrip
 }
 
 /*!
- * \brief Application::operator [] Servers indexing operator
- * \param index
- * \return reference to Server object
- * \throw invalid_argument if index greater then size of table of servers
+ * \brief Application::operator [] Оператор индексирования таблицы серверов
+ * \param Индекс
+ * \return Ссылка на объект Server
+ * \throw invalid_argument если index больше, чем размер таблицы
+ * Метод использует перегруженный оператор для [] для таблицы серверов.
+ * Метод необходим для работы итераторов
  */
 Server & Application::operator [](uint index) {
     if(index>=servers.size())
@@ -125,39 +138,49 @@ Server & Application::operator [](uint index) {
 }
 
 /*!
- * \brief Application::begin Iterator to first item of servers table
- * \return Iterator object
+ * \brief Итератор, указывающий на первый элемент таблицы
+ * \return объект Iterator
  */
 Application::Iterator Application::begin() {
     return Application::Iterator(this,0);
 }
 
+/*!
+ * \brief Константный итератор, указывающий на первый элемент таблицы
+ * \return объект ConstIterator
+ */
 Application::ConstIterator Application::begin() const{
     return Application::ConstIterator(this,0);
 }
 
 
 /*!
- * \brief Application::end Iterator to end of servers table
- * \return Iterator object
+ * \brief Итератор, указывающий на конец таблицы (индекс, равный размеру)
+ * \return объект Iterator
  */
 Application::Iterator Application::end(){
     return Application::Iterator(this,servers.size());
 }
 
+/*!
+ * \brief Константный итератор, указывающий на конец таблицы (индекс, равный размеру)
+ * \return объект ConstIterator
+ */
 Application::ConstIterator Application::end() const{
     return Application::ConstIterator(this,0);
 }
 
 /*!
- * \brief Application::abonentInfo gather information about abonent`s total traffic and links duration
- * \param abonentaddr IP of abonent
- * \return vector of string with description
- * Method iterates over all servers, calculates summary traffic (both send and recieve) and total links
- * duration and moves results to temporary vector like this
+ * \brief Cбор информации о количестве переданных данных и длительности связи для абонента
+ * \param abonentaddr IP адрес абонента
+ * \return vector из string - текстовое представление собранной информации
+ * Метод проходит по всем серверам и их таблицам связи, используя итераторы, собирая информацию во "временную"
+ * коллекцию следующего вида
  * \snippet application.cpp countervec
- * where first item in pair - total traffic for service,
- * second - total links duration for service (optional)
+ * Первый элемент пары - суммарный траффик для сервиса (передано+получено),
+ * Второй - Общая длительность связи для сервиса (не для всех сервисов)
+ * Вектор result резервируется для 3-х сервисов
+ * \throw invalid_argument если адрес абонента неверен или не найден
  */
 std::vector<std::string> Application::abonentInfo(ulong abonentaddr) const{
     if(!isValidIP(abonentaddr))
@@ -199,11 +222,11 @@ std::vector<std::string> Application::abonentInfo(ulong abonentaddr) const{
 }
 
 /*!
- * \brief Application::abonentTotalPrice calculates total price for abonent with given IP
- * \param abonentaddr IP of abonent
- * \return total price
- * Method iterates over all servers and over all service records, calls virtual calculatePrice() method
- * and adds it to result
+ * \brief Считает итоговую стоимость оказанных услуг абонента
+ * \param abonentaddr IP адрес абонента
+ * \return Итоговая стоимость
+ * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), вызывая для каждой записи виртуальную
+ * функцию calculatePrice() и прибавляя ее результат к итоговому
  */
 ulong Application::abonentTotalPrice(ulong abonentaddr) const {
     if(!isValidIP(abonentaddr))
@@ -221,9 +244,10 @@ ulong Application::abonentTotalPrice(ulong abonentaddr) const {
 }
 
 /*!
- * \brief Application::countIOTraffic calculates total input and output traffic
- * \return pair of values: first - input traffic, second - output traffic
- * Method iterates over all servers and over all service records, gets information about direction of data transfer and adds it to result
+ * \brief Считает количество переданных данных и количество полученных данных
+ * \return пара значений: первое - количество переданных данных, второе - количество полученных
+ * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), считывает количество данных
+ * и направление их передачи, добавляя к результату
  */
 std::pair<ulong,ulong> Application::countIOTraffic() const {
     std::pair<ulong,ulong> result(0,0);
@@ -250,10 +274,11 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
 }
 
 /*!
- * \brief Application::saveToFile saves all data to file in JSON format
- * \param path Path to destination file
- * \throws logic_error in case of errors when opening file for writing
- * Method iterates over all records and saves all data to text(JSON) file using rapidjson library
+ * \brief Сохраняет записи в JSON формате в текстовый файл
+ * \param path Путь к файлу назначения
+ * \throws logic_error в случае ошибки открытия файла на запись
+ * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), сохраняя информацию в
+ * JSON формате в текстовый файл
  */
 void Application::saveToFile(std::string &path) {
     std::ofstream destfile (path);
@@ -319,11 +344,11 @@ void Application::saveToFile(std::string &path) {
 }
 
 /*!
- * \brief Application::readFromFile reads data from JSON file
- * \param path path so source JSON file
- * \throws invalid_argument if file was not opened for reading
- * \throws logic_error on any parse error
- * Method parses JSON File and recoveries all records
+ * \brief Считывает информацию о серверах и оказанных услугах из текстового файла, содержащего JSON представление
+ * \param path Путь к исходному файлу
+ * \throws invalid_argument если не удалось открыть файл на чтение
+ * \throws logic_error в случае ошибки разбора
+ * Метод разбирает JSON представление, взятое из файла, восстанавливая информацию о серверах и оказанных услугах
  */
 void Application::readFromFile(std::string &path) {
     std::ifstream srcfile(path);

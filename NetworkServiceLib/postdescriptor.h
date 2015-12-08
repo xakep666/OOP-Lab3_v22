@@ -1,10 +1,17 @@
 #ifndef POSTDESCRIPTOR
 #define POSTDESCRIPTOR
+/*!
+ * \file
+ * Файл, содержащий объявление класса PostDescriptor
+ */
 namespace NetworkService {
+    /*!
+     * \brief Описатель сервиса "почта", наследуемый от ServiceDescriptor
+     */
     class PostDescriptor : public ServiceDescriptor {
     private:
-        ulong traffic;
-        Direction direction;
+        ulong traffic; ///<Количество отправленных/полученных данных в MB
+        Direction direction; ///<Направление передачи данных
     public:
         PostDescriptor();
         PostDescriptor(ulong traffic,

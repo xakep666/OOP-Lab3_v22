@@ -1,17 +1,22 @@
 #ifndef SERVER
 #define SERVER
+/*!
+ * \file
+ * Файл, содержащий объявление класса Server
+ */
 namespace NetworkService {
 class Application;
+/*!
+ * \brief Описатель сервера
+ * Описатель сервера. Используется наследование от LinkTable вместо композиции для облегчения работы с итераторами
+ */
 class Server: public LinkTable {
 private:
-    ulong address;
-    std::string name;
-    ulong costpermin,costpermb;
+    ulong address; ///<IP адрес сервера
+    std::string name; ///<Имя сервера
+    ulong costpermin,costpermb; ///<Стоимость 1 минуты связи и 1MB переданных данных
 public:
-    /*!
-     * Needed for changing address
-     */
-    friend class Application;
+    friend class Application; ///<Необходимо для изменения адреса
     explicit Server(ulong address);
     ulong getAddress() const;
     const std::string & getName() const;

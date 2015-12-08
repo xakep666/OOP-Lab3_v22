@@ -1,61 +1,70 @@
 #include "networkservice.h"
+/*!
+ * \file
+ * Файл, содержащий реализацию класса Server
+ */
 using namespace NetworkService;
 
+/*!
+ * \brief Создание описателя сервиса
+ * \param address IP адрес сервера
+ * \warning Проверка на правильность и свободность адреса не выполняется
+ */
 Server::Server(ulong address) {
     this->address = address;
 }
 
 /*!
- * \brief Server::getAddress gets server IP
- * \return IP in unsigned long representation
+ * \brief Получение IP сервера
+ * \return IP сервера в ulong-представлении
  */
 ulong Server::getAddress() const{
     return address;
 }
 
 /*!
- * \brief Server::getName gets server name
- * \return reference to string, contains server name
+ * \brief Получение имени сервера
+ * \return Строка, содержащая имя серера
  */
 const std::string & Server::getName() const {
     return name;
 }
 
 /*!
- * \brief Server::setName changes server name to given
- * \param name new name
+ * \brief Установка имени сервера
+ * \param name Строка, содержащая новое имя
  */
 void Server::setName(std::__cxx11::string &name) {
     this->name=name;
 }
 
 /*!
- * \brief Server::getCostPerMB returns cost of data transmission (per 1MB)
- * \return cost per 1MB
+ * \brief Получение стоимости передачи 1MB данных
+ * \return Стоимость передачи 1MB
  */
 ulong Server::getCostPerMB() const {
     return costpermb;
 }
 
 /*!
- * \brief Server::setCostPerMB changes cost per 1MB of transmitted data
- * \param cost new cost
+ * \brief Установка стоимости передачи 1MB данных
+ * \param cost Новая стоимость
  */
 void Server::setCostPerMB(ulong cost) {
     costpermb=cost;
 }
 
 /*!
- * \brief Server::getCostPerMin returns cost of 1 minute of link
- * \return cost per 1 minute
+ * \brief Получение стоимости 1 минуты связи
+ * \return Стоимость 1 минуты
  */
 ulong Server::getCostPerMin() const {
     return costpermin;
 }
 
 /*!
- * \brief Server::setCostPerMin changes cost of 1 minute of link to given
- * \param cost new cost
+ * \brief Установка стоимости 1 минуты связи
+ * \param cost Новая стоимость
  */
 void Server::setCostPerMin(ulong cost) {
     costpermin=cost;

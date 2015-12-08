@@ -1,11 +1,15 @@
 #include "networkservice.h"
+/*!
+ * \file
+ * Файл, содержащий реализацию класса LinkTable
+ */
 using namespace NetworkService;
 
 /*!
- * \brief LinkTable::addService adds record about service to link table
- * \param sdesc Descriptor of service
- * \param abonentaddr Address of abonent
- * \throws invalid_argument if abonentaddr is invalid or sdesc is nullptr
+ * \brief Добавление записи об оказанной услуге в таблицу
+ * \param sdesc Указатель на описатель сервиса (полиморфный ServiceDescriptor)
+ * \param abonentaddr Адрес абонента, воспользовавшегося услугой
+ * \throws invalid_argument если адрес абонента неверен или в качестве указателя передан nullptr
  */
 void LinkTable::addService(ServiceDescriptor *sdesc, ulong abonentaddr) {
     if (sdesc==nullptr)
@@ -16,10 +20,11 @@ void LinkTable::addService(ServiceDescriptor *sdesc, ulong abonentaddr) {
 }
 
 /*!
- * \brief LinkTable::getServices gets given services for given abonent
- * \param abonentaddr IP of abonent
- * \return vector of service descriptors
- * \throws invalid_argument if given abonent address is invalid
+ * \brief Получение информации об оказанных услугах для абонента
+ * \param abonentaddr IP абонента
+ * \return vector из указателей на описатели сервисов (полиморфный ServiceDescriptor)
+ * \throws invalid_argument если IP абонента неверен
+ * Метод обходит всю "таблицу связи" (используется итератор), добавляя нужные описатель к результату
  */
 std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const {
     if(!isValidIP(abonentaddr))
@@ -33,11 +38,12 @@ std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const
 }
 
 /*!
- * \brief LinkTable::getServices gets given servies for given abonent and time
- * \param abonentaddr IP of abonent
- * \param linktime time of given service
- * \return vector of service descriptors
- * \throws invalid_argument if given abonent address is invalid
+ * \brief Получение информации об оказанных услугах для абонента
+ * \param abonentaddr IP абонента
+ * \param linktime Время оказателей услуги
+ * \return vector из указателей на описатели сервисов (полиморфный ServiceDescriptor)
+ * \throws invalid_argument если IP абонента неверен
+ * Метод обходит всю "таблицу связи" (используется итератор), добавляя нужные описатель к результату
  */
 std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftimepoint &linktime) const {
     if(!isValidIP(abonentaddr))
@@ -50,9 +56,9 @@ std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftime
     return result;
 }
 /*!
- * \brief LinkTable::delService removes record from table
- * \param index index of record
- * \throws invalid_argument if index greater then size of table
+ * \brief Удаление записи из таблицы
+ * \param index Индекс записи
+ * \throws invalid_argument если индекс больше, чем размер таблицы
  */
 void LinkTable::delService(uint index) {
     if(index>=linktable.size())
@@ -62,8 +68,10 @@ void LinkTable::delService(uint index) {
 }
 
 /*!
- * \brief LinkTable::showTable creates string representation of link table
- * \return vector of string
+ * \brief Создать текстовое представление таблицы
+ * \return vector из string с описанием
+ * Метод обходит всю "таблицу связи" (используется итератор), создавая для каждого элемента
+ * описывающюю его строку и добавляя её к результату
  */
 std::vector<std::string> LinkTable::showTable() const {
     std::vector<std::string> result;
@@ -103,9 +111,9 @@ std::vector<std::string> LinkTable::showTable() const {
 }
 
 /*!
- * \brief LinkTable::operator [] returns constant reference to record
- * \param index
- * \return reference to pair of descriptor and abonent address
+ * \brief Оператор индексирования
+ * \param index Индекс
+ * \return Ссылка на пару из указателя на описатель сервиса (полиморфный ServiceDescriptor) и адреса абонента
  * \throws invalid_argument if index is greater then table size
  */
 NetworkService::LinkTable::indexT &LinkTable::operator [](uint index) {
@@ -116,26 +124,41 @@ NetworkService::LinkTable::indexT &LinkTable::operator [](uint index) {
 }
 
 /*!
- * \brief LinkTable::begin returns iterator for first item
- * \return iterator
+ * \brief Итератор для первого элемента
+ * \return Объект Iterator
  */
 LinkTable::Iterator LinkTable::begin(){
     return LinkTable::Iterator(this,0);
 }
 
+/*!
+ * \brief Константный итератор для первого элемента
+ * \return Объект ConstIterator
+ */
 LinkTable::ConstIterator LinkTable::begin() const{
     return LinkTable::ConstIterator(this,0);
 }
 
+/*!
+ * \brief Итератор, указывающий на конец таблицы (индекс, равный размеру)
+ * \return объект Iterator
+ */
+LinkTable::Iterator LinkTable::end() const{
+    return LinkTable::Iterator(this,linktable.size());
+}
 
 /*!
- * \brief LinkTable::end returns iterator for end of table
- * \return iterator
+ * \brief Константный итератор, указывающий на конец таблицы (индекс, равный размеру)
+ * \return объект ConstIterator
  */
 LinkTable::ConstIterator LinkTable::end() const{
     return LinkTable::ConstIterator(this,linktable.size());
 }
 
+/*!
+ * \brief Деструктор
+ * Применяет к указателям на ServiceDescriptor оператор delete;
+ */
 LinkTable::~LinkTable() {
     std::for_each(linktable.begin(),linktable.end(),[](LinkTable::indexT pair) {
         delete pair.first;

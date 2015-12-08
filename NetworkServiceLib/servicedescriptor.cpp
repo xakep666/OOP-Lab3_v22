@@ -1,8 +1,12 @@
 #include "networkservice.h"
+/*!
+ * \file
+ * Файл, содержащий реализацию класса ServiceDescriptor
+ */
 using namespace NetworkService;
 
 /*!
- * \brief empty constructor
+ * \brief Пустой конструктор
  */
 ServiceDescriptor::ServiceDescriptor() {
     addr = 0;
@@ -11,25 +15,25 @@ ServiceDescriptor::ServiceDescriptor() {
 }
 
 /*!
- * \brief ServiceDescriptor::getDestinationAddress
- * \return destination address
+ * \brief Получение адреса назначение
+ * \return Адрес назначения
  */
 ulong ServiceDescriptor::getDestinationAddress() const{
     return addr;
 }
 
 /*!
- * \brief ServiceDescriptor::getServer
- * \return pointer to associated server
+ * \brief Получение ассоциированного сервера
+ * \return Указатель на ассоциированный сервер
  */
 const Server * ServiceDescriptor::getServer() const {
     return server;
 }
 
 /*!
- * \brief ServiceDescriptor::setDestinationAddress
- * \param addr
- * \throw invalid_argument if given invalid representation
+ * \brief Установка адреса назначения
+ * \param addr Новый адрес назначения
+ * \throw invalid_argument Если IP адрес не верный
  */
 void ServiceDescriptor::setDestinationAddress(ulong addr) {
     if(!isValidIP(addr))
@@ -38,17 +42,17 @@ void ServiceDescriptor::setDestinationAddress(ulong addr) {
 }
 
 /*!
- * \brief ServiceDescriptor::setLinkTime changes link time to given
- * \param time
+ * \brief Установка времени связи
+ * \param time Время связи
  */
 void ServiceDescriptor::setLinkTime(ftimepoint &time) {
     linktime = time;
 }
 
 /*!
- * \brief ServiceDescriptor::setServer changes associated server to given
- * \param srv
- * \throws invalid_argument if nullptr given
+ * \brief Установка ассоциированного сервера
+ * \param srv Указатель на сервер
+ * \throws invalid_argument Если передан nullptr
  */
 void ServiceDescriptor::setServer(Server *srv) {
     if(srv==nullptr)
@@ -57,8 +61,8 @@ void ServiceDescriptor::setServer(Server *srv) {
 }
 
 /*!
- * \brief ServiceDescriptor::getLinkTime gets time when service was given
- * \return reference to ftimepoint object
+ * \brief Получение времени оказания услуги
+ * \return Ссылка на объект ftimepoint
  */
 const ftimepoint & ServiceDescriptor::getLinkTime() const {
     return linktime;

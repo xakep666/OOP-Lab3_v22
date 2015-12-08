@@ -1,22 +1,31 @@
 #ifndef SERVICEDESCRIPTOR
 #define SERVICEDESCRIPTOR
+/*!
+ * \file
+ * Файл, содержащий объявление абстрактного класса ServiceDescriptor
+ */
 namespace NetworkService {
     class Server;
+    /*!
+     * \brief Описатель сервиса, абстрактный класс
+     * Описатели сервисов наследуются от данного класса.
+     * Наследуемые классы должны реализовывать методы getType() и calculatePrice()
+     */
     class ServiceDescriptor {
     private:
-        ulong addr;
-        ftimepoint linktime;
-        Server * server;
+        ulong addr; ///<Адрес назначения
+        ftimepoint linktime; ///<Время связи
+        Server * server; ///<Указатель на ассоциированный сервер, нужен для рассчета стоимости
     public:
         ServiceDescriptor();
         /*!
-         * \brief getType
-         * \return human readable type name
+         * \brief Получение название сервиса
+         * \return Строка с названием
          */
         virtual std::string getType() const = 0;
         /*!
-         * \brief calculatePrice calculated price for service using associated server costs
-         * \return price for given service
+         * \brief Рассчет стоимости оказанных услуг
+         * \return стоимость оказанных услуг
          */
         virtual ulong calculatePrice() const = 0;
         ulong getDestinationAddress() const;

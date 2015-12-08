@@ -1,10 +1,17 @@
 #ifndef NETWORKDESCRIPTOR
 #define NETWORKDESCRIPTOR
+/*!
+ * \file
+ * Файл, содержащий объявление класса NetworkDescriptor
+ */
 namespace NetworkService {
+    /*!
+     * \brief Описатель сервиса "сеть", наследуется от ServiceDescriptor
+     */
     class NetworkDescriptor : public ServiceDescriptor {
     private:
-        ulong intraffic,outtraffic;
-        fduration linkduration;
+        ulong intraffic,outtraffic; ///<Количество переданной и отправленной информации
+        fduration linkduration; ///<Продолжительность связи
     public:
         NetworkDescriptor();
         NetworkDescriptor(ulong intraffic,

@@ -1,14 +1,18 @@
 #include "networkservice.h"
+/*!
+ * \file
+ * Файл, содержащий реализацию класса NetworkDescriptor
+ */
 using namespace NetworkService;
 
 /*!
- * \brief NetworkDescriptor::NetworkDescriptor initialises record with information about given service
- * \param intraffic
- * \param outtraffic
- * \param address
- * \param linktime
- * \param linkduration
- * \param server
+ * \brief Создает запись об оказанной услуге, основываясь на параметрах
+ * \param intraffic Количество полученной информации (в MB)
+ * \param outtraffic Количество переданной информации (в MB)
+ * \param address IP адрес назначения
+ * \param linktime Время оказания услуги
+ * \param linkduration Продолжительность связи
+ * \param server Указатель на сервер (объект Server), оказывающий услугу
  */
 NetworkDescriptor::NetworkDescriptor(ulong intraffic,
                                      ulong outtraffic,
@@ -25,32 +29,40 @@ NetworkDescriptor::NetworkDescriptor(ulong intraffic,
 }
 
 /*!
- * \brief NetworkDescriptor::getInTraffic gets input traffic in MB
- * \return input traffic in MB
+ * \brief Получение количества полученных данных
+ * \return Количество полученных данных (в MB)
  */
 ulong NetworkDescriptor::getInTraffic() const {
     return intraffic;
 }
 
 /*!
- * \brief NetworkDescriptor::getOutTraffic gets output traffic in MB
- * \return output traffic in MB
+ * \brief Получение количества отправленных данных
+ * \return Количество отправленных данных MB
  */
 ulong NetworkDescriptor::getOutTraffic() const {
     return outtraffic;
 }
-
+/*!
+ * \brief Получение названия типа услуги
+ * \return Название типа услуги (строка "Network")
+ */
 std::string NetworkDescriptor::getType() const {
     return std::string("Network");
 }
 
+/*!
+ * \brief Рассчет стоимости оказанных услуг
+ * \return Стоимость оказанных услуг
+ * Рассчет стоимости оказанных услуг, на основании стоимости 1 минуты и 1MB, установленной сервером
+ */
 ulong NetworkDescriptor::calculatePrice() const {
     return getServer()->getCostPerMB()*(intraffic+outtraffic)+getServer()->getCostPerMin()*linkduration.count()*minute_k;
 }
 
 /*!
- * \brief NetworkDescriptor::getLinkDuration gets link duration
- * \return reference to fduration object
+ * \brief Получение продолжительности связи
+ * \return Ссылка на объект fduration
  */
 const fduration & NetworkDescriptor::getLinkDuration() const {
     return linkduration;

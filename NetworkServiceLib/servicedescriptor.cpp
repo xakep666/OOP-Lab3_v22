@@ -15,7 +15,7 @@ ServiceDescriptor::ServiceDescriptor() {
 }
 
 /*!
- * \brief Получение адреса назначение
+ * \brief Получение адреса назначения
  * \return Адрес назначения
  */
 ulong ServiceDescriptor::getDestinationAddress() const{

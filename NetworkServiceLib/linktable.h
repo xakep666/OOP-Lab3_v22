@@ -5,6 +5,9 @@
  * Файл, содержащий объявление класса LinkTable
  */
 namespace NetworkService {
+    /*!
+     * \brief Класс, реализующий "таблицу связи"
+     */
     class LinkTable {
     public:
         typedef std::pair<ServiceDescriptor *,ulong> indexT; ///<Определение типа для работы итератора

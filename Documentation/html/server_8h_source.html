@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Сетевой сервис: Исходный файл NetworkServiceLib/server.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Сетевой сервис
+   </div>
+   <div id="projectbrief">Простая база данных, содержащая сведения об оказанных услугах, с поддержкой подсчета их итоговой стоимости</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_563e563d3f5b6b16b1b5468c827d1eaa.html">NetworkServiceLib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">server.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="server_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef SERVER</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define SERVER</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_network_service.html">NetworkService</a> {</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span>Application;</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_network_service_1_1_server.html">   14</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_network_service_1_1_server.html">Server</a>: <span class="keyword">public</span> <a class="code" href="class_network_service_1_1_link_table.html">LinkTable</a> {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_network_service_1_1_server.html#a09382556ff4ab5abc7a79a333ad92329">   16</a></span>&#160;    ulong <a class="code" href="class_network_service_1_1_server.html#a09382556ff4ab5abc7a79a333ad92329">address</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_network_service_1_1_server.html#aaab7735b4b5809169ecb92fa66f0bca7">   17</a></span>&#160;    std::string <a class="code" href="class_network_service_1_1_server.html#aaab7735b4b5809169ecb92fa66f0bca7">name</a>; </div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="class_network_service_1_1_server.html#a8b24807f5ca15d5348734cf5f4fe96ff">   18</a></span>&#160;    ulong <a class="code" href="class_network_service_1_1_server.html#a8b24807f5ca15d5348734cf5f4fe96ff">costpermin</a>,<a class="code" href="class_network_service_1_1_server.html#a44f0b3aacbbbbbcf0216974c23d1baf1">costpermb</a>; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00020"></a><span class="lineno"><a class="line" href="class_network_service_1_1_server.html#a23f25bcc02a0e94c2f5a4188496b04d0">   20</a></span>&#160;    <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_network_service_1_1_application.html">Application</a>; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c">Server</a>(ulong address);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    ulong <a class="code" href="class_network_service_1_1_server.html#af119e62540303172462f3111784963e9">getAddress</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">const</span> std::string &amp; <a class="code" href="class_network_service_1_1_server.html#a6dfb5c080e28f814316f641e56383eeb">getName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_network_service_1_1_server.html#a33076324ad9201dc947be14195a85ad1">setName</a>(std::string &amp; name);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    ulong <a class="code" href="class_network_service_1_1_server.html#a08126e6a88407ffeacc860588eb6cee4">getCostPerMin</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    ulong <a class="code" href="class_network_service_1_1_server.html#a45d1ea42776ec586c762a2b0b0e5560e">getCostPerMB</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_network_service_1_1_server.html#a41772229229e7994706e6494f6366db8">setCostPerMin</a>(ulong cost);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_network_service_1_1_server.html#a05c94527d60ec19810d7d37bd9c8aaa4">setCostPerMB</a>(ulong cost);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_network_service_1_1_server.html#a097877808f60d35a4f38bf199d5db208">~Server</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#endif // SERVER</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="ttc" id="class_network_service_1_1_server_html_a41772229229e7994706e6494f6366db8"><div class="ttname"><a href="class_network_service_1_1_server.html#a41772229229e7994706e6494f6366db8">NetworkService::Server::setCostPerMin</a></div><div class="ttdeci">void setCostPerMin(ulong cost)</div><div class="ttdoc">Установка стоимости 1 минуты связи </div><div class="ttdef"><b>Definition:</b> server.cpp:69</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html"><div class="ttname"><a href="class_network_service_1_1_server.html">NetworkService::Server</a></div><div class="ttdoc">Описатель сервера </div><div class="ttdef"><b>Definition:</b> server.h:14</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a08126e6a88407ffeacc860588eb6cee4"><div class="ttname"><a href="class_network_service_1_1_server.html#a08126e6a88407ffeacc860588eb6cee4">NetworkService::Server::getCostPerMin</a></div><div class="ttdeci">ulong getCostPerMin() const </div><div class="ttdoc">Получение стоимости 1 минуты связи </div><div class="ttdef"><b>Definition:</b> server.cpp:61</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a05c94527d60ec19810d7d37bd9c8aaa4"><div class="ttname"><a href="class_network_service_1_1_server.html#a05c94527d60ec19810d7d37bd9c8aaa4">NetworkService::Server::setCostPerMB</a></div><div class="ttdeci">void setCostPerMB(ulong cost)</div><div class="ttdoc">Установка стоимости передачи 1MB данных </div><div class="ttdef"><b>Definition:</b> server.cpp:53</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a097877808f60d35a4f38bf199d5db208"><div class="ttname"><a href="class_network_service_1_1_server.html#a097877808f60d35a4f38bf199d5db208">NetworkService::Server::~Server</a></div><div class="ttdeci">virtual ~Server()</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a44f0b3aacbbbbbcf0216974c23d1baf1"><div class="ttname"><a href="class_network_service_1_1_server.html#a44f0b3aacbbbbbcf0216974c23d1baf1">NetworkService::Server::costpermb</a></div><div class="ttdeci">ulong costpermb</div><div class="ttdoc">Стоимость 1 минуты связи и 1MB переданных данных </div><div class="ttdef"><b>Definition:</b> server.h:18</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a8b24807f5ca15d5348734cf5f4fe96ff"><div class="ttname"><a href="class_network_service_1_1_server.html#a8b24807f5ca15d5348734cf5f4fe96ff">NetworkService::Server::costpermin</a></div><div class="ttdeci">ulong costpermin</div><div class="ttdef"><b>Definition:</b> server.h:18</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a2d34de4725c705fe2fef379eb5d40f8c"><div class="ttname"><a href="class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c">NetworkService::Server::Server</a></div><div class="ttdeci">Server(ulong address)</div><div class="ttdoc">Создание описателя сервиса </div><div class="ttdef"><b>Definition:</b> server.cpp:13</div></div>
+<div class="ttc" id="class_network_service_1_1_application_html"><div class="ttname"><a href="class_network_service_1_1_application.html">NetworkService::Application</a></div><div class="ttdoc">Класс, реализующий работу приложения </div><div class="ttdef"><b>Definition:</b> application.h:13</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a45d1ea42776ec586c762a2b0b0e5560e"><div class="ttname"><a href="class_network_service_1_1_server.html#a45d1ea42776ec586c762a2b0b0e5560e">NetworkService::Server::getCostPerMB</a></div><div class="ttdeci">ulong getCostPerMB() const </div><div class="ttdoc">Получение стоимости передачи 1MB данных </div><div class="ttdef"><b>Definition:</b> server.cpp:45</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_af119e62540303172462f3111784963e9"><div class="ttname"><a href="class_network_service_1_1_server.html#af119e62540303172462f3111784963e9">NetworkService::Server::getAddress</a></div><div class="ttdeci">ulong getAddress() const </div><div class="ttdoc">Получение IP сервера </div><div class="ttdef"><b>Definition:</b> server.cpp:21</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a6dfb5c080e28f814316f641e56383eeb"><div class="ttname"><a href="class_network_service_1_1_server.html#a6dfb5c080e28f814316f641e56383eeb">NetworkService::Server::getName</a></div><div class="ttdeci">const std::string &amp; getName() const </div><div class="ttdoc">Получение имени сервера </div><div class="ttdef"><b>Definition:</b> server.cpp:29</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html"><div class="ttname"><a href="class_network_service_1_1_link_table.html">NetworkService::LinkTable</a></div><div class="ttdoc">Класс, реализующий "таблицу связи". </div><div class="ttdef"><b>Definition:</b> linktable.h:11</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_aaab7735b4b5809169ecb92fa66f0bca7"><div class="ttname"><a href="class_network_service_1_1_server.html#aaab7735b4b5809169ecb92fa66f0bca7">NetworkService::Server::name</a></div><div class="ttdeci">std::string name</div><div class="ttdoc">Имя сервера </div><div class="ttdef"><b>Definition:</b> server.h:17</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a33076324ad9201dc947be14195a85ad1"><div class="ttname"><a href="class_network_service_1_1_server.html#a33076324ad9201dc947be14195a85ad1">NetworkService::Server::setName</a></div><div class="ttdeci">void setName(std::string &amp;name)</div><div class="ttdoc">Установка имени сервера </div><div class="ttdef"><b>Definition:</b> server.cpp:37</div></div>
+<div class="ttc" id="namespace_network_service_html"><div class="ttname"><a href="namespace_network_service.html">NetworkService</a></div><div class="ttdef"><b>Definition:</b> application.h:7</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html_a09382556ff4ab5abc7a79a333ad92329"><div class="ttname"><a href="class_network_service_1_1_server.html#a09382556ff4ab5abc7a79a333ad92329">NetworkService::Server::address</a></div><div class="ttdeci">ulong address</div><div class="ttdoc">IP адрес сервера </div><div class="ttdef"><b>Definition:</b> server.h:16</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

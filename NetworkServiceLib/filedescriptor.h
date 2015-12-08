@@ -7,6 +7,7 @@
 namespace NetworkService {
     /*!
      * \brief Класс, описывающий сервис "файл"
+     *
      * Наследуется от PostDescriptor в связи с большим количеством общих полей
      */
     class FileDescriptor : public PostDescriptor {

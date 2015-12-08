@@ -1,0 +1,12 @@
+<map id="NetworkServiceLib/postdescriptor.cpp" name="NetworkServiceLib/postdescriptor.cpp">
+<area shape="rect" id="node2" href="$networkservice_8h.html" title="Файл, содержаший все необходимые определения и включения для работы библиотеки " alt="" coords="1138,80,1259,107"/>
+<area shape="rect" id="node17" href="$helpers_8h.html" title="Файл, содержащий реализацию функций&#45;помощников, не принадлежащих какому&#45;либо объекту ..." alt="" coords="1553,155,1628,181"/>
+<area shape="rect" id="node18" href="$servicedescriptor_8h.html" title="Файл, содержащий объявление абстрактного класса ServiceDescriptor. " alt="" coords="1653,155,1785,181"/>
+<area shape="rect" id="node19" href="$postdescriptor_8h.html" title="Файл, содержащий объявление класса PostDescriptor. " alt="" coords="1809,155,1924,181"/>
+<area shape="rect" id="node20" href="$filedescriptor_8h.html" title="Файл, содержащий объявление класса FileDescriptor. " alt="" coords="1948,155,2055,181"/>
+<area shape="rect" id="node21" href="$networkdescriptor_8h.html" title="Файл, содержащий объявление класса NetworkDescriptor. " alt="" coords="2079,155,2215,181"/>
+<area shape="rect" id="node22" href="$myiterator_8h.html" title="Файл, содержащий шаблонных классов MyIterator, MyConstIterator. " alt="" coords="2239,155,2329,181"/>
+<area shape="rect" id="node23" href="$linktable_8h.html" title="Файл, содержащий объявление класса LinkTable. " alt="" coords="2354,155,2435,181"/>
+<area shape="rect" id="node24" href="$server_8h.html" title="Файл, содержащий объявление класса Server. " alt="" coords="2460,155,2529,181"/>
+<area shape="rect" id="node25" href="$application_8h.html" title="Файл, содержащий объявление класса Application. " alt="" coords="2554,155,2649,181"/>
+</map>

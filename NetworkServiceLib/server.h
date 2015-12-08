@@ -8,6 +8,7 @@ namespace NetworkService {
 class Application;
 /*!
  * \brief Описатель сервера
+ *
  * Описатель сервера. Используется наследование от LinkTable вместо композиции для облегчения работы с итераторами
  */
 class Server: public LinkTable {

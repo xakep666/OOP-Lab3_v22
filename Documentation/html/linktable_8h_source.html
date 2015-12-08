@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Сетевой сервис: Исходный файл NetworkServiceLib/linktable.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Сетевой сервис
+   </div>
+   <div id="projectbrief">Простая база данных, содержащая сведения об оказанных услугах, с поддержкой подсчета их итоговой стоимости</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_563e563d3f5b6b16b1b5468c827d1eaa.html">NetworkServiceLib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">linktable.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="linktable_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef LINKTABLE</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define LINKTABLE</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_network_service.html">NetworkService</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_network_service_1_1_link_table.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_network_service_1_1_link_table.html">LinkTable</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_network_service_1_1_link_table.html#a5a0e870806128a79b9947a7ea496fe9e">   13</a></span>&#160;        <span class="keyword">typedef</span> std::pair&lt;ServiceDescriptor *,ulong&gt; <a class="code" href="class_network_service_1_1_link_table.html#a5a0e870806128a79b9947a7ea496fe9e">indexT</a>; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="class_network_service_1_1_link_table.html#ac5650261ad60d19bb35235b2c4c9a284">   15</a></span>&#160;        std::vector&lt;indexT&gt; <a class="code" href="class_network_service_1_1_link_table.html#ac5650261ad60d19bb35235b2c4c9a284">linktable</a>; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_network_service_1_1_link_table.html#aa2f1589a76041fd55a7c4926635389a0">LinkTable</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_network_service_1_1_link_table.html#a31612d870964984c4d6c83208a28684d">addService</a>(<a class="code" href="class_network_service_1_1_service_descriptor.html">ServiceDescriptor</a> * sdesc, ulong abonentaddr);</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        std::vector&lt;ServiceDescriptor *&gt; <a class="code" href="class_network_service_1_1_link_table.html#ac1d3769516f51abd5eb7766d009a54fb">getServices</a>(ulong abonentaddr) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        std::vector&lt;ServiceDescriptor *&gt; <a class="code" href="class_network_service_1_1_link_table.html#ac1d3769516f51abd5eb7766d009a54fb">getServices</a>(ulong abonentaddr,<a class="code" href="networkservice_8h.html#ac877dfabb0f4f6a8184aa821b447e81d">ftimepoint</a> &amp;linktime) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        <span class="keywordtype">void</span> <a class="code" href="class_network_service_1_1_link_table.html#a4aef03eef2e1ed5d60f99075eff7aa96">delService</a>(uint index);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        std::vector&lt;std::string&gt; <a class="code" href="class_network_service_1_1_link_table.html#a5381c7f8fd23c726dd1c89e429f9e8e2">showTable</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        indexT &amp; <a class="code" href="class_network_service_1_1_link_table.html#a04e0f13392aff39df1a0847d7667dccd">operator [] </a>(uint index);</div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_network_service_1_1_link_table.html#a4a2eea20b7b16255ee50c0b05accd544">   24</a></span>&#160;        <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="class_network_service_1_1_my_iterator.html">MyIterator</a>&lt;<a class="code" href="class_network_service_1_1_link_table.html">LinkTable</a>&gt;;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_network_service_1_1_link_table.html#a699ed11fe42478b5269f8c44f7354c77">   25</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_network_service_1_1_my_iterator.html">MyIterator&lt;LinkTable&gt;</a> <a class="code" href="class_network_service_1_1_link_table.html#a699ed11fe42478b5269f8c44f7354c77">Iterator</a>; </div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_network_service_1_1_link_table.html#a2414daadb1745ec3039bba9810c8a23d">   26</a></span>&#160;        <span class="keyword">typedef</span> <a class="code" href="class_network_service_1_1_my_const_iterator.html">MyConstIterator&lt;LinkTable&gt;</a> <a class="code" href="class_network_service_1_1_link_table.html#a2414daadb1745ec3039bba9810c8a23d">ConstIterator</a>; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        Iterator <a class="code" href="class_network_service_1_1_link_table.html#a72c88d96a4a03fb9dd609df858dac1e6">begin</a>();</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        ConstIterator <a class="code" href="class_network_service_1_1_link_table.html#a72c88d96a4a03fb9dd609df858dac1e6">begin</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        Iterator <a class="code" href="class_network_service_1_1_link_table.html#a775b722d34f014953289f7ad069a4567">end</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;        ConstIterator <a class="code" href="class_network_service_1_1_link_table.html#a775b722d34f014953289f7ad069a4567">end</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        <span class="keyword">virtual</span> <a class="code" href="class_network_service_1_1_link_table.html#a4ea276d8834a25c4ed1872f96b324e22">~LinkTable</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#endif // LINKTABLE</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="ttc" id="class_network_service_1_1_my_iterator_html"><div class="ttname"><a href="class_network_service_1_1_my_iterator.html">NetworkService::MyIterator</a></div><div class="ttdoc">Шаблонный класс итератора </div><div class="ttdef"><b>Definition:</b> myiterator.h:16</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a72c88d96a4a03fb9dd609df858dac1e6"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a72c88d96a4a03fb9dd609df858dac1e6">NetworkService::LinkTable::begin</a></div><div class="ttdeci">Iterator begin()</div><div class="ttdoc">Итератор для первого элемента </div><div class="ttdef"><b>Definition:</b> linktable.cpp:133</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a04e0f13392aff39df1a0847d7667dccd"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a04e0f13392aff39df1a0847d7667dccd">NetworkService::LinkTable::operator[]</a></div><div class="ttdeci">indexT &amp; operator[](uint index)</div><div class="ttdoc">Оператор индексирования </div><div class="ttdef"><b>Definition:</b> linktable.cpp:122</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a775b722d34f014953289f7ad069a4567"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a775b722d34f014953289f7ad069a4567">NetworkService::LinkTable::end</a></div><div class="ttdeci">Iterator end()</div><div class="ttdoc">Итератор, указывающий на конец таблицы (индекс, равный размеру) </div><div class="ttdef"><b>Definition:</b> linktable.cpp:149</div></div>
+<div class="ttc" id="class_network_service_1_1_my_const_iterator_html"><div class="ttname"><a href="class_network_service_1_1_my_const_iterator.html">NetworkService::MyConstIterator</a></div><div class="ttdoc">Шаблонный класс итератора </div><div class="ttdef"><b>Definition:</b> myiterator.h:138</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_ac1d3769516f51abd5eb7766d009a54fb"><div class="ttname"><a href="class_network_service_1_1_link_table.html#ac1d3769516f51abd5eb7766d009a54fb">NetworkService::LinkTable::getServices</a></div><div class="ttdeci">std::vector&lt; ServiceDescriptor * &gt; getServices(ulong abonentaddr) const </div><div class="ttdoc">Получение информации об оказанных услугах для абонента </div><div class="ttdef"><b>Definition:</b> linktable.cpp:30</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a4aef03eef2e1ed5d60f99075eff7aa96"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a4aef03eef2e1ed5d60f99075eff7aa96">NetworkService::LinkTable::delService</a></div><div class="ttdeci">void delService(uint index)</div><div class="ttdoc">Удаление записи из таблицы </div><div class="ttdef"><b>Definition:</b> linktable.cpp:65</div></div>
+<div class="ttc" id="class_network_service_1_1_service_descriptor_html"><div class="ttname"><a href="class_network_service_1_1_service_descriptor.html">NetworkService::ServiceDescriptor</a></div><div class="ttdoc">Описатель сервиса, абстрактный класс </div><div class="ttdef"><b>Definition:</b> servicedescriptor.h:15</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a5a0e870806128a79b9947a7ea496fe9e"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a5a0e870806128a79b9947a7ea496fe9e">NetworkService::LinkTable::indexT</a></div><div class="ttdeci">std::pair&lt; ServiceDescriptor *, ulong &gt; indexT</div><div class="ttdoc">Определение типа для работы итератора </div><div class="ttdef"><b>Definition:</b> linktable.h:13</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a699ed11fe42478b5269f8c44f7354c77"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a699ed11fe42478b5269f8c44f7354c77">NetworkService::LinkTable::Iterator</a></div><div class="ttdeci">MyIterator&lt; LinkTable &gt; Iterator</div><div class="ttdoc">Специализация шаблонного типа MyIterator. </div><div class="ttdef"><b>Definition:</b> linktable.h:25</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html"><div class="ttname"><a href="class_network_service_1_1_link_table.html">NetworkService::LinkTable</a></div><div class="ttdoc">Класс, реализующий "таблицу связи". </div><div class="ttdef"><b>Definition:</b> linktable.h:11</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a31612d870964984c4d6c83208a28684d"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a31612d870964984c4d6c83208a28684d">NetworkService::LinkTable::addService</a></div><div class="ttdeci">void addService(ServiceDescriptor *sdesc, ulong abonentaddr)</div><div class="ttdoc">Добавление записи об оказанной услуге в таблицу </div><div class="ttdef"><b>Definition:</b> linktable.cpp:14</div></div>
+<div class="ttc" id="networkservice_8h_html_ac877dfabb0f4f6a8184aa821b447e81d"><div class="ttname"><a href="networkservice_8h.html#ac877dfabb0f4f6a8184aa821b447e81d">ftimepoint</a></div><div class="ttdeci">std::chrono::time_point&lt; Time &gt; ftimepoint</div><div class="ttdoc">Специализация time_point для системных часов </div><div class="ttdef"><b>Definition:</b> networkservice.h:25</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_ac5650261ad60d19bb35235b2c4c9a284"><div class="ttname"><a href="class_network_service_1_1_link_table.html#ac5650261ad60d19bb35235b2c4c9a284">NetworkService::LinkTable::linktable</a></div><div class="ttdeci">std::vector&lt; indexT &gt; linktable</div><div class="ttdoc">"Таблица связи" </div><div class="ttdef"><b>Definition:</b> linktable.h:15</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a4ea276d8834a25c4ed1872f96b324e22"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a4ea276d8834a25c4ed1872f96b324e22">NetworkService::LinkTable::~LinkTable</a></div><div class="ttdeci">virtual ~LinkTable()</div><div class="ttdoc">Деструктор Применяет к указателям на ServiceDescriptor оператор delete;. </div><div class="ttdef"><b>Definition:</b> linktable.cpp:165</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a2414daadb1745ec3039bba9810c8a23d"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a2414daadb1745ec3039bba9810c8a23d">NetworkService::LinkTable::ConstIterator</a></div><div class="ttdeci">MyConstIterator&lt; LinkTable &gt; ConstIterator</div><div class="ttdoc">Специализация шаблонного типа MyConstIterator. </div><div class="ttdef"><b>Definition:</b> linktable.h:26</div></div>
+<div class="ttc" id="namespace_network_service_html"><div class="ttname"><a href="namespace_network_service.html">NetworkService</a></div><div class="ttdef"><b>Definition:</b> application.h:7</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_a5381c7f8fd23c726dd1c89e429f9e8e2"><div class="ttname"><a href="class_network_service_1_1_link_table.html#a5381c7f8fd23c726dd1c89e429f9e8e2">NetworkService::LinkTable::showTable</a></div><div class="ttdeci">std::vector&lt; std::string &gt; showTable() const </div><div class="ttdoc">Создать текстовое представление таблицы </div><div class="ttdef"><b>Definition:</b> linktable.cpp:79</div></div>
+<div class="ttc" id="class_network_service_1_1_link_table_html_aa2f1589a76041fd55a7c4926635389a0"><div class="ttname"><a href="class_network_service_1_1_link_table.html#aa2f1589a76041fd55a7c4926635389a0">NetworkService::LinkTable::LinkTable</a></div><div class="ttdeci">LinkTable()</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

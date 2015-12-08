@@ -52,6 +52,7 @@ std::string PostDescriptor::getType() const {
 /*!
  * \brief Рассчет стоимости оказанных услуг
  * \return Стоимость оказанных услуг
+ *
  * Рассчет стоимости оказанных услуг, на основании стоимости 1MB, установленной сервером
  */
 ulong PostDescriptor::calculatePrice() const {

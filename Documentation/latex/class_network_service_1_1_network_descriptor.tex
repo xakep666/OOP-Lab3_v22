@@ -1,0 +1,207 @@
+\hypertarget{class_network_service_1_1_network_descriptor}{}\section{Класс Network\+Service\+:\+:Network\+Descriptor}
+\label{class_network_service_1_1_network_descriptor}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+
+
+Описатель сервиса \char`\"{}сеть\char`\"{}, наследуется от \hyperlink{class_network_service_1_1_service_descriptor}{Service\+Descriptor}.  
+
+
+
+
+{\ttfamily \#include $<$networkdescriptor.\+h$>$}
+
+
+
+Граф наследования\+:Network\+Service\+:\+:Network\+Descriptor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=254pt]{class_network_service_1_1_network_descriptor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Граф связей класса Network\+Service\+:\+:Network\+Descriptor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_network_service_1_1_network_descriptor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_network_service_1_1_network_descriptor_a92164573b30dfe0650904c1bc32fb073}{Network\+Descriptor} ()
+\item 
+\hyperlink{class_network_service_1_1_network_descriptor_a06cc19962f4a5da19bb8bd7f3bdd9b8a}{Network\+Descriptor} (ulong \hyperlink{class_network_service_1_1_network_descriptor_ac4fc85cab905739a9513fcfd06ca0453}{intraffic}, ulong \hyperlink{class_network_service_1_1_network_descriptor_a109969d9199b67144184e1b296406edc}{outtraffic}, ulong address, \hyperlink{networkservice_8h_ac877dfabb0f4f6a8184aa821b447e81d}{ftimepoint} \&\hyperlink{class_network_service_1_1_service_descriptor_a08bfd17afce0cba1954d30bd76a14df4}{linktime}, \hyperlink{networkservice_8h_a476cc728ef971cba9111c75ea41a760a}{fduration} \&\hyperlink{class_network_service_1_1_network_descriptor_a30c7b2914f9a815341c0d11653f378db}{linkduration}, \hyperlink{class_network_service_1_1_server}{Server} $\ast$\hyperlink{class_network_service_1_1_service_descriptor_ad504b32ced44a75e0e02ea961d9434c4}{server})
+\begin{DoxyCompactList}\small\item\em Создает запись об оказанной услуге, основываясь на параметрах \end{DoxyCompactList}\item 
+ulong \hyperlink{class_network_service_1_1_network_descriptor_ad8d2c236158fd870ce202b03d07ce202}{get\+In\+Traffic} () const 
+\begin{DoxyCompactList}\small\item\em Получение количества полученных данных \end{DoxyCompactList}\item 
+ulong \hyperlink{class_network_service_1_1_network_descriptor_adbc216cb7c97d45161f5ec7c7c5a1aa7}{get\+Out\+Traffic} () const 
+\begin{DoxyCompactList}\small\item\em Получение количества отправленных данных \end{DoxyCompactList}\item 
+std\+::string \hyperlink{class_network_service_1_1_network_descriptor_abef35df6ca05d7b0ed9e3c0385b9a02a}{get\+Type} () const 
+\begin{DoxyCompactList}\small\item\em Получение названия типа услуги \end{DoxyCompactList}\item 
+const \hyperlink{networkservice_8h_a476cc728ef971cba9111c75ea41a760a}{fduration} \& \hyperlink{class_network_service_1_1_network_descriptor_a21523ecd4dfc2b54873cefd02bc1fb80}{get\+Link\+Duration} () const 
+\begin{DoxyCompactList}\small\item\em Получение продолжительности связи \end{DoxyCompactList}\item 
+ulong \hyperlink{class_network_service_1_1_network_descriptor_a515f9b5e56c7027101fcb000e9be96a2}{calculate\+Price} () const 
+\begin{DoxyCompactList}\small\item\em Рассчет стоимости оказанных услуг \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+ulong \hyperlink{class_network_service_1_1_network_descriptor_ac4fc85cab905739a9513fcfd06ca0453}{intraffic}
+\item 
+ulong \hyperlink{class_network_service_1_1_network_descriptor_a109969d9199b67144184e1b296406edc}{outtraffic}
+\begin{DoxyCompactList}\small\item\em Количество переданной и отправленной информации \end{DoxyCompactList}\item 
+\hyperlink{networkservice_8h_a476cc728ef971cba9111c75ea41a760a}{fduration} \hyperlink{class_network_service_1_1_network_descriptor_a30c7b2914f9a815341c0d11653f378db}{linkduration}
+\begin{DoxyCompactList}\small\item\em Продолжительность связи \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Дополнительные унаследованные члены}
+
+
+\subsection{Подробное описание}
+Описатель сервиса \char`\"{}сеть\char`\"{}, наследуется от \hyperlink{class_network_service_1_1_service_descriptor}{Service\+Descriptor}. 
+
+\subsection{Конструктор(ы)}
+\hypertarget{class_network_service_1_1_network_descriptor_a92164573b30dfe0650904c1bc32fb073}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!Network\+Descriptor@{Network\+Descriptor}}
+\index{Network\+Descriptor@{Network\+Descriptor}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{Network\+Descriptor}]{\setlength{\rightskip}{0pt plus 5cm}Network\+Service\+::\+Network\+Descriptor\+::\+Network\+Descriptor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_network_service_1_1_network_descriptor_a92164573b30dfe0650904c1bc32fb073}
+\hypertarget{class_network_service_1_1_network_descriptor_a06cc19962f4a5da19bb8bd7f3bdd9b8a}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!Network\+Descriptor@{Network\+Descriptor}}
+\index{Network\+Descriptor@{Network\+Descriptor}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{Network\+Descriptor}]{\setlength{\rightskip}{0pt plus 5cm}Network\+Descriptor\+::\+Network\+Descriptor (
+\begin{DoxyParamCaption}
+\item[{ulong}]{intraffic, }
+\item[{ulong}]{outtraffic, }
+\item[{ulong}]{address, }
+\item[{{\bf ftimepoint} \&}]{linktime, }
+\item[{{\bf fduration} \&}]{linkduration, }
+\item[{{\bf Server} $\ast$}]{server}
+\end{DoxyParamCaption}
+)}\label{class_network_service_1_1_network_descriptor_a06cc19962f4a5da19bb8bd7f3bdd9b8a}
+
+
+Создает запись об оказанной услуге, основываясь на параметрах 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em intraffic} & Количество полученной информации (в M\+B) \\
+\hline
+{\em outtraffic} & Количество переданной информации (в M\+B) \\
+\hline
+{\em address} & I\+P адрес назначения \\
+\hline
+{\em linktime} & Время оказания услуги \\
+\hline
+{\em linkduration} & Продолжительность связи \\
+\hline
+{\em server} & Указатель на сервер (объект \hyperlink{class_network_service_1_1_server}{Server}), оказывающий услугу \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Методы}
+\hypertarget{class_network_service_1_1_network_descriptor_a515f9b5e56c7027101fcb000e9be96a2}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!calculate\+Price@{calculate\+Price}}
+\index{calculate\+Price@{calculate\+Price}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{calculate\+Price}]{\setlength{\rightskip}{0pt plus 5cm}ulong Network\+Descriptor\+::calculate\+Price (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_network_service_1_1_network_descriptor_a515f9b5e56c7027101fcb000e9be96a2}
+
+
+Рассчет стоимости оказанных услуг 
+
+\begin{DoxyReturn}{Возвращает}
+Стоимость оказанных услуг
+\end{DoxyReturn}
+Рассчет стоимости оказанных услуг, на основании стоимости 1 минуты и 1\+M\+B, установленной сервером 
+
+Замещает \hyperlink{class_network_service_1_1_service_descriptor_aa2da86b27ac53d8acb1eddf3723a1e44}{Network\+Service\+::\+Service\+Descriptor}.
+
+\hypertarget{class_network_service_1_1_network_descriptor_ad8d2c236158fd870ce202b03d07ce202}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!get\+In\+Traffic@{get\+In\+Traffic}}
+\index{get\+In\+Traffic@{get\+In\+Traffic}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{get\+In\+Traffic}]{\setlength{\rightskip}{0pt plus 5cm}ulong Network\+Descriptor\+::get\+In\+Traffic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_network_service_1_1_network_descriptor_ad8d2c236158fd870ce202b03d07ce202}
+
+
+Получение количества полученных данных 
+
+\begin{DoxyReturn}{Возвращает}
+Количество полученных данных (в M\+B) 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_network_descriptor_a21523ecd4dfc2b54873cefd02bc1fb80}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!get\+Link\+Duration@{get\+Link\+Duration}}
+\index{get\+Link\+Duration@{get\+Link\+Duration}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{get\+Link\+Duration}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf fduration} \& Network\+Descriptor\+::get\+Link\+Duration (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_network_service_1_1_network_descriptor_a21523ecd4dfc2b54873cefd02bc1fb80}
+
+
+Получение продолжительности связи 
+
+\begin{DoxyReturn}{Возвращает}
+Ссылка на объект fduration 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_network_descriptor_adbc216cb7c97d45161f5ec7c7c5a1aa7}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!get\+Out\+Traffic@{get\+Out\+Traffic}}
+\index{get\+Out\+Traffic@{get\+Out\+Traffic}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{get\+Out\+Traffic}]{\setlength{\rightskip}{0pt plus 5cm}ulong Network\+Descriptor\+::get\+Out\+Traffic (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_network_service_1_1_network_descriptor_adbc216cb7c97d45161f5ec7c7c5a1aa7}
+
+
+Получение количества отправленных данных 
+
+\begin{DoxyReturn}{Возвращает}
+Количество отправленных данных M\+B 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_network_descriptor_abef35df6ca05d7b0ed9e3c0385b9a02a}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{get\+Type}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string Network\+Descriptor\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_network_service_1_1_network_descriptor_abef35df6ca05d7b0ed9e3c0385b9a02a}
+
+
+Получение названия типа услуги 
+
+\begin{DoxyReturn}{Возвращает}
+Название типа услуги (строка \char`\"{}\+Network\char`\"{}) 
+\end{DoxyReturn}
+
+
+Замещает \hyperlink{class_network_service_1_1_service_descriptor_ac09d5d704a67a7ab2df6d925751ee5cc}{Network\+Service\+::\+Service\+Descriptor}.
+
+
+
+\subsection{Данные класса}
+\hypertarget{class_network_service_1_1_network_descriptor_ac4fc85cab905739a9513fcfd06ca0453}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!intraffic@{intraffic}}
+\index{intraffic@{intraffic}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{intraffic}]{\setlength{\rightskip}{0pt plus 5cm}ulong Network\+Service\+::\+Network\+Descriptor\+::intraffic\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_network_descriptor_ac4fc85cab905739a9513fcfd06ca0453}
+\hypertarget{class_network_service_1_1_network_descriptor_a30c7b2914f9a815341c0d11653f378db}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!linkduration@{linkduration}}
+\index{linkduration@{linkduration}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{linkduration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf fduration} Network\+Service\+::\+Network\+Descriptor\+::linkduration\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_network_descriptor_a30c7b2914f9a815341c0d11653f378db}
+
+
+Продолжительность связи 
+
+\hypertarget{class_network_service_1_1_network_descriptor_a109969d9199b67144184e1b296406edc}{}\index{Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}!outtraffic@{outtraffic}}
+\index{outtraffic@{outtraffic}!Network\+Service\+::\+Network\+Descriptor@{Network\+Service\+::\+Network\+Descriptor}}
+\subsubsection[{outtraffic}]{\setlength{\rightskip}{0pt plus 5cm}ulong Network\+Service\+::\+Network\+Descriptor\+::outtraffic\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_network_descriptor_a109969d9199b67144184e1b296406edc}
+
+
+Количество переданной и отправленной информации 
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Service\+Lib/\hyperlink{networkdescriptor_8h}{networkdescriptor.\+h}\item 
+Network\+Service\+Lib/\hyperlink{networkdescriptor_8cpp}{networkdescriptor.\+cpp}\end{DoxyCompactItemize}

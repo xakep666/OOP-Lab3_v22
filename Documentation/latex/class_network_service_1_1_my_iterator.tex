@@ -1,0 +1,293 @@
+\hypertarget{class_network_service_1_1_my_iterator}{}\section{Шаблон класса Network\+Service\+:\+:My\+Iterator$<$ T $>$}
+\label{class_network_service_1_1_my_iterator}\index{Network\+Service\+::\+My\+Iterator$<$ T $>$@{Network\+Service\+::\+My\+Iterator$<$ T $>$}}
+
+
+Шаблонный класс итератора  
+
+
+
+
+{\ttfamily \#include $<$myiterator.\+h$>$}
+
+
+
+Граф наследования\+:Network\+Service\+:\+:My\+Iterator$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_network_service_1_1_my_iterator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Граф связей класса Network\+Service\+:\+:My\+Iterator$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_network_service_1_1_my_iterator__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_network_service_1_1_my_iterator_a0d0c83ad52ec18d29f026ead351562e4}{My\+Iterator} (T $\ast$nmemb, uint idx)
+\begin{DoxyCompactList}\small\item\em Инициализирующий конструктор \end{DoxyCompactList}\item 
+\hyperlink{class_network_service_1_1_my_iterator_afaab5f5b3b934271e81341e22946159d}{My\+Iterator} (const \hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \&it)
+\begin{DoxyCompactList}\small\item\em Копирующий конструктор \end{DoxyCompactList}\item 
+\hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \& \hyperlink{class_network_service_1_1_my_iterator_ae71706eb096475404afa566e8355b439}{operator++} ()
+\begin{DoxyCompactList}\small\item\em Увеличение индекса на 1 (постфиксный оператор) \end{DoxyCompactList}\item 
+\hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \hyperlink{class_network_service_1_1_my_iterator_a3f7fb28a18f0838385163b8bf3ea96d8}{operator++} (int)
+\begin{DoxyCompactList}\small\item\em Увеличение индекса на 1 (префиксный оператор) Используется создание временного объекта итератора \end{DoxyCompactList}\item 
+\hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \hyperlink{class_network_service_1_1_my_iterator_a86a2b003c3396f38b06abecda8b7c8da}{operator+} (int toadd)
+\begin{DoxyCompactList}\small\item\em Получение итератора добавлением к индексу \end{DoxyCompactList}\item 
+\hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \& \hyperlink{class_network_service_1_1_my_iterator_abbcd1a24586f40134de65d2d914e17db}{operator=} (const \hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \&it)
+\begin{DoxyCompactList}\small\item\em Копирующий оператор присваивания \end{DoxyCompactList}\item 
+T\+::index\+T \& \hyperlink{class_network_service_1_1_my_iterator_ad6babde77410209a9972b5d2d5a29078}{operator$\ast$} ()
+\begin{DoxyCompactList}\small\item\em Разыменовывание (обращение к элементу итерируемого объекта по индексу) \end{DoxyCompactList}\item 
+T\+::index\+T $\ast$ \hyperlink{class_network_service_1_1_my_iterator_a425cc9c1dba308bb467d4d3122fb7457}{operator-\/$>$} ()
+\begin{DoxyCompactList}\small\item\em Доступ к членам объекта, создающего коллекцию \end{DoxyCompactList}\item 
+virtual \hyperlink{class_network_service_1_1_my_iterator_a2c2f5449fafddaf6f8a3557265f0d2d9}{$\sim$\+My\+Iterator} ()
+\end{DoxyCompactItemize}
+\subsection*{Закрытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_network_service_1_1_my_iterator_afdc20f191ceb30ab06cd7f10d4a6b699}{My\+Iterator} ()
+\begin{DoxyCompactList}\small\item\em Отключение создания через пустой конструктор для предотвращения обращения к nullptr. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+T $\ast$ \hyperlink{class_network_service_1_1_my_iterator_a72858d4e9cc8cc8154f9e028ffa09aa7}{memb}
+\begin{DoxyCompactList}\small\item\em Указатель на итерируемый объект \end{DoxyCompactList}\item 
+uint \hyperlink{class_network_service_1_1_my_iterator_af3988a37b15d4fc081c55b2c21a93ad3}{index}
+\begin{DoxyCompactList}\small\item\em Индекс текущего элемента \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Друзья}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{class_network_service_1_1_my_iterator_a44acb87c982f4dd4b401b1e46e7b93b7}{operator==} (\hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \&lv, \hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \&rv)
+\begin{DoxyCompactList}\small\item\em Равенство двух итераторов \end{DoxyCompactList}\item 
+bool \hyperlink{class_network_service_1_1_my_iterator_a3ef5b0b89d2266aa10cb593e6b2d1255}{operator!=} (\hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \&lv, \hyperlink{class_network_service_1_1_my_iterator}{My\+Iterator} \&rv)
+\begin{DoxyCompactList}\small\item\em Неравенство двух итераторов \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+\subsubsection*{template$<$class T$>$class Network\+Service\+::\+My\+Iterator$<$ T $>$}
+
+Шаблонный класс итератора 
+
+Первый параметр шаблона -\/ класс, к которому прикрепляется итератор Для корректной работы требуется следующее\+:
+\begin{DoxyItemize}
+\item Переопределенный тип index\+T (тип, возвращаемый оператором \mbox{[}\mbox{]})
+\item Перегруженный оператор \mbox{[}\mbox{]} 
+\end{DoxyItemize}
+
+\subsection{Конструктор(ы)}
+\hypertarget{class_network_service_1_1_my_iterator_afdc20f191ceb30ab06cd7f10d4a6b699}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!My\+Iterator@{My\+Iterator}}
+\index{My\+Iterator@{My\+Iterator}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{My\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::{\bf My\+Iterator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_my_iterator_afdc20f191ceb30ab06cd7f10d4a6b699}
+
+
+Отключение создания через пустой конструктор для предотвращения обращения к nullptr. 
+
+\hypertarget{class_network_service_1_1_my_iterator_a0d0c83ad52ec18d29f026ead351562e4}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!My\+Iterator@{My\+Iterator}}
+\index{My\+Iterator@{My\+Iterator}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{My\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::{\bf My\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{T $\ast$}]{nmemb, }
+\item[{uint}]{idx}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}\label{class_network_service_1_1_my_iterator_a0d0c83ad52ec18d29f026ead351562e4}
+
+
+Инициализирующий конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em nmemb} & Указатель на итерируемый объект \\
+\hline
+{\em idx} & Индекс \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em invalid\+\_\+argument,если} & в качетсве указателя передан nullptr \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{class_network_service_1_1_my_iterator_afaab5f5b3b934271e81341e22946159d}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!My\+Iterator@{My\+Iterator}}
+\index{My\+Iterator@{My\+Iterator}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{My\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::{\bf My\+Iterator} (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Iterator}$<$ T $>$ \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_afaab5f5b3b934271e81341e22946159d}
+
+
+Копирующий конструктор 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em it} & Исходный объект \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_network_service_1_1_my_iterator_a2c2f5449fafddaf6f8a3557265f0d2d9}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!````~My\+Iterator@{$\sim$\+My\+Iterator}}
+\index{````~My\+Iterator@{$\sim$\+My\+Iterator}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{$\sim$\+My\+Iterator}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ virtual {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::$\sim${\bf My\+Iterator} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_network_service_1_1_my_iterator_a2c2f5449fafddaf6f8a3557265f0d2d9}
+
+
+\subsection{Методы}
+\hypertarget{class_network_service_1_1_my_iterator_ad6babde77410209a9972b5d2d5a29078}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T\+::index\+T\& {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::operator$\ast$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_ad6babde77410209a9972b5d2d5a29078}
+
+
+Разыменовывание (обращение к элементу итерируемого объекта по индексу) 
+
+\begin{DoxyReturn}{Возвращает}
+Ссылка на объект
+\end{DoxyReturn}
+Разыменовывание с использованием перегруженного оператора \mbox{[}\mbox{]} с последующим динамическим приведением типа \hypertarget{class_network_service_1_1_my_iterator_a86a2b003c3396f38b06abecda8b7c8da}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator+@{operator+}}
+\index{operator+@{operator+}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf My\+Iterator} {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::operator+ (
+\begin{DoxyParamCaption}
+\item[{int}]{toadd}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_a86a2b003c3396f38b06abecda8b7c8da}
+
+
+Получение итератора добавлением к индексу 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em toadd} & Число, добавляемое к текущему индексу \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+Новый объект итератора с измененным индексом 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_my_iterator_ae71706eb096475404afa566e8355b439}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf My\+Iterator}\& {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::operator++ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_ae71706eb096475404afa566e8355b439}
+
+
+Увеличение индекса на 1 (постфиксный оператор) 
+
+\hypertarget{class_network_service_1_1_my_iterator_a3f7fb28a18f0838385163b8bf3ea96d8}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator++@{operator++}}
+\index{operator++@{operator++}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator++}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf My\+Iterator} {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::operator++ (
+\begin{DoxyParamCaption}
+\item[{int}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_a3f7fb28a18f0838385163b8bf3ea96d8}
+
+
+Увеличение индекса на 1 (префиксный оператор) Используется создание временного объекта итератора 
+
+\hypertarget{class_network_service_1_1_my_iterator_a425cc9c1dba308bb467d4d3122fb7457}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator-\/$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T\+::index\+T$\ast$ {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::operator-\/$>$ (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_a425cc9c1dba308bb467d4d3122fb7457}
+
+
+Доступ к членам объекта, создающего коллекцию 
+
+\begin{DoxyReturn}{Возвращает}
+Указатель на объект, создающий коллекцию
+\end{DoxyReturn}
+Получение указателя на элемент коллекции с помощью перегруженного оператора \mbox{[}\mbox{]} с последующим динамическим приведением типа \hypertarget{class_network_service_1_1_my_iterator_abbcd1a24586f40134de65d2d914e17db}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator=@{operator=}}
+\index{operator=@{operator=}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ {\bf My\+Iterator}\& {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Iterator}$<$ T $>$ \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\label{class_network_service_1_1_my_iterator_abbcd1a24586f40134de65d2d914e17db}
+
+
+Копирующий оператор присваивания 
+
+Оператор присваивания, копирующий объект итератора. Корректно обрабатывает присваивание самому себе 
+
+\subsection{Документация по друзьям класса и функциям, относящимся к классу}
+\hypertarget{class_network_service_1_1_my_iterator_a3ef5b0b89d2266aa10cb593e6b2d1255}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator"!=@{operator"!=}}
+\index{operator"!=@{operator"!=}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator"!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool operator!= (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+Iterator}$<$ T $>$ \&}]{lv, }
+\item[{{\bf My\+Iterator}$<$ T $>$ \&}]{rv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_network_service_1_1_my_iterator_a3ef5b0b89d2266aa10cb593e6b2d1255}
+
+
+Неравенство двух итераторов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em lv} & Итератор слева от знака == \\
+\hline
+{\em rv} & Итератор справа от знака == \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если итераторы неравны, false в противном случае
+\end{DoxyReturn}
+Обращение результата оператора == \hypertarget{class_network_service_1_1_my_iterator_a44acb87c982f4dd4b401b1e46e7b93b7}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!operator==@{operator==}}
+\index{operator==@{operator==}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ bool operator== (
+\begin{DoxyParamCaption}
+\item[{{\bf My\+Iterator}$<$ T $>$ \&}]{lv, }
+\item[{{\bf My\+Iterator}$<$ T $>$ \&}]{rv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\label{class_network_service_1_1_my_iterator_a44acb87c982f4dd4b401b1e46e7b93b7}
+
+
+Равенство двух итераторов 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em lv} & Итератор слева от знака == \\
+\hline
+{\em rv} & Итератор справа от знака == \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Возвращает}
+true, если итераторы равны, false в противном случае
+\end{DoxyReturn}
+Итераторы считаются равными, если у них совпадают указатели на итерируемый объект и индексы 
+
+\subsection{Данные класса}
+\hypertarget{class_network_service_1_1_my_iterator_af3988a37b15d4fc081c55b2c21a93ad3}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!index@{index}}
+\index{index@{index}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{index}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ uint {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::index\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_my_iterator_af3988a37b15d4fc081c55b2c21a93ad3}
+
+
+Индекс текущего элемента 
+
+\hypertarget{class_network_service_1_1_my_iterator_a72858d4e9cc8cc8154f9e028ffa09aa7}{}\index{Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}!memb@{memb}}
+\index{memb@{memb}!Network\+Service\+::\+My\+Iterator@{Network\+Service\+::\+My\+Iterator}}
+\subsubsection[{memb}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T$\ast$ {\bf Network\+Service\+::\+My\+Iterator}$<$ T $>$\+::memb\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_my_iterator_a72858d4e9cc8cc8154f9e028ffa09aa7}
+
+
+Указатель на итерируемый объект 
+
+
+
+Объявления и описания членов класса находятся в файле\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Service\+Lib/\hyperlink{myiterator_8h}{myiterator.\+h}\end{DoxyCompactItemize}

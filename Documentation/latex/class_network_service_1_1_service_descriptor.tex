@@ -1,0 +1,259 @@
+\hypertarget{class_network_service_1_1_service_descriptor}{}\section{Класс Network\+Service\+:\+:Service\+Descriptor}
+\label{class_network_service_1_1_service_descriptor}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+
+
+Описатель сервиса, абстрактный класс  
+
+
+
+
+{\ttfamily \#include $<$servicedescriptor.\+h$>$}
+
+
+
+Граф наследования\+:Network\+Service\+:\+:Service\+Descriptor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_network_service_1_1_service_descriptor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Граф связей класса Network\+Service\+:\+:Service\+Descriptor\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=550pt]{class_network_service_1_1_service_descriptor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Открытые члены}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_network_service_1_1_service_descriptor_a18e78e84c574141558bf4bf4ca2dc8a2}{Service\+Descriptor} ()
+\begin{DoxyCompactList}\small\item\em Пустой конструктор \end{DoxyCompactList}\item 
+virtual std\+::string \hyperlink{class_network_service_1_1_service_descriptor_ac09d5d704a67a7ab2df6d925751ee5cc}{get\+Type} () const =0
+\begin{DoxyCompactList}\small\item\em Получение название сервиса \end{DoxyCompactList}\item 
+virtual ulong \hyperlink{class_network_service_1_1_service_descriptor_aa2da86b27ac53d8acb1eddf3723a1e44}{calculate\+Price} () const =0
+\begin{DoxyCompactList}\small\item\em Рассчет стоимости оказанных услуг \end{DoxyCompactList}\item 
+ulong \hyperlink{class_network_service_1_1_service_descriptor_a3717f7dc804127c03d19592e26d7cb9c}{get\+Destination\+Address} () const 
+\begin{DoxyCompactList}\small\item\em Получение адреса назначения \end{DoxyCompactList}\item 
+const \hyperlink{networkservice_8h_ac877dfabb0f4f6a8184aa821b447e81d}{ftimepoint} \& \hyperlink{class_network_service_1_1_service_descriptor_a0b854ff7100ce01e7f34ca19299bea35}{get\+Link\+Time} () const 
+\begin{DoxyCompactList}\small\item\em Получение времени оказания услуги \end{DoxyCompactList}\item 
+const \hyperlink{class_network_service_1_1_server}{Server} $\ast$ \hyperlink{class_network_service_1_1_service_descriptor_aeea7b729a1d6dd25fa3fdedd59d3a050}{get\+Server} () const 
+\begin{DoxyCompactList}\small\item\em Получение ассоциированного сервера \end{DoxyCompactList}\item 
+virtual \hyperlink{class_network_service_1_1_service_descriptor_a4952af79d52c368095a9ef0b1f2600c1}{$\sim$\+Service\+Descriptor} ()
+\end{DoxyCompactItemize}
+\subsection*{Защищенные члены}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{class_network_service_1_1_service_descriptor_ade61e982c82d03b92f5e096475720bd9}{set\+Destination\+Address} (ulong \hyperlink{class_network_service_1_1_service_descriptor_a0ee74116510749afe1c60a7634d3eae7}{addr})
+\begin{DoxyCompactList}\small\item\em Установка адреса назначения \end{DoxyCompactList}\item 
+void \hyperlink{class_network_service_1_1_service_descriptor_a7a539e5075ea95a40ec20ebc676093ea}{set\+Link\+Time} (\hyperlink{networkservice_8h_ac877dfabb0f4f6a8184aa821b447e81d}{ftimepoint} \&time)
+\begin{DoxyCompactList}\small\item\em Установка времени связи \end{DoxyCompactList}\item 
+void \hyperlink{class_network_service_1_1_service_descriptor_a16fa0f2b34adc7665ed32d139d580eb3}{set\+Server} (\hyperlink{class_network_service_1_1_server}{Server} $\ast$srv)
+\begin{DoxyCompactList}\small\item\em Установка ассоциированного сервера \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Закрытые данные}
+\begin{DoxyCompactItemize}
+\item 
+ulong \hyperlink{class_network_service_1_1_service_descriptor_a0ee74116510749afe1c60a7634d3eae7}{addr}
+\begin{DoxyCompactList}\small\item\em Адрес назначения \end{DoxyCompactList}\item 
+\hyperlink{networkservice_8h_ac877dfabb0f4f6a8184aa821b447e81d}{ftimepoint} \hyperlink{class_network_service_1_1_service_descriptor_a08bfd17afce0cba1954d30bd76a14df4}{linktime}
+\begin{DoxyCompactList}\small\item\em Время связи \end{DoxyCompactList}\item 
+\hyperlink{class_network_service_1_1_server}{Server} $\ast$ \hyperlink{class_network_service_1_1_service_descriptor_ad504b32ced44a75e0e02ea961d9434c4}{server}
+\begin{DoxyCompactList}\small\item\em Указатель на ассоциированный сервер, нужен для рассчета стоимости \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Подробное описание}
+Описатель сервиса, абстрактный класс 
+
+Описатели сервисов наследуются от данного класса. Наследуемые классы должны реализовывать методы \hyperlink{class_network_service_1_1_service_descriptor_ac09d5d704a67a7ab2df6d925751ee5cc}{get\+Type()} и \hyperlink{class_network_service_1_1_service_descriptor_aa2da86b27ac53d8acb1eddf3723a1e44}{calculate\+Price()} 
+
+\subsection{Конструктор(ы)}
+\hypertarget{class_network_service_1_1_service_descriptor_a18e78e84c574141558bf4bf4ca2dc8a2}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!Service\+Descriptor@{Service\+Descriptor}}
+\index{Service\+Descriptor@{Service\+Descriptor}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{Service\+Descriptor}]{\setlength{\rightskip}{0pt plus 5cm}Service\+Descriptor\+::\+Service\+Descriptor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\label{class_network_service_1_1_service_descriptor_a18e78e84c574141558bf4bf4ca2dc8a2}
+
+
+Пустой конструктор 
+
+\hypertarget{class_network_service_1_1_service_descriptor_a4952af79d52c368095a9ef0b1f2600c1}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!````~Service\+Descriptor@{$\sim$\+Service\+Descriptor}}
+\index{````~Service\+Descriptor@{$\sim$\+Service\+Descriptor}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{$\sim$\+Service\+Descriptor}]{\setlength{\rightskip}{0pt plus 5cm}virtual Network\+Service\+::\+Service\+Descriptor\+::$\sim$\+Service\+Descriptor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\label{class_network_service_1_1_service_descriptor_a4952af79d52c368095a9ef0b1f2600c1}
+
+
+\subsection{Методы}
+\hypertarget{class_network_service_1_1_service_descriptor_aa2da86b27ac53d8acb1eddf3723a1e44}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!calculate\+Price@{calculate\+Price}}
+\index{calculate\+Price@{calculate\+Price}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{calculate\+Price}]{\setlength{\rightskip}{0pt plus 5cm}virtual ulong Network\+Service\+::\+Service\+Descriptor\+::calculate\+Price (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_network_service_1_1_service_descriptor_aa2da86b27ac53d8acb1eddf3723a1e44}
+
+
+Рассчет стоимости оказанных услуг 
+
+\begin{DoxyReturn}{Возвращает}
+стоимость оказанных услуг 
+\end{DoxyReturn}
+
+
+Замещается в \hyperlink{class_network_service_1_1_network_descriptor_a515f9b5e56c7027101fcb000e9be96a2}{Network\+Service\+::\+Network\+Descriptor}, \hyperlink{class_network_service_1_1_file_descriptor_a2c480da1613f7072d3113082d1f8cc54}{Network\+Service\+::\+File\+Descriptor} и \hyperlink{class_network_service_1_1_post_descriptor_ae88dfdc2d12299b6d3b14786d16e3251}{Network\+Service\+::\+Post\+Descriptor}.
+
+\hypertarget{class_network_service_1_1_service_descriptor_a3717f7dc804127c03d19592e26d7cb9c}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!get\+Destination\+Address@{get\+Destination\+Address}}
+\index{get\+Destination\+Address@{get\+Destination\+Address}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{get\+Destination\+Address}]{\setlength{\rightskip}{0pt plus 5cm}ulong Service\+Descriptor\+::get\+Destination\+Address (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_network_service_1_1_service_descriptor_a3717f7dc804127c03d19592e26d7cb9c}
+
+
+Получение адреса назначения 
+
+\begin{DoxyReturn}{Возвращает}
+Адрес назначения 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_service_descriptor_a0b854ff7100ce01e7f34ca19299bea35}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!get\+Link\+Time@{get\+Link\+Time}}
+\index{get\+Link\+Time@{get\+Link\+Time}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{get\+Link\+Time}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf ftimepoint} \& Service\+Descriptor\+::get\+Link\+Time (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_network_service_1_1_service_descriptor_a0b854ff7100ce01e7f34ca19299bea35}
+
+
+Получение времени оказания услуги 
+
+\begin{DoxyReturn}{Возвращает}
+Ссылка на объект ftimepoint 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_service_descriptor_aeea7b729a1d6dd25fa3fdedd59d3a050}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!get\+Server@{get\+Server}}
+\index{get\+Server@{get\+Server}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{get\+Server}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Server} $\ast$ Service\+Descriptor\+::get\+Server (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\label{class_network_service_1_1_service_descriptor_aeea7b729a1d6dd25fa3fdedd59d3a050}
+
+
+Получение ассоциированного сервера 
+
+\begin{DoxyReturn}{Возвращает}
+Указатель на ассоциированный сервер 
+\end{DoxyReturn}
+\hypertarget{class_network_service_1_1_service_descriptor_ac09d5d704a67a7ab2df6d925751ee5cc}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!get\+Type@{get\+Type}}
+\index{get\+Type@{get\+Type}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{get\+Type}]{\setlength{\rightskip}{0pt plus 5cm}virtual std\+::string Network\+Service\+::\+Service\+Descriptor\+::get\+Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\label{class_network_service_1_1_service_descriptor_ac09d5d704a67a7ab2df6d925751ee5cc}
+
+
+Получение название сервиса 
+
+\begin{DoxyReturn}{Возвращает}
+Строка с названием 
+\end{DoxyReturn}
+
+
+Замещается в \hyperlink{class_network_service_1_1_file_descriptor_a68270f753630bf3ac34c621a56e4f6f7}{Network\+Service\+::\+File\+Descriptor}, \hyperlink{class_network_service_1_1_network_descriptor_abef35df6ca05d7b0ed9e3c0385b9a02a}{Network\+Service\+::\+Network\+Descriptor} и \hyperlink{class_network_service_1_1_post_descriptor_a91b6330d604d4866c85c32187f131431}{Network\+Service\+::\+Post\+Descriptor}.
+
+\hypertarget{class_network_service_1_1_service_descriptor_ade61e982c82d03b92f5e096475720bd9}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!set\+Destination\+Address@{set\+Destination\+Address}}
+\index{set\+Destination\+Address@{set\+Destination\+Address}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{set\+Destination\+Address}]{\setlength{\rightskip}{0pt plus 5cm}void Service\+Descriptor\+::set\+Destination\+Address (
+\begin{DoxyParamCaption}
+\item[{ulong}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_network_service_1_1_service_descriptor_ade61e982c82d03b92f5e096475720bd9}
+
+
+Установка адреса назначения 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em addr} & Новый адрес назначения \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em invalid\+\_\+argument} & Если I\+P адрес не верный \\
+\hline
+\end{DoxyExceptions}
+\hypertarget{class_network_service_1_1_service_descriptor_a7a539e5075ea95a40ec20ebc676093ea}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!set\+Link\+Time@{set\+Link\+Time}}
+\index{set\+Link\+Time@{set\+Link\+Time}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{set\+Link\+Time}]{\setlength{\rightskip}{0pt plus 5cm}void Service\+Descriptor\+::set\+Link\+Time (
+\begin{DoxyParamCaption}
+\item[{{\bf ftimepoint} \&}]{time}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_network_service_1_1_service_descriptor_a7a539e5075ea95a40ec20ebc676093ea}
+
+
+Установка времени связи 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em time} & Время связи \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_network_service_1_1_service_descriptor_a16fa0f2b34adc7665ed32d139d580eb3}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!set\+Server@{set\+Server}}
+\index{set\+Server@{set\+Server}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{set\+Server}]{\setlength{\rightskip}{0pt plus 5cm}void Service\+Descriptor\+::set\+Server (
+\begin{DoxyParamCaption}
+\item[{{\bf Server} $\ast$}]{srv}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [protected]}}\label{class_network_service_1_1_service_descriptor_a16fa0f2b34adc7665ed32d139d580eb3}
+
+
+Установка ассоциированного сервера 
+
+
+\begin{DoxyParams}{Аргументы}
+{\em srv} & Указатель на сервер \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Исключения}
+{\em invalid\+\_\+argument} & Если передан nullptr \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Данные класса}
+\hypertarget{class_network_service_1_1_service_descriptor_a0ee74116510749afe1c60a7634d3eae7}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!addr@{addr}}
+\index{addr@{addr}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}ulong Network\+Service\+::\+Service\+Descriptor\+::addr\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_service_descriptor_a0ee74116510749afe1c60a7634d3eae7}
+
+
+Адрес назначения 
+
+\hypertarget{class_network_service_1_1_service_descriptor_a08bfd17afce0cba1954d30bd76a14df4}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!linktime@{linktime}}
+\index{linktime@{linktime}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{linktime}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ftimepoint} Network\+Service\+::\+Service\+Descriptor\+::linktime\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_service_descriptor_a08bfd17afce0cba1954d30bd76a14df4}
+
+
+Время связи 
+
+\hypertarget{class_network_service_1_1_service_descriptor_ad504b32ced44a75e0e02ea961d9434c4}{}\index{Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}!server@{server}}
+\index{server@{server}!Network\+Service\+::\+Service\+Descriptor@{Network\+Service\+::\+Service\+Descriptor}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Server}$\ast$ Network\+Service\+::\+Service\+Descriptor\+::server\hspace{0.3cm}{\ttfamily [private]}}\label{class_network_service_1_1_service_descriptor_ad504b32ced44a75e0e02ea961d9434c4}
+
+
+Указатель на ассоциированный сервер, нужен для рассчета стоимости 
+
+
+
+Объявления и описания членов классов находятся в файлах\+:\begin{DoxyCompactItemize}
+\item 
+Network\+Service\+Lib/\hyperlink{servicedescriptor_8h}{servicedescriptor.\+h}\item 
+Network\+Service\+Lib/\hyperlink{servicedescriptor_8cpp}{servicedescriptor.\+cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,143 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Сетевой сервис: Исходный файл NetworkServiceLib/networkdescriptor.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Сетевой сервис
+   </div>
+   <div id="projectbrief">Простая база данных, содержащая сведения об оказанных услугах, с поддержкой подсчета их итоговой стоимости</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li class="current"><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li><a href="globals.html"><span>Список&#160;членов&#160;всех&#160;файлов</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_563e563d3f5b6b16b1b5468c827d1eaa.html">NetworkServiceLib</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">networkdescriptor.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="networkdescriptor_8h.html">См. документацию.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef NETWORKDESCRIPTOR</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define NETWORKDESCRIPTOR</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">namespace </span><a class="code" href="namespace_network_service.html">NetworkService</a> {</div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_network_service_1_1_network_descriptor.html">   11</a></span>&#160;    <span class="keyword">class </span><a class="code" href="class_network_service_1_1_network_descriptor.html">NetworkDescriptor</a> : <span class="keyword">public</span> <a class="code" href="class_network_service_1_1_service_descriptor.html">ServiceDescriptor</a> {</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_network_service_1_1_network_descriptor.html#a109969d9199b67144184e1b296406edc">   13</a></span>&#160;        ulong <a class="code" href="class_network_service_1_1_network_descriptor.html#ac4fc85cab905739a9513fcfd06ca0453">intraffic</a>,<a class="code" href="class_network_service_1_1_network_descriptor.html#a109969d9199b67144184e1b296406edc">outtraffic</a>; </div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_network_service_1_1_network_descriptor.html#a30c7b2914f9a815341c0d11653f378db">   14</a></span>&#160;        <a class="code" href="networkservice_8h.html#a476cc728ef971cba9111c75ea41a760a">fduration</a> <a class="code" href="class_network_service_1_1_network_descriptor.html#a30c7b2914f9a815341c0d11653f378db">linkduration</a>; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <a class="code" href="class_network_service_1_1_network_descriptor.html#a92164573b30dfe0650904c1bc32fb073">NetworkDescriptor</a>();</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;        <a class="code" href="class_network_service_1_1_network_descriptor.html#a92164573b30dfe0650904c1bc32fb073">NetworkDescriptor</a>(ulong intraffic,</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;                       ulong outtraffic,</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;                       ulong address,</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;                       <a class="code" href="networkservice_8h.html#ac877dfabb0f4f6a8184aa821b447e81d">ftimepoint</a> &amp;<a class="code" href="class_network_service_1_1_service_descriptor.html#a08bfd17afce0cba1954d30bd76a14df4">linktime</a>,</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;                       <a class="code" href="networkservice_8h.html#a476cc728ef971cba9111c75ea41a760a">fduration</a> &amp;linkduration,</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;                       <a class="code" href="class_network_service_1_1_server.html">Server</a> * <a class="code" href="class_network_service_1_1_service_descriptor.html#ad504b32ced44a75e0e02ea961d9434c4">server</a>);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        ulong <a class="code" href="class_network_service_1_1_network_descriptor.html#ad8d2c236158fd870ce202b03d07ce202">getInTraffic</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;        ulong <a class="code" href="class_network_service_1_1_network_descriptor.html#adbc216cb7c97d45161f5ec7c7c5a1aa7">getOutTraffic</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        std::string <a class="code" href="class_network_service_1_1_network_descriptor.html#abef35df6ca05d7b0ed9e3c0385b9a02a">getType</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keyword">const</span> <a class="code" href="networkservice_8h.html#a476cc728ef971cba9111c75ea41a760a">fduration</a> &amp; <a class="code" href="class_network_service_1_1_network_descriptor.html#a21523ecd4dfc2b54873cefd02bc1fb80">getLinkDuration</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        ulong <a class="code" href="class_network_service_1_1_network_descriptor.html#a515f9b5e56c7027101fcb000e9be96a2">calculatePrice</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    };</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif // NETWORKDESCRIPTOR</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_a21523ecd4dfc2b54873cefd02bc1fb80"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#a21523ecd4dfc2b54873cefd02bc1fb80">NetworkService::NetworkDescriptor::getLinkDuration</a></div><div class="ttdeci">const fduration &amp; getLinkDuration() const </div><div class="ttdoc">Получение продолжительности связи </div><div class="ttdef"><b>Definition:</b> networkdescriptor.cpp:68</div></div>
+<div class="ttc" id="class_network_service_1_1_server_html"><div class="ttname"><a href="class_network_service_1_1_server.html">NetworkService::Server</a></div><div class="ttdoc">Описатель сервера </div><div class="ttdef"><b>Definition:</b> server.h:14</div></div>
+<div class="ttc" id="class_network_service_1_1_service_descriptor_html_ad504b32ced44a75e0e02ea961d9434c4"><div class="ttname"><a href="class_network_service_1_1_service_descriptor.html#ad504b32ced44a75e0e02ea961d9434c4">NetworkService::ServiceDescriptor::server</a></div><div class="ttdeci">Server * server</div><div class="ttdoc">Указатель на ассоциированный сервер, нужен для рассчета стоимости </div><div class="ttdef"><b>Definition:</b> servicedescriptor.h:19</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_ac4fc85cab905739a9513fcfd06ca0453"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#ac4fc85cab905739a9513fcfd06ca0453">NetworkService::NetworkDescriptor::intraffic</a></div><div class="ttdeci">ulong intraffic</div><div class="ttdef"><b>Definition:</b> networkdescriptor.h:13</div></div>
+<div class="ttc" id="networkservice_8h_html_a476cc728ef971cba9111c75ea41a760a"><div class="ttname"><a href="networkservice_8h.html#a476cc728ef971cba9111c75ea41a760a">fduration</a></div><div class="ttdeci">std::chrono::duration&lt; float &gt; fduration</div><div class="ttdoc">Специализация duration для типа float. </div><div class="ttdef"><b>Definition:</b> networkservice.h:26</div></div>
+<div class="ttc" id="class_network_service_1_1_service_descriptor_html_a08bfd17afce0cba1954d30bd76a14df4"><div class="ttname"><a href="class_network_service_1_1_service_descriptor.html#a08bfd17afce0cba1954d30bd76a14df4">NetworkService::ServiceDescriptor::linktime</a></div><div class="ttdeci">ftimepoint linktime</div><div class="ttdoc">Время связи </div><div class="ttdef"><b>Definition:</b> servicedescriptor.h:18</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_adbc216cb7c97d45161f5ec7c7c5a1aa7"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#adbc216cb7c97d45161f5ec7c7c5a1aa7">NetworkService::NetworkDescriptor::getOutTraffic</a></div><div class="ttdeci">ulong getOutTraffic() const </div><div class="ttdoc">Получение количества отправленных данных </div><div class="ttdef"><b>Definition:</b> networkdescriptor.cpp:43</div></div>
+<div class="ttc" id="class_network_service_1_1_service_descriptor_html"><div class="ttname"><a href="class_network_service_1_1_service_descriptor.html">NetworkService::ServiceDescriptor</a></div><div class="ttdoc">Описатель сервиса, абстрактный класс </div><div class="ttdef"><b>Definition:</b> servicedescriptor.h:15</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_a109969d9199b67144184e1b296406edc"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#a109969d9199b67144184e1b296406edc">NetworkService::NetworkDescriptor::outtraffic</a></div><div class="ttdeci">ulong outtraffic</div><div class="ttdoc">Количество переданной и отправленной информации </div><div class="ttdef"><b>Definition:</b> networkdescriptor.h:13</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_ad8d2c236158fd870ce202b03d07ce202"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#ad8d2c236158fd870ce202b03d07ce202">NetworkService::NetworkDescriptor::getInTraffic</a></div><div class="ttdeci">ulong getInTraffic() const </div><div class="ttdoc">Получение количества полученных данных </div><div class="ttdef"><b>Definition:</b> networkdescriptor.cpp:35</div></div>
+<div class="ttc" id="networkservice_8h_html_ac877dfabb0f4f6a8184aa821b447e81d"><div class="ttname"><a href="networkservice_8h.html#ac877dfabb0f4f6a8184aa821b447e81d">ftimepoint</a></div><div class="ttdeci">std::chrono::time_point&lt; Time &gt; ftimepoint</div><div class="ttdoc">Специализация time_point для системных часов </div><div class="ttdef"><b>Definition:</b> networkservice.h:25</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_a92164573b30dfe0650904c1bc32fb073"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#a92164573b30dfe0650904c1bc32fb073">NetworkService::NetworkDescriptor::NetworkDescriptor</a></div><div class="ttdeci">NetworkDescriptor()</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html">NetworkService::NetworkDescriptor</a></div><div class="ttdoc">Описатель сервиса "сеть", наследуется от ServiceDescriptor. </div><div class="ttdef"><b>Definition:</b> networkdescriptor.h:11</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_a515f9b5e56c7027101fcb000e9be96a2"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#a515f9b5e56c7027101fcb000e9be96a2">NetworkService::NetworkDescriptor::calculatePrice</a></div><div class="ttdeci">ulong calculatePrice() const </div><div class="ttdoc">Рассчет стоимости оказанных услуг </div><div class="ttdef"><b>Definition:</b> networkdescriptor.cpp:60</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_a30c7b2914f9a815341c0d11653f378db"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#a30c7b2914f9a815341c0d11653f378db">NetworkService::NetworkDescriptor::linkduration</a></div><div class="ttdeci">fduration linkduration</div><div class="ttdoc">Продолжительность связи </div><div class="ttdef"><b>Definition:</b> networkdescriptor.h:14</div></div>
+<div class="ttc" id="namespace_network_service_html"><div class="ttname"><a href="namespace_network_service.html">NetworkService</a></div><div class="ttdef"><b>Definition:</b> application.h:7</div></div>
+<div class="ttc" id="class_network_service_1_1_network_descriptor_html_abef35df6ca05d7b0ed9e3c0385b9a02a"><div class="ttname"><a href="class_network_service_1_1_network_descriptor.html#abef35df6ca05d7b0ed9e3c0385b9a02a">NetworkService::NetworkDescriptor::getType</a></div><div class="ttdeci">std::string getType() const </div><div class="ttdoc">Получение названия типа услуги </div><div class="ttdef"><b>Definition:</b> networkdescriptor.cpp:50</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

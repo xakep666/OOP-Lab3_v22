@@ -10,6 +10,7 @@ using namespace NetworkService;
  * \brief Проверка, занят ли адрес
  * \param addr Проверяемый адрес
  * \return true, если занят, false, если свободен
+ *
  * Метод ищет проверяемый адрес в таблице используемых адресов
  */
 bool Application::isIPBusy(ulong addr) const {
@@ -30,6 +31,7 @@ bool Application::isIPBusy(ulong addr) const {
  * \param costpermb Стоимость 1MB переданных данных
  * \throws invalid_argument если IP адрес сервера неверный
  * \throws logic_error если IP адрес занят(используется)
+ *
  * Метод добавляет новый сервер в таблицу, в случае успешного добавления сервера
  * IP адрес добавляется в таблицу используемых адресов
  */
@@ -50,6 +52,7 @@ void Application::addServer(ulong addr, std::string name, ulong costpermin, ulon
  * \brief Удаление сервера из таблицы
  * \param addr IP адрес удаляемого сервера
  * \throws invalid_argument если IP неверный или сервер с таким адресом не был наиден
+ *
  * Метод удаляет сервер из таблицы серверов, также IP адрес удаляется из таблицы использованных адресов
  */
 void Application::delServer(ulong addr) {
@@ -88,6 +91,7 @@ Server & Application::getServer(ulong addr) {
  * \param srv Ссылка на объект Server
  * \param newaddr Новый адрес
  * \throw invalid_argument если адрес неверный или занят
+ *
  * Метод меняет своиство address у объекта Server, проверяя новый адрес на занятость
  * по таблице занятых адресов и на правильность
  */
@@ -112,6 +116,7 @@ void Application::SetServerAddress(Server &srv, ulong newaddr) {
  * - Неверный IP сервера
  * - Неверный IP клиента
  * - В качестве указателя на ServiceDescriptor передан нулевой указатель
+ *
  * Метод ищет сервер в таблице серверов и добавляет в его "таблицу связи" информацию об оказанной услуге.
  * Также метод добавляет IP адрес клиента в таблицу занятых адресов, если такого адреса там еще нет
  */
@@ -128,10 +133,11 @@ void Application::addService(ulong serveraddr, ulong abonentaddr, ServiceDescrip
 }
 
 /*!
- * \brief Application::operator [] Оператор индексирования таблицы серверов
- * \param Индекс
+ * \brief Оператор индексирования таблицы серверов
+ * \param index Индекс
  * \return Ссылка на объект Server
  * \throw invalid_argument если index больше, чем размер таблицы
+ *
  * Метод использует перегруженный оператор для [] для таблицы серверов.
  * Метод необходим для работы итераторов
  */
@@ -179,13 +185,14 @@ Application::ConstIterator Application::end() const{
  * \brief Cбор информации о количестве переданных данных и длительности связи для абонента
  * \param abonentaddr IP адрес абонента
  * \return vector из string - текстовое представление собранной информации
+ * \throw invalid_argument если адрес абонента неверен или не найден
+ *
  * Метод проходит по всем серверам и их таблицам связи, используя итераторы, собирая информацию во "временную"
  * коллекцию следующего вида
  * \snippet application.cpp countervec
  * Первый элемент пары - суммарный траффик для сервиса (передано+получено),
  * Второй - Общая длительность связи для сервиса (не для всех сервисов)
  * Вектор result резервируется для 3-х сервисов
- * \throw invalid_argument если адрес абонента неверен или не найден
  */
 std::vector<std::string> Application::abonentInfo(ulong abonentaddr) const{
     if(!isValidIP(abonentaddr))
@@ -230,6 +237,7 @@ std::vector<std::string> Application::abonentInfo(ulong abonentaddr) const{
  * \brief Считает итоговую стоимость оказанных услуг абонента
  * \param abonentaddr IP адрес абонента
  * \return Итоговая стоимость
+ *
  * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), вызывая для каждой записи виртуальную
  * функцию calculatePrice() и прибавляя ее результат к итоговому
  */
@@ -251,6 +259,7 @@ ulong Application::abonentTotalPrice(ulong abonentaddr) const {
 /*!
  * \brief Считает количество переданных данных и количество полученных данных
  * \return пара значений: первое - количество переданных данных, второе - количество полученных
+ *
  * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), считывает количество данных
  * и направление их передачи, добавляя к результату
  */
@@ -282,6 +291,7 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
  * \brief Сохраняет записи в JSON формате в текстовый файл
  * \param path Путь к файлу назначения
  * \throws logic_error в случае ошибки открытия файла на запись
+ *
  * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), сохраняя информацию в
  * JSON формате в текстовый файл
  */
@@ -353,6 +363,7 @@ void Application::saveToFile(std::string &path) {
  * \param path Путь к исходному файлу
  * \throws invalid_argument если не удалось открыть файл на чтение
  * \throws logic_error в случае ошибки разбора
+ *
  * Метод разбирает JSON представление, взятое из файла, восстанавливая информацию о серверах и оказанных услугах
  */
 void Application::readFromFile(std::string &path) {

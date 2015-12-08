@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.9.1"/>
+<title>Сетевой сервис: Класс NetworkService::Application</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td style="padding-left: 0.5em;">
+   <div id="projectname">Сетевой сервис
+   </div>
+   <div id="projectbrief">Простая база данных, содержащая сведения об оказанных услугах, с поддержкой подсчета их итоговой стоимости</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Создано системой Doxygen 1.8.9.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Титульная&#160;страница</span></a></li>
+      <li><a href="namespaces.html"><span>Пространства&#160;имен</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="files.html"><span>Файлы</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Поиск" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>Классы</span></a></li>
+      <li><a href="classes.html"><span>Алфавитный&#160;указатель&#160;классов</span></a></li>
+      <li><a href="inherits.html"><span>Иерархия&#160;классов</span></a></li>
+      <li><a href="functions.html"><span>Члены&#160;классов</span></a></li>
+    </ul>
+  </div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="namespace_network_service.html">NetworkService</a></li><li class="navelem"><a class="el" href="class_network_service_1_1_application.html">Application</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-types">Открытые типы</a> &#124;
+<a href="#pub-methods">Открытые члены</a> &#124;
+<a href="#pub-attribs">Открытые атрибуты</a> &#124;
+<a href="#pri-methods">Закрытые члены</a> &#124;
+<a href="#pri-attribs">Закрытые данные</a> &#124;
+<a href="#friends">Друзья</a> &#124;
+<a href="class_network_service_1_1_application-members.html">Полный список членов класса</a>  </div>
+  <div class="headertitle">
+<div class="title">Класс NetworkService::Application</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>Класс, реализующий работу приложения  
+ <a href="class_network_service_1_1_application.html#details">Подробнее...</a></p>
+
+<p><code>#include &lt;<a class="el" href="application_8h_source.html">application.h</a>&gt;</code></p>
+<div class="dynheader">
+Граф связей класса NetworkService::Application:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="class_network_service_1_1_application__coll__graph.svg" width="198" height="279"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-types"></a>
+Открытые типы</h2></td></tr>
+<tr class="memitem:a4cbe718a4ebf378cf75cc55fe015177a"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="class_network_service_1_1_server.html">Server</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a4cbe718a4ebf378cf75cc55fe015177a">indexT</a></td></tr>
+<tr class="memdesc:a4cbe718a4ebf378cf75cc55fe015177a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Определение типа для работы итератора  <a href="#a4cbe718a4ebf378cf75cc55fe015177a">Подробнее...</a><br /></td></tr>
+<tr class="separator:a4cbe718a4ebf378cf75cc55fe015177a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a206937019d86d3391a209e9883b44f7b"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="class_network_service_1_1_my_iterator.html">MyIterator</a>&lt; <a class="el" href="class_network_service_1_1_application.html">Application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a206937019d86d3391a209e9883b44f7b">Iterator</a></td></tr>
+<tr class="memdesc:a206937019d86d3391a209e9883b44f7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Специализация шаблонного типа <a class="el" href="class_network_service_1_1_my_iterator.html" title="Шаблонный класс итератора ">MyIterator</a>.  <a href="#a206937019d86d3391a209e9883b44f7b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a206937019d86d3391a209e9883b44f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51fff3b7cce6bf84c2edbd887c0cac45"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="class_network_service_1_1_my_const_iterator.html">MyConstIterator</a>&lt; <a class="el" href="class_network_service_1_1_application.html">Application</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a51fff3b7cce6bf84c2edbd887c0cac45">ConstIterator</a></td></tr>
+<tr class="memdesc:a51fff3b7cce6bf84c2edbd887c0cac45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Специализация шаблонного типа <a class="el" href="class_network_service_1_1_my_const_iterator.html" title="Шаблонный класс итератора ">MyConstIterator</a>.  <a href="#a51fff3b7cce6bf84c2edbd887c0cac45">Подробнее...</a><br /></td></tr>
+<tr class="separator:a51fff3b7cce6bf84c2edbd887c0cac45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Открытые члены</h2></td></tr>
+<tr class="memitem:abfad2c23a7824c984a7ee1e6141d732b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#abfad2c23a7824c984a7ee1e6141d732b">Application</a> ()</td></tr>
+<tr class="separator:abfad2c23a7824c984a7ee1e6141d732b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c718890bcaa6cce31f29c1ae7e69b81"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a7c718890bcaa6cce31f29c1ae7e69b81">addServer</a> (ulong addr, std::string name, ulong costpermin, ulong costpermb)</td></tr>
+<tr class="memdesc:a7c718890bcaa6cce31f29c1ae7e69b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление нового сервера в таблицу  <a href="#a7c718890bcaa6cce31f29c1ae7e69b81">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7c718890bcaa6cce31f29c1ae7e69b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09e462bffd3345934a1e3f3eca89774"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#ad09e462bffd3345934a1e3f3eca89774">delServer</a> (ulong addr)</td></tr>
+<tr class="memdesc:ad09e462bffd3345934a1e3f3eca89774"><td class="mdescLeft">&#160;</td><td class="mdescRight">Удаление сервера из таблицы  <a href="#ad09e462bffd3345934a1e3f3eca89774">Подробнее...</a><br /></td></tr>
+<tr class="separator:ad09e462bffd3345934a1e3f3eca89774"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb73429fd01baca7eb138c316f05c97a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_service_1_1_server.html">Server</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#acb73429fd01baca7eb138c316f05c97a">getServer</a> (ulong addr)</td></tr>
+<tr class="memdesc:acb73429fd01baca7eb138c316f05c97a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Находит сервер в таблице по адресу  <a href="#acb73429fd01baca7eb138c316f05c97a">Подробнее...</a><br /></td></tr>
+<tr class="separator:acb73429fd01baca7eb138c316f05c97a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b18fb99b391286a0cf85c3c731b5982"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a7b18fb99b391286a0cf85c3c731b5982">SetServerAddress</a> (<a class="el" href="class_network_service_1_1_server.html">Server</a> &amp;srv, ulong newaddr)</td></tr>
+<tr class="memdesc:a7b18fb99b391286a0cf85c3c731b5982"><td class="mdescLeft">&#160;</td><td class="mdescRight">Изменение IP адреса сервера  <a href="#a7b18fb99b391286a0cf85c3c731b5982">Подробнее...</a><br /></td></tr>
+<tr class="separator:a7b18fb99b391286a0cf85c3c731b5982"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31f7383eb1d003932ca6d3111571ef2e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a31f7383eb1d003932ca6d3111571ef2e">addService</a> (ulong serveraddr, ulong abonentaddr, <a class="el" href="class_network_service_1_1_service_descriptor.html">ServiceDescriptor</a> *sdesc)</td></tr>
+<tr class="memdesc:a31f7383eb1d003932ca6d3111571ef2e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Добавление записи об оказанной услуге в "таблицу связи" сервера  <a href="#a31f7383eb1d003932ca6d3111571ef2e">Подробнее...</a><br /></td></tr>
+<tr class="separator:a31f7383eb1d003932ca6d3111571ef2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b064e8f7ab3a8932a610f53713e12ab"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a0b064e8f7ab3a8932a610f53713e12ab">abonentInfo</a> (ulong abonentaddr) const </td></tr>
+<tr class="memdesc:a0b064e8f7ab3a8932a610f53713e12ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cбор информации о количестве переданных данных и длительности связи для абонента  <a href="#a0b064e8f7ab3a8932a610f53713e12ab">Подробнее...</a><br /></td></tr>
+<tr class="separator:a0b064e8f7ab3a8932a610f53713e12ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab44d0123e96ef44496aab54effc42281"><td class="memItemLeft" align="right" valign="top">ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#ab44d0123e96ef44496aab54effc42281">abonentTotalPrice</a> (ulong abonentaddr) const </td></tr>
+<tr class="memdesc:ab44d0123e96ef44496aab54effc42281"><td class="mdescLeft">&#160;</td><td class="mdescRight">Считает итоговую стоимость оказанных услуг абонента  <a href="#ab44d0123e96ef44496aab54effc42281">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab44d0123e96ef44496aab54effc42281"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52c98b58888cda1930b1d88d99ab7af7"><td class="memItemLeft" align="right" valign="top">std::pair&lt; ulong, ulong &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a52c98b58888cda1930b1d88d99ab7af7">countIOTraffic</a> () const </td></tr>
+<tr class="memdesc:a52c98b58888cda1930b1d88d99ab7af7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Считает количество переданных данных и количество полученных данных  <a href="#a52c98b58888cda1930b1d88d99ab7af7">Подробнее...</a><br /></td></tr>
+<tr class="separator:a52c98b58888cda1930b1d88d99ab7af7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a670578bac65348d3c604fdf53585102b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a670578bac65348d3c604fdf53585102b">saveToFile</a> (std::string &amp;path)</td></tr>
+<tr class="memdesc:a670578bac65348d3c604fdf53585102b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Сохраняет записи в JSON формате в текстовый файл  <a href="#a670578bac65348d3c604fdf53585102b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a670578bac65348d3c604fdf53585102b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab86f830805a3b9ab2909ea65f7eb48b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#ab86f830805a3b9ab2909ea65f7eb48b8">readFromFile</a> (std::string &amp;path)</td></tr>
+<tr class="memdesc:ab86f830805a3b9ab2909ea65f7eb48b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Считывает информацию о серверах и оказанных услугах из текстового файла, содержащего JSON представление  <a href="#ab86f830805a3b9ab2909ea65f7eb48b8">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab86f830805a3b9ab2909ea65f7eb48b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af79bea7489f0192a631af1477290af14"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_service_1_1_application.html#a206937019d86d3391a209e9883b44f7b">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#af79bea7489f0192a631af1477290af14">begin</a> ()</td></tr>
+<tr class="memdesc:af79bea7489f0192a631af1477290af14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Итератор, указывающий на первый элемент таблицы  <a href="#af79bea7489f0192a631af1477290af14">Подробнее...</a><br /></td></tr>
+<tr class="separator:af79bea7489f0192a631af1477290af14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3762c2bc3f66e96b1295ec584f779d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_service_1_1_application.html#a51fff3b7cce6bf84c2edbd887c0cac45">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a2d3762c2bc3f66e96b1295ec584f779d">begin</a> () const </td></tr>
+<tr class="memdesc:a2d3762c2bc3f66e96b1295ec584f779d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Константный итератор, указывающий на первый элемент таблицы  <a href="#a2d3762c2bc3f66e96b1295ec584f779d">Подробнее...</a><br /></td></tr>
+<tr class="separator:a2d3762c2bc3f66e96b1295ec584f779d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0fcfd1baa6f19b018ad6e8ab7ca122c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_service_1_1_application.html#a206937019d86d3391a209e9883b44f7b">Iterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#ab0fcfd1baa6f19b018ad6e8ab7ca122c">end</a> ()</td></tr>
+<tr class="memdesc:ab0fcfd1baa6f19b018ad6e8ab7ca122c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Итератор, указывающий на конец таблицы (индекс, равный размеру)  <a href="#ab0fcfd1baa6f19b018ad6e8ab7ca122c">Подробнее...</a><br /></td></tr>
+<tr class="separator:ab0fcfd1baa6f19b018ad6e8ab7ca122c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae464b274be530d8d8a546488780a077e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_service_1_1_application.html#a51fff3b7cce6bf84c2edbd887c0cac45">ConstIterator</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#ae464b274be530d8d8a546488780a077e">end</a> () const </td></tr>
+<tr class="memdesc:ae464b274be530d8d8a546488780a077e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Константный итератор, указывающий на конец таблицы (индекс, равный размеру)  <a href="#ae464b274be530d8d8a546488780a077e">Подробнее...</a><br /></td></tr>
+<tr class="separator:ae464b274be530d8d8a546488780a077e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dba76630cbd2d6863d2331475a18518"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_network_service_1_1_server.html">Server</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a6dba76630cbd2d6863d2331475a18518">operator[]</a> (uint index)</td></tr>
+<tr class="memdesc:a6dba76630cbd2d6863d2331475a18518"><td class="mdescLeft">&#160;</td><td class="mdescRight">Оператор индексирования таблицы серверов  <a href="#a6dba76630cbd2d6863d2331475a18518">Подробнее...</a><br /></td></tr>
+<tr class="separator:a6dba76630cbd2d6863d2331475a18518"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f806355ef363880214dc158c24951d6"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a5f806355ef363880214dc158c24951d6">~Application</a> ()</td></tr>
+<tr class="separator:a5f806355ef363880214dc158c24951d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
+Открытые атрибуты</h2></td></tr>
+<tr class="memitem:a95664d256ae9f339502b82b462d46365"><td class="memItemLeft" align="right" valign="top">const uint&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a95664d256ae9f339502b82b462d46365">ServicesNum</a> = 3</td></tr>
+<tr class="memdesc:a95664d256ae9f339502b82b462d46365"><td class="mdescLeft">&#160;</td><td class="mdescRight">Количество возможных вариантов сервиса (почта,файлы,сеть)  <a href="#a95664d256ae9f339502b82b462d46365">Подробнее...</a><br /></td></tr>
+<tr class="separator:a95664d256ae9f339502b82b462d46365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Закрытые члены</h2></td></tr>
+<tr class="memitem:a3bc3a188eb55fad7bdd9be11af54391b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a3bc3a188eb55fad7bdd9be11af54391b">isIPBusy</a> (ulong addr) const </td></tr>
+<tr class="memdesc:a3bc3a188eb55fad7bdd9be11af54391b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка, занят ли адрес  <a href="#a3bc3a188eb55fad7bdd9be11af54391b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a3bc3a188eb55fad7bdd9be11af54391b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Закрытые данные</h2></td></tr>
+<tr class="memitem:af499fff927e0ee95480eeac2f4bb464b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_network_service_1_1_application.html#a4cbe718a4ebf378cf75cc55fe015177a">indexT</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#af499fff927e0ee95480eeac2f4bb464b">servers</a></td></tr>
+<tr class="memdesc:af499fff927e0ee95480eeac2f4bb464b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таблица серверов  <a href="#af499fff927e0ee95480eeac2f4bb464b">Подробнее...</a><br /></td></tr>
+<tr class="separator:af499fff927e0ee95480eeac2f4bb464b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9709635bcf03ef131a655ca1c58efa6b"><td class="memItemLeft" align="right" valign="top">std::vector&lt; ulong &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#a9709635bcf03ef131a655ca1c58efa6b">usedIPs</a></td></tr>
+<tr class="memdesc:a9709635bcf03ef131a655ca1c58efa6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Таблица использованных адресов  <a href="#a9709635bcf03ef131a655ca1c58efa6b">Подробнее...</a><br /></td></tr>
+<tr class="separator:a9709635bcf03ef131a655ca1c58efa6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
+Друзья</h2></td></tr>
+<tr class="memitem:ad14d365afc30a96b618aab998f4572e5"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_network_service_1_1_application.html#ad14d365afc30a96b618aab998f4572e5">MyIterator&lt; Application &gt;</a></td></tr>
+<tr class="separator:ad14d365afc30a96b618aab998f4572e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+<div class="textblock"><p>Класс, реализующий работу приложения </p>
+<p>Отвечает за взаимодействия прикладной программы с библиотекой </p>
+</div><h2 class="groupheader">Определения типов</h2>
+<a class="anchor" id="a51fff3b7cce6bf84c2edbd887c0cac45"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="class_network_service_1_1_my_const_iterator.html">MyConstIterator</a>&lt;<a class="el" href="class_network_service_1_1_application.html">Application</a>&gt; <a class="el" href="class_network_service_1_1_application.html#a51fff3b7cce6bf84c2edbd887c0cac45">NetworkService::Application::ConstIterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Специализация шаблонного типа <a class="el" href="class_network_service_1_1_my_const_iterator.html" title="Шаблонный класс итератора ">MyConstIterator</a>. </p>
+
+</div>
+</div>
+<a class="anchor" id="a4cbe718a4ebf378cf75cc55fe015177a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="class_network_service_1_1_server.html">Server</a> <a class="el" href="class_network_service_1_1_application.html#a4cbe718a4ebf378cf75cc55fe015177a">NetworkService::Application::indexT</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Определение типа для работы итератора </p>
+
+</div>
+</div>
+<a class="anchor" id="a206937019d86d3391a209e9883b44f7b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="class_network_service_1_1_my_iterator.html">MyIterator</a>&lt;<a class="el" href="class_network_service_1_1_application.html">Application</a>&gt; <a class="el" href="class_network_service_1_1_application.html#a206937019d86d3391a209e9883b44f7b">NetworkService::Application::Iterator</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Специализация шаблонного типа <a class="el" href="class_network_service_1_1_my_iterator.html" title="Шаблонный класс итератора ">MyIterator</a>. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Конструктор(ы)</h2>
+<a class="anchor" id="abfad2c23a7824c984a7ee1e6141d732b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">NetworkService::Application::Application </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a5f806355ef363880214dc158c24951d6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual NetworkService::Application::~Application </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Методы</h2>
+<a class="anchor" id="a0b064e8f7ab3a8932a610f53713e12ab"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::string &gt; Application::abonentInfo </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>abonentaddr</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Cбор информации о количестве переданных данных и длительности связи для абонента </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">abonentaddr</td><td>IP адрес абонента </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>vector из string - текстовое представление собранной информации </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если адрес абонента неверен или не найден</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод проходит по всем серверам и их таблицам связи, используя итераторы, собирая информацию во "временную" коллекцию следующего вида </p><div class="fragment"><div class="line">    std::vector&lt;std::pair&lt;ulong,ulong&gt;&gt; counter;</div>
+<div class="line">    counter.reserve(<a class="code" href="class_network_service_1_1_application.html#a95664d256ae9f339502b82b462d46365">ServicesNum</a>);</div>
+</div><!-- fragment --><p>Первый элемент пары - суммарный траффик для сервиса (передано+получено), Второй - Общая длительность связи для сервиса (не для всех сервисов) Вектор result резервируется для 3-х сервисов </p>
+<p>[countervec]</p>
+<p>[countervec] </p>
+
+</div>
+</div>
+<a class="anchor" id="ab44d0123e96ef44496aab54effc42281"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ulong Application::abonentTotalPrice </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>abonentaddr</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Считает итоговую стоимость оказанных услуг абонента </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">abonentaddr</td><td>IP адрес абонента </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Итоговая стоимость</dd></dl>
+<p>Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), вызывая для каждой записи виртуальную функцию calculatePrice() и прибавляя ее результат к итоговому </p>
+
+</div>
+</div>
+<a class="anchor" id="a7c718890bcaa6cce31f29c1ae7e69b81"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::addServer </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>addr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>costpermin</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>costpermb</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Добавление нового сервера в таблицу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>IP адрес сервера </td></tr>
+    <tr><td class="paramname">name</td><td>Имя сервера </td></tr>
+    <tr><td class="paramname">costpermin</td><td>Стоимость 1 минуты связи </td></tr>
+    <tr><td class="paramname">costpermb</td><td>Стоимость 1MB переданных данных </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если IP адрес сервера неверный </td></tr>
+    <tr><td class="paramname">logic_error</td><td>если IP адрес занят(используется)</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод добавляет новый сервер в таблицу, в случае успешного добавления сервера IP адрес добавляется в таблицу используемых адресов </p>
+
+</div>
+</div>
+<a class="anchor" id="a31f7383eb1d003932ca6d3111571ef2e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::addService </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>serveraddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>abonentaddr</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_network_service_1_1_service_descriptor.html">ServiceDescriptor</a> *&#160;</td>
+          <td class="paramname"><em>sdesc</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Добавление записи об оказанной услуге в "таблицу связи" сервера </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">serveraddr</td><td>IP адрес сервера </td></tr>
+    <tr><td class="paramname">abonentaddr</td><td>IP адрес клиента </td></tr>
+    <tr><td class="paramname">sdesc</td><td>Указатель на описатель сервиса (полиморфный <a class="el" href="class_network_service_1_1_service_descriptor.html" title="Описатель сервиса, абстрактный класс ">ServiceDescriptor</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>Если:<ul>
+<li>Неверный IP сервера</li>
+<li>Неверный IP клиента</li>
+<li>В качестве указателя на <a class="el" href="class_network_service_1_1_service_descriptor.html" title="Описатель сервиса, абстрактный класс ">ServiceDescriptor</a> передан нулевой указатель</li>
+</ul>
+</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод ищет сервер в таблице серверов и добавляет в его "таблицу связи" информацию об оказанной услуге. Также метод добавляет IP адрес клиента в таблицу занятых адресов, если такого адреса там еще нет </p>
+
+</div>
+</div>
+<a class="anchor" id="af79bea7489f0192a631af1477290af14"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_service_1_1_application.html#a206937019d86d3391a209e9883b44f7b">Application::Iterator</a> Application::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Итератор, указывающий на первый элемент таблицы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>объект Iterator </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a2d3762c2bc3f66e96b1295ec584f779d"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_service_1_1_application.html#a51fff3b7cce6bf84c2edbd887c0cac45">Application::ConstIterator</a> Application::begin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Константный итератор, указывающий на первый элемент таблицы </p>
+<dl class="section return"><dt>Возвращает</dt><dd>объект ConstIterator </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a52c98b58888cda1930b1d88d99ab7af7"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; ulong, ulong &gt; Application::countIOTraffic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Считает количество переданных данных и количество полученных данных </p>
+<dl class="section return"><dt>Возвращает</dt><dd>пара значений: первое - количество переданных данных, второе - количество полученных</dd></dl>
+<p>Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), считывает количество данных и направление их передачи, добавляя к результату </p>
+
+</div>
+</div>
+<a class="anchor" id="ad09e462bffd3345934a1e3f3eca89774"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::delServer </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Удаление сервера из таблицы </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>IP адрес удаляемого сервера </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если IP неверный или сервер с таким адресом не был наиден</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод удаляет сервер из таблицы серверов, также IP адрес удаляется из таблицы использованных адресов </p>
+
+</div>
+</div>
+<a class="anchor" id="ab0fcfd1baa6f19b018ad6e8ab7ca122c"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_service_1_1_application.html#a206937019d86d3391a209e9883b44f7b">Application::Iterator</a> Application::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Итератор, указывающий на конец таблицы (индекс, равный размеру) </p>
+<dl class="section return"><dt>Возвращает</dt><dd>объект Iterator </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="ae464b274be530d8d8a546488780a077e"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_service_1_1_application.html#a51fff3b7cce6bf84c2edbd887c0cac45">Application::ConstIterator</a> Application::end </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Константный итератор, указывающий на конец таблицы (индекс, равный размеру) </p>
+<dl class="section return"><dt>Возвращает</dt><dd>объект ConstIterator </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="acb73429fd01baca7eb138c316f05c97a"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_service_1_1_server.html">Server</a> &amp; Application::getServer </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>addr</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Находит сервер в таблице по адресу </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>IP адрес предполагаемого сервера </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>ссылка на объект <a class="el" href="class_network_service_1_1_server.html" title="Описатель сервера ">Server</a> </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если IP адрес неверный или сервера с таким адресом не найдено </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a3bc3a188eb55fad7bdd9be11af54391b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Application::isIPBusy </td>
+          <td>(</td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>addr</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Проверка, занят ли адрес </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>Проверяемый адрес </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>true, если занят, false, если свободен</dd></dl>
+<p>Метод ищет проверяемый адрес в таблице используемых адресов </p>
+
+</div>
+</div>
+<a class="anchor" id="a6dba76630cbd2d6863d2331475a18518"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_network_service_1_1_server.html">Server</a> &amp; Application::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">uint&#160;</td>
+          <td class="paramname"><em>index</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Оператор индексирования таблицы серверов </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">index</td><td>Индекс </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Возвращает</dt><dd>Ссылка на объект <a class="el" href="class_network_service_1_1_server.html" title="Описатель сервера ">Server</a> </dd></dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если index больше, чем размер таблицы</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод использует перегруженный оператор для [] для таблицы серверов. Метод необходим для работы итераторов </p>
+
+</div>
+</div>
+<a class="anchor" id="ab86f830805a3b9ab2909ea65f7eb48b8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::readFromFile </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Считывает информацию о серверах и оказанных услугах из текстового файла, содержащего JSON представление </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Путь к исходному файлу </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если не удалось открыть файл на чтение </td></tr>
+    <tr><td class="paramname">logic_error</td><td>в случае ошибки разбора</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод разбирает JSON представление, взятое из файла, восстанавливая информацию о серверах и оказанных услугах </p>
+
+</div>
+</div>
+<a class="anchor" id="a670578bac65348d3c604fdf53585102b"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::saveToFile </td>
+          <td>(</td>
+          <td class="paramtype">std::string &amp;&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Сохраняет записи в JSON формате в текстовый файл </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td>Путь к файлу назначения </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">logic_error</td><td>в случае ошибки открытия файла на запись</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), сохраняя информацию в JSON формате в текстовый файл </p>
+
+</div>
+</div>
+<a class="anchor" id="a7b18fb99b391286a0cf85c3c731b5982"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Application::SetServerAddress </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_network_service_1_1_server.html">Server</a> &amp;&#160;</td>
+          <td class="paramname"><em>srv</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">ulong&#160;</td>
+          <td class="paramname"><em>newaddr</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Изменение IP адреса сервера </p>
+<dl class="params"><dt>Аргументы</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">srv</td><td>Ссылка на объект <a class="el" href="class_network_service_1_1_server.html" title="Описатель сервера ">Server</a> </td></tr>
+    <tr><td class="paramname">newaddr</td><td>Новый адрес </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Исключения</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td>если адрес неверный или занят</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Метод меняет своиство address у объекта <a class="el" href="class_network_service_1_1_server.html" title="Описатель сервера ">Server</a>, проверяя новый адрес на занятость по таблице занятых адресов и на правильность </p>
+
+</div>
+</div>
+<h2 class="groupheader">Документация по друзьям класса и функциям, относящимся к классу</h2>
+<a class="anchor" id="ad14d365afc30a96b618aab998f4572e5"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="class_network_service_1_1_my_iterator.html">MyIterator</a>&lt; <a class="el" href="class_network_service_1_1_application.html">Application</a> &gt;</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Данные класса</h2>
+<a class="anchor" id="af499fff927e0ee95480eeac2f4bb464b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_network_service_1_1_application.html#a4cbe718a4ebf378cf75cc55fe015177a">indexT</a>&gt; NetworkService::Application::servers</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Таблица серверов </p>
+
+</div>
+</div>
+<a class="anchor" id="a95664d256ae9f339502b82b462d46365"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const uint NetworkService::Application::ServicesNum = 3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Количество возможных вариантов сервиса (почта,файлы,сеть) </p>
+
+</div>
+</div>
+<a class="anchor" id="a9709635bcf03ef131a655ca1c58efa6b"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;ulong&gt; NetworkService::Application::usedIPs</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Таблица использованных адресов </p>
+
+</div>
+</div>
+<hr/>Объявления и описания членов классов находятся в файлах:<ul>
+<li>NetworkServiceLib/<a class="el" href="application_8h_source.html">application.h</a></li>
+<li>NetworkServiceLib/<a class="el" href="application_8cpp.html">application.cpp</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Создано системой &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.9.1
+</small></address>
+</body>
+</html>

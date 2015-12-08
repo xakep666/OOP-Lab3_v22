@@ -1,0 +1,5 @@
+<map id="NetworkService::ServiceDescriptor" name="NetworkService::ServiceDescriptor">
+<area shape="rect" id="node2" href="$class_network_service_1_1_network_descriptor.html" title="Описатель сервиса &quot;сеть&quot;, наследуется от ServiceDescriptor. " alt="" coords="5,307,237,501"/>
+<area shape="rect" id="node3" href="$class_network_service_1_1_post_descriptor.html" title="Описатель сервиса &quot;почта&quot;, наследуемый от ServiceDescriptor. " alt="" coords="261,292,472,516"/>
+<area shape="rect" id="node4" href="$class_network_service_1_1_file_descriptor.html" title="Класс, описывающий сервис &quot;файл&quot;. " alt="" coords="265,564,469,715"/>
+</map>

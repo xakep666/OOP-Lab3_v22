@@ -54,6 +54,7 @@ std::string NetworkDescriptor::getType() const {
 /*!
  * \brief Рассчет стоимости оказанных услуг
  * \return Стоимость оказанных услуг
+ *
  * Рассчет стоимости оказанных услуг, на основании стоимости 1 минуты и 1MB, установленной сервером
  */
 ulong NetworkDescriptor::calculatePrice() const {

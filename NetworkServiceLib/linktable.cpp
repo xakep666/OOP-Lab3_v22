@@ -24,6 +24,7 @@ void LinkTable::addService(ServiceDescriptor *sdesc, ulong abonentaddr) {
  * \param abonentaddr IP абонента
  * \return vector из указателей на описатели сервисов (полиморфный ServiceDescriptor)
  * \throws invalid_argument если IP абонента неверен
+ *
  * Метод обходит всю "таблицу связи" (используется итератор), добавляя нужные описатель к результату
  */
 std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const {
@@ -43,6 +44,7 @@ std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const
  * \param linktime Время оказателей услуги
  * \return vector из указателей на описатели сервисов (полиморфный ServiceDescriptor)
  * \throws invalid_argument если IP абонента неверен
+ *
  * Метод обходит всю "таблицу связи" (используется итератор), добавляя нужные описатель к результату
  */
 std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftimepoint &linktime) const {
@@ -70,6 +72,7 @@ void LinkTable::delService(uint index) {
 /*!
  * \brief Создать текстовое представление таблицы
  * \return vector из string с описанием
+ *
  * Метод обходит всю "таблицу связи" (используется итератор), создавая для каждого элемента
  * описывающюю его строку и добавляя её к результату
  */

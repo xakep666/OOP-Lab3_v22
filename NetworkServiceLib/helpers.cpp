@@ -10,6 +10,7 @@ using namespace NetworkService;
  * \param ip IP в ulong-представлении
  * \return Строковое представление адреса
  * \throws logic_error в случае ошибки преобразования
+ *
  * Функция преобразует IP адрес в строковое представления, используя C функцию inet_ntop()
  */
 std::string LongIPtoString(ulong ip) {
@@ -27,6 +28,7 @@ std::string LongIPtoString(ulong ip) {
  * \param src исходная строка
  * \return ulong-представление адреса
  * \throws logic_error в случае ошибки преобразования
+ *
  * Функция преобразует IP адрес из строкового представления в ulong, исползуя C функцию inet_pton()
  */
 ulong stringToLongIP(std::string src) {
@@ -44,6 +46,7 @@ ulong stringToLongIP(std::string src) {
  * \brief Проверка, является ли IP адрес верным
  * \param ip IP адрес в ulong-представлении
  * \return true если IP верный, false в противном случае
+ *
  * IP адрес считается верным, если он не начинается и не заканчивается на 0 или 255.
  * Проверка происходит с использованием битовых сдвигов, побитовых "и" и сравнений.
  * Пример реализации проверки
@@ -51,11 +54,11 @@ ulong stringToLongIP(std::string src) {
  */
 bool isValidIP(ulong ip) {
     const ulong IPSize = 32;
-    ///[!ipcode]
+    //! [ipcode]
     if ( (ip&0xFF)==0 || (ip&0xFF)==0xFF)
         return false;
     if (((ip>>(IPSize-8))&0xFF)==0 || ((ip>>(IPSize-8))&0xFF)==0xFF)
         return false;
     return true;
-    ///[!ipcode]
+    //! [ipcode]
 }

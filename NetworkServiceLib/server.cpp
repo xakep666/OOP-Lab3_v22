@@ -1,7 +1,7 @@
 #include "networkservice.h"
 /*!
  * \file
- * Файл, содержащий реализацию класса Server
+ * \brief Файл, содержащий реализацию класса Server
  */
 using namespace NetworkService;
 

@@ -2,7 +2,7 @@
 #define MYITERATOR
 /*!
  * \file
- * Файл, содержащий шаблонных классов MyIterator, MyConstIterator
+ * \brief Файл, содержащий шаблонных классов MyIterator, MyConstIterator
  */
 namespace NetworkService {
 /*!

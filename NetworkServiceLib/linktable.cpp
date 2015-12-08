@@ -1,7 +1,7 @@
 #include "networkservice.h"
 /*!
  * \file
- * Файл, содержащий реализацию класса LinkTable
+ * \brief Файл, содержащий реализацию класса LinkTable
  */
 using namespace NetworkService;
 
@@ -143,7 +143,7 @@ LinkTable::ConstIterator LinkTable::begin() const{
  * \brief Итератор, указывающий на конец таблицы (индекс, равный размеру)
  * \return объект Iterator
  */
-LinkTable::Iterator LinkTable::end() const{
+LinkTable::Iterator LinkTable::end(){
     return LinkTable::Iterator(this,linktable.size());
 }
 

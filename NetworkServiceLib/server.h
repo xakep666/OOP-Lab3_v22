@@ -2,7 +2,7 @@
 #define SERVER
 /*!
  * \file
- * Файл, содержащий объявление класса Server
+ * \brief Файл, содержащий объявление класса Server
  */
 namespace NetworkService {
 class Application;

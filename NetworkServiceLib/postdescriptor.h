@@ -2,7 +2,7 @@
 #define POSTDESCRIPTOR
 /*!
  * \file
- * Файл, содержащий объявление класса PostDescriptor
+ * \brief Файл, содержащий объявление класса PostDescriptor
  */
 namespace NetworkService {
     /*!

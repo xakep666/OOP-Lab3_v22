@@ -2,7 +2,7 @@
 #define SERVICEDESCRIPTOR
 /*!
  * \file
- * Файл, содержащий объявление абстрактного класса ServiceDescriptor
+ * \brief Файл, содержащий объявление абстрактного класса ServiceDescriptor
  */
 namespace NetworkService {
     class Server;

@@ -2,7 +2,7 @@
 #define FILEDESCRIPTOR
 /*!
  * \file
- * Файл, содержащий объявление класса FileDescriptor
+ * \brief Файл, содержащий объявление класса FileDescriptor
  */
 namespace NetworkService {
     /*!

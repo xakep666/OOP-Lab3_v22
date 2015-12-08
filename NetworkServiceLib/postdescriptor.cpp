@@ -1,7 +1,7 @@
 #include "networkservice.h"
 /*!
  * \file
- * Файл, содержащий реализацию класса PostDescriptor
+ * \brief Файл, содержащий реализацию класса PostDescriptor
  */
 using namespace NetworkService;
 

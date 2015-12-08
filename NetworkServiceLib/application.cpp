@@ -1,5 +1,10 @@
 #include "networkservice.h"
+/*!
+ * \file
+ * \brief Файл, содержащий реализацию класса Application
+ */
 using namespace NetworkService;
+
 
 /*!
  * \brief Проверка, занят ли адрес

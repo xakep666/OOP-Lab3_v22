@@ -2,7 +2,7 @@
 #define LINKTABLE
 /*!
  * \file
- * Файл, содержащий объявление класса LinkTable
+ * \brief Файл, содержащий объявление класса LinkTable
  */
 namespace NetworkService {
     /*!

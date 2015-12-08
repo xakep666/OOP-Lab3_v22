@@ -2,7 +2,7 @@
 #define APPLICATION
 /*!
  * \file
- * Файл, содержащий объявление класса Application
+ * \brief Файл, содержащий объявление класса Application
  */
 namespace NetworkService {
 /*!

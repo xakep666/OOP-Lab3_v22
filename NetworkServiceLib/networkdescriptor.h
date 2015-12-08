@@ -2,7 +2,7 @@
 #define NETWORKDESCRIPTOR
 /*!
  * \file
- * Файл, содержащий объявление класса NetworkDescriptor
+ * \brief Файл, содержащий объявление класса NetworkDescriptor
  */
 namespace NetworkService {
     /*!

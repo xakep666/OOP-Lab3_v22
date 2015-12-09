@@ -24,6 +24,7 @@ SOURCES += \
     application.cpp
 
 HEADERS += \
+    helpers.h \
     servicedescriptor.h \
     networkservice.h \
     postdescriptor.h \
@@ -32,8 +33,7 @@ HEADERS += \
     linktable.h \
     myiterator.h \
     server.h \
-    application.h \
-    helpers.h
+    application.h
 
 unix {
     target.path = /usr/lib

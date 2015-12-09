@@ -22,7 +22,6 @@ namespace NetworkService {
         Direction getDirection() const;
         ulong getTraffic() const;
         virtual std::string getType() const;
-        const ftimepoint & getLinkTime() const;
         virtual ulong calculatePrice() const;
         virtual ~PostDescriptor();
     protected:

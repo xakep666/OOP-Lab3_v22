@@ -51,5 +51,20 @@ std::string FileDescriptor::getType() const {
  * Рассчет стоимости оказанных услуг, на основании стоимости 1 минуты и 1MB, установленной сервером
  */
 ulong FileDescriptor::calculatePrice() const {
-    return getTraffic()*getServer()->getCostPerMB() + linkduration.count()*minute_k*getServer()->getCostPerMin();
+    return getTraffic()*getServer()->getCostPerMB() + (ulong)(linkduration.count()*minute_k)*getServer()->getCostPerMin();
+}
+
+
+FileDescriptor::FileDescriptor() {
+}
+
+FileDescriptor::~FileDescriptor() {
+}
+
+/*!
+ * \brief Установка длительности связи
+ * \param ld Ссылка на объект fduration, содержащий информацию о длительности
+ */
+void FileDescriptor::setLinkDuration(fduration &ld){
+    linkduration=ld;
 }

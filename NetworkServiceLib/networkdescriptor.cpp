@@ -68,3 +68,33 @@ ulong NetworkDescriptor::calculatePrice() const {
 const fduration & NetworkDescriptor::getLinkDuration() const {
     return linkduration;
 }
+
+NetworkDescriptor::NetworkDescriptor() {
+}
+
+NetworkDescriptor::~NetworkDescriptor() {
+}
+
+/*!
+ * \brief Установка количества полученных данных
+ * \param intraffic Количество полученных данных
+ */
+void NetworkDescriptor::setInTraffic(ulong intraffic) {
+    this->intraffic=intraffic;
+}
+
+/*!
+ * \brief Установка количества отправленных данных
+ * \param outtraffic Количество отправленных данных
+ */
+void NetworkDescriptor::setOutTraffic(ulong outtraffic) {
+    this->outtraffic=outtraffic;
+}
+
+/*!
+ * \brief Установка продолжительности связи
+ * \param ld Ссылка на объект fduration, содержащий информацию о продолжительности связи
+ */
+void NetworkDescriptor::setLinkDuration(fduration &ld) {
+    linkduration=ld;
+}

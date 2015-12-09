@@ -6,6 +6,10 @@
  *
  * В приложении используйте его.
  */
+#ifdef TESTING
+#define private public
+#define protected public
+#endif
 #include <chrono>
 #include <string>
 #include <vector>

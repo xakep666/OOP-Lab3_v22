@@ -467,3 +467,9 @@ void Application::readFromFile(std::string &path) {
     });
     srcfile.close();
 }
+
+Application::Application() {
+}
+
+Application::~Application() {
+}

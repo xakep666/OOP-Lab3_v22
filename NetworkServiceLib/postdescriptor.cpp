@@ -74,3 +74,9 @@ void PostDescriptor::setDirection(Direction d) {
 void PostDescriptor::setTraffic(ulong t) {
     traffic = t;
 }
+
+PostDescriptor::PostDescriptor() {
+}
+
+PostDescriptor::~PostDescriptor() {
+}

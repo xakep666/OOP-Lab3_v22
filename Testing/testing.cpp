@@ -1,26 +1,19 @@
-#include <QString>
 #include <QtTest>
-
-class Testing : public QObject
+#include "testpostdescriptor.h"
+#include "testfiledescriptor.h"
+#include "testnetworkdescriptor.h"
+#include <random>
+#include <time.h>
+int main(int argc, char** argv)
 {
-    Q_OBJECT
-
-public:
-    Testing();
-
-private Q_SLOTS:
-    void testCase1();
-};
-
-Testing::Testing()
-{
+   int status = 0;
+   auto ASSERT_TEST = [&status, argc, argv](QObject* obj) {
+     status |= QTest::qExec(obj, argc, argv);
+     delete obj;
+   };
+   srand(time(nullptr));
+   ASSERT_TEST(new testPostDescriptor());
+   ASSERT_TEST(new testFileDescriptor());
+   ASSERT_TEST(new testNetworkDescriptor());
+   return status;
 }
-
-void Testing::testCase1()
-{
-    QVERIFY2(true, "Failure");
-}
-
-QTEST_APPLESS_MAIN(Testing)
-
-#include "testing.moc"

@@ -167,3 +167,6 @@ LinkTable::~LinkTable() {
         delete pair.first;
     });
 }
+
+LinkTable::LinkTable() {
+}

@@ -37,7 +37,7 @@ const Server * ServiceDescriptor::getServer() const {
  */
 void ServiceDescriptor::setDestinationAddress(ulong addr) {
     if(!isValidIP(addr))
-        throw std::logic_error("Cannot use "+std::to_string(addr)+ "as destination IP");
+        throw std::invalid_argument("Cannot use "+std::to_string(addr)+" as destination IP");
     this->addr = addr;
 }
 
@@ -66,4 +66,7 @@ void ServiceDescriptor::setServer(Server *srv) {
  */
 const ftimepoint & ServiceDescriptor::getLinkTime() const {
     return linktime;
+}
+
+ServiceDescriptor::~ServiceDescriptor() {
 }

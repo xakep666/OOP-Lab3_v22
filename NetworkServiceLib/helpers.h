@@ -2,12 +2,12 @@
 #define HELPERS
 /*!
  * \file
- * \brief Файл, содержащий реализацию функций-помощников, не принадлежащих какому-либо объекту
+ * \brief Файл, содержащий объявление функций-помощников, не принадлежащих какому-либо объекту
  */
 namespace NetworkService {
-    bool isValidIP (ulong);
     std::string LongIPtoString(ulong);
     ulong stringToLongIP(std::string);
+    bool isValidIP (ulong);
 }
 #endif // HELPERS
 

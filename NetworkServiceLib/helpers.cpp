@@ -3,8 +3,6 @@
   * \brief Файл, содержащий реализацию функций-помощников, не принадлежащих какому-либо объекту
   */
 #include "networkservice.h"
-using namespace NetworkService;
-
 /*!
  * \brief Преобразование IP адреса из ulong-представления в строковое
  * \param ip IP в ulong-представлении
@@ -13,7 +11,7 @@ using namespace NetworkService;
  *
  * Функция преобразует IP адрес в строковое представления, используя C функцию inet_ntop()
  */
-std::string LongIPtoString(ulong ip) {
+std::string NetworkService::LongIPtoString(ulong ip) {
     char ipstr [INET_ADDRSTRLEN];
     struct in_addr inaddr;
     inaddr.s_addr = ip;
@@ -31,7 +29,7 @@ std::string LongIPtoString(ulong ip) {
  *
  * Функция преобразует IP адрес из строкового представления в ulong, исползуя C функцию inet_pton()
  */
-ulong stringToLongIP(std::string src) {
+ulong NetworkService::stringToLongIP(std::string src) {
     struct in_addr tmp;
     int code = inet_pton(AF_INET,src.c_str(),&tmp);
     if (code<=0)
@@ -41,7 +39,6 @@ ulong stringToLongIP(std::string src) {
         throw std::invalid_argument("Invalid ip address ("+src+") given");
     return ip;
 }
-
 /*!
  * \brief Проверка, является ли IP адрес верным
  * \param ip IP адрес в ulong-представлении
@@ -52,7 +49,7 @@ ulong stringToLongIP(std::string src) {
  * Пример реализации проверки
  * \snippet helpers.cpp ipcode
  */
-bool isValidIP(ulong ip) {
+bool NetworkService::isValidIP(ulong ip) {
     const ulong IPSize = 32;
     //! [ipcode]
     if ( (ip&0xFF)==0 || (ip&0xFF)==0xFF)
@@ -62,3 +59,4 @@ bool isValidIP(ulong ip) {
     return true;
     //! [ipcode]
 }
+

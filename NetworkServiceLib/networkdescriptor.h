@@ -25,6 +25,11 @@ namespace NetworkService {
         std::string getType() const;
         const fduration & getLinkDuration() const;
         ulong calculatePrice() const;
+        virtual ~NetworkDescriptor();
+    protected:
+        void setInTraffic(ulong intraffic);
+        void setOutTraffic(ulong outtraffic);
+        void setLinkDuration(fduration &ld);
     };
 }
 #endif // NETWORKDESCRIPTOR

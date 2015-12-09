@@ -25,6 +25,8 @@ namespace NetworkService {
         std::string getType() const;
         ulong calculatePrice() const;
         virtual ~FileDescriptor();
+    protected:
+        void setLinkDuration(fduration &ld);
     };
 }
 #endif // FILEDESCRIPTOR

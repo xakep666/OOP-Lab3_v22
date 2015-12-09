@@ -124,7 +124,8 @@ public:
     friend bool operator != (MyIterator &lv, MyIterator &rv) {
         return !(lv==rv);
     }
-    virtual ~MyIterator();
+    virtual ~MyIterator() {
+    }
 };
 /*!
  * \brief Шаблонный класс итератора
@@ -248,7 +249,8 @@ public:
     friend bool operator != (const MyConstIterator &lv, const MyConstIterator &rv) {
         return !(lv==rv);
     }
-    virtual ~MyConstIterator();
+    virtual ~MyConstIterator(){
+    }
 };
 }
 #endif // MYITERATOR

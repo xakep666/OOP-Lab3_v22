@@ -7,7 +7,7 @@
  * \brief Преобразование IP адреса из ulong-представления в строковое
  * \param ip IP в ulong-представлении
  * \return Строковое представление адреса
- * \throws logic_error в случае ошибки преобразования
+ * \throws invalid_argument в случае ошибки преобразования
  *
  * Функция преобразует IP адрес в строковое представления, используя C функцию inet_ntop()
  */
@@ -17,7 +17,7 @@ std::string NetworkService::LongIPtoString(ulong ip) {
     inaddr.s_addr = ip;
     auto checkptr = inet_ntop(AF_INET,&inaddr,ipstr,INET_ADDRSTRLEN);
     if (!checkptr)
-        throw std::logic_error("Cannot convert "+std::to_string(ip)+" to string IP");
+        throw std::invalid_argument("Cannot convert "+std::to_string(ip)+" to string IP");
     return std::string(ipstr);
 }
 
@@ -35,7 +35,7 @@ ulong NetworkService::stringToLongIP(std::string src) {
     if (code<=0)
         throw std::invalid_argument("Cannot convert "+src+" to IP address");
     ulong ip = tmp.s_addr;
-    if (isValidIP(ip))
+    if (!isValidIP(ip))
         throw std::invalid_argument("Invalid ip address ("+src+") given");
     return ip;
 }

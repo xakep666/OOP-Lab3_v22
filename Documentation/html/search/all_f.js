@@ -2,7 +2,7 @@ var searchData=
 [
   ['savetofile',['saveToFile',['../class_network_service_1_1_application.html#a670578bac65348d3c604fdf53585102b',1,'NetworkService::Application']]],
   ['send',['SEND',['../namespace_network_service.html#abe1196dad9e8afcbc5c6b38196ce2c65aba432dcf573f50b84f5ed73af5d4a1d1',1,'NetworkService']]],
-  ['server',['Server',['../class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c',1,'NetworkService::Server::Server()'],['../class_network_service_1_1_service_descriptor.html#ad504b32ced44a75e0e02ea961d9434c4',1,'NetworkService::ServiceDescriptor::server()']]],
+  ['server',['Server',['../class_network_service_1_1_server.html#ad5ec9462b520e59f7ea831e157ee5e59',1,'NetworkService::Server::Server()'],['../class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c',1,'NetworkService::Server::Server(ulong address)'],['../class_network_service_1_1_service_descriptor.html#ad504b32ced44a75e0e02ea961d9434c4',1,'NetworkService::ServiceDescriptor::server()']]],
   ['server',['Server',['../class_network_service_1_1_server.html',1,'NetworkService']]],
   ['server_2ecpp',['server.cpp',['../server_8cpp.html',1,'']]],
   ['server_2eh',['server.h',['../server_8h.html',1,'']]],

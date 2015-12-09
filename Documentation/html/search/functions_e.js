@@ -1,7 +1,7 @@
 var searchData=
 [
   ['savetofile',['saveToFile',['../class_network_service_1_1_application.html#a670578bac65348d3c604fdf53585102b',1,'NetworkService::Application']]],
-  ['server',['Server',['../class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c',1,'NetworkService::Server']]],
+  ['server',['Server',['../class_network_service_1_1_server.html#ad5ec9462b520e59f7ea831e157ee5e59',1,'NetworkService::Server::Server()'],['../class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c',1,'NetworkService::Server::Server(ulong address)']]],
   ['servicedescriptor',['ServiceDescriptor',['../class_network_service_1_1_service_descriptor.html#a18e78e84c574141558bf4bf4ca2dc8a2',1,'NetworkService::ServiceDescriptor']]],
   ['setcostpermb',['setCostPerMB',['../class_network_service_1_1_server.html#a05c94527d60ec19810d7d37bd9c8aaa4',1,'NetworkService::Server']]],
   ['setcostpermin',['setCostPerMin',['../class_network_service_1_1_server.html#a41772229229e7994706e6494f6366db8',1,'NetworkService::Server']]],

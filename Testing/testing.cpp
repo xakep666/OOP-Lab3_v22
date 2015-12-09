@@ -1,4 +1,6 @@
 #include <QtTest>
+#include "testhelpers.h"
+#include "testserver.h"
 #include "testpostdescriptor.h"
 #include "testfiledescriptor.h"
 #include "testnetworkdescriptor.h"
@@ -12,6 +14,8 @@ int main(int argc, char** argv)
      delete obj;
    };
    srand(time(nullptr));
+   ASSERT_TEST(new testHelpers());
+   ASSERT_TEST(new testServer());
    ASSERT_TEST(new testPostDescriptor());
    ASSERT_TEST(new testFileDescriptor());
    ASSERT_TEST(new testNetworkDescriptor());

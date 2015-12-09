@@ -4,7 +4,7 @@
 #include <random>
 #include <cmath>
 #define TESTING
-#define IP(_a,_b,_c,_d) (ulong)((_a)<<24 | (_b)<<16 | (_c)<<8 | (_d))
+#define IP(_a,_b,_c,_d) (ulong)((_d)<<24 | (_c)<<16 | (_b)<<8 | (_a))
 #include <networkservice.h>
 void testPostDescriptor::testConstructor() {
     try {

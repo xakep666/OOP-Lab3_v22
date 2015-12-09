@@ -14,6 +14,10 @@ Server::Server(ulong address) {
     this->address = address;
 }
 
+Server::Server()
+{
+}
+
 /*!
  * \brief Получение IP сервера
  * \return IP сервера в ulong-представлении

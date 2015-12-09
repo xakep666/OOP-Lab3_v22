@@ -18,13 +18,17 @@ TEMPLATE = app
 SOURCES += testing.cpp \
     testpostdescriptor.cpp \
     testfiledescriptor.cpp \
-    testnetworkdescriptor.cpp
+    testnetworkdescriptor.cpp \
+    testserver.cpp \
+    testhelpers.cpp
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
 HEADERS += \
     testpostdescriptor.h \
     testfiledescriptor.h \
-    testnetworkdescriptor.h
+    testnetworkdescriptor.h \
+    testserver.h \
+    testhelpers.h
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/release/ -lNetworkServiceLib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/debug/ -lNetworkServiceLib

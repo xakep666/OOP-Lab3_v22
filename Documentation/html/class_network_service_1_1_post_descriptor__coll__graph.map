@@ -1,5 +1,5 @@
 <map id="NetworkService::PostDescriptor" name="NetworkService::PostDescriptor">
-<area shape="rect" id="node2" href="$class_network_service_1_1_service_descriptor.html" title="Описатель сервиса, абстрактный класс " alt="" coords="5,595,232,819"/>
-<area shape="rect" id="node3" href="$class_network_service_1_1_server.html" title="Описатель сервера " alt="" coords="38,293,199,532"/>
+<area shape="rect" id="node2" href="$class_network_service_1_1_service_descriptor.html" title="Описатель сервиса, абстрактный класс " alt="" coords="5,609,232,833"/>
+<area shape="rect" id="node3" href="$class_network_service_1_1_server.html" title="Описатель сервера " alt="" coords="38,293,199,547"/>
 <area shape="rect" id="node4" href="$class_network_service_1_1_link_table.html" title="Класс, реализующий &quot;таблицу связи&quot;. " alt="" coords="29,5,208,244"/>
 </map>

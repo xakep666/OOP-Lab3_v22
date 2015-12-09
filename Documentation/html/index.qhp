@@ -138,6 +138,7 @@
                 <section title="traffic" ref="class_network_service_1_1_post_descriptor.html#ae2eef559828a42ec299ab59711f88e59" />
               </section>
               <section title="Server" ref="class_network_service_1_1_server.html">
+                <section title="Server" ref="class_network_service_1_1_server.html#ad5ec9462b520e59f7ea831e157ee5e59" />
                 <section title="Server" ref="class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c" />
                 <section title="~Server" ref="class_network_service_1_1_server.html#a4b3aa2579cb1c8cd1d069582c14d0fa6" />
                 <section title="getAddress" ref="class_network_service_1_1_server.html#af119e62540303172462f3111784963e9" />
@@ -353,6 +354,7 @@
               <section title="server.cpp" ref="server_8cpp.html" />
               <section title="server.h" ref="server_8h.html">
                 <section title="Server" ref="class_network_service_1_1_server.html">
+                  <section title="Server" ref="class_network_service_1_1_server.html#ad5ec9462b520e59f7ea831e157ee5e59" />
                   <section title="Server" ref="class_network_service_1_1_server.html#a2d34de4725c705fe2fef379eb5d40f8c" />
                   <section title="~Server" ref="class_network_service_1_1_server.html#a4b3aa2579cb1c8cd1d069582c14d0fa6" />
                   <section title="getAddress" ref="class_network_service_1_1_server.html#af119e62540303172462f3111784963e9" />
@@ -575,6 +577,7 @@
       <keyword name="end" id="NetworkService::LinkTable::end" ref="class_network_service_1_1_link_table.html#a775b722d34f014953289f7ad069a4567" />
       <keyword name="end" id="NetworkService::LinkTable::end" ref="class_network_service_1_1_link_table.html#a0f21f008e79a83eda18c23c8a416b7c0" />
       <keyword name="~LinkTable" id="NetworkService::LinkTable::~LinkTable" ref="class_network_service_1_1_link_table.html#a4ea276d8834a25c4ed1872f96b324e22" />
+      <keyword name="Server" id="NetworkService::Server::Server" ref="class_network_service_1_1_server.html#ad5ec9462b520e59f7ea831e157ee5e59" />
       <keyword name="address" id="NetworkService::Server::address" ref="class_network_service_1_1_server.html#a09382556ff4ab5abc7a79a333ad92329" />
       <keyword name="name" id="NetworkService::Server::name" ref="class_network_service_1_1_server.html#aaab7735b4b5809169ecb92fa66f0bca7" />
       <keyword name="costpermin" id="NetworkService::Server::costpermin" ref="class_network_service_1_1_server.html#a8b24807f5ca15d5348734cf5f4fe96ff" />

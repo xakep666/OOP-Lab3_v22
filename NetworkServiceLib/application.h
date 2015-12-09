@@ -33,6 +33,7 @@ public:
     typedef MyIterator<Application> Iterator; ///<Специализация шаблонного типа MyIterator
     typedef MyConstIterator<Application> ConstIterator; ///<Специализация шаблонного типа MyConstIterator
     friend class MyIterator<Application>;
+    friend class MyConstIterator<Application>;
     Iterator begin();
     ConstIterator begin() const;
     Iterator end();

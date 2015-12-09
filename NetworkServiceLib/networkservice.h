@@ -24,6 +24,9 @@
 #include <rapidjson/writer.h>
 #include <rapidjson/stringbuffer.h>
 #include <fstream>
+#include <memory.h>
+#include <malloc.h>
+#include <stdexcept>
 typedef std::chrono::system_clock Time; ///<Системные часы
 typedef std::chrono::milliseconds ms; ///<Милисекунда
 typedef std::chrono::time_point<Time> ftimepoint; ///<Специализация time_point для системных часов
@@ -42,6 +45,7 @@ namespace NetworkService {
 #include "filedescriptor.h"
 #include "networkdescriptor.h"
 #include "myiterator.h"
+#include "myvector.h"
 #include "linktable.h"
 #include "server.h"
 #include "application.h"

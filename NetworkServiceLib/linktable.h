@@ -22,6 +22,7 @@ namespace NetworkService {
         std::vector<std::string> showTable() const;
         indexT & operator [] (uint index);
         friend class MyIterator<LinkTable>;
+        friend class MyConstIterator<LinkTable>;
         typedef MyIterator<LinkTable> Iterator; ///<Специализация шаблонного типа MyIterator
         typedef MyConstIterator<LinkTable> ConstIterator; ///<Специализация шаблонного типа MyConstIterator
         Iterator begin();

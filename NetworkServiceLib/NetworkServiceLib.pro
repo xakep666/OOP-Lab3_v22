@@ -33,7 +33,8 @@ HEADERS += \
     linktable.h \
     myiterator.h \
     server.h \
-    application.h
+    application.h \
+    myvector.h
 
 unix {
     target.path = /usr/lib

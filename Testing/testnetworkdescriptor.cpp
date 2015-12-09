@@ -25,11 +25,11 @@ void testNetworkDescriptor::testParametricConstructor() {
         ulong outtraffic = random()/2ul;
         ftimepoint linktime(Time::now());
         NetworkService::Server srv(IP(192,168,2,1));
-        nduration duration((ulong)rand());
+        fduration duration((ulong)rand());
         NetworkService::NetworkDescriptor nd(intraffic,outtraffic,dstaddr,linktime,duration,&srv);
         QCOMPARE(nd.addr,dstaddr);
         QCOMPARE(nd.intraffic,intraffic);
-        QCOMPARE(nd.outtraffic,outtrafafic);
+        QCOMPARE(nd.outtraffic,outtraffic);
         QCOMPARE(nd.linktime,linktime);
         QCOMPARE(nd.server,&srv);
         QCOMPARE(nd.linkduration,duration);
@@ -120,7 +120,7 @@ void testNetworkDescriptor::testSettingOutTraffic() {
         ulong outtraffic = (ulong)random();
         NetworkService::NetworkDescriptor nd;
         nd.setOutTraffic(outtraffic);
-        QCOMPARE(nd.outraffic,intraffic);
+        QCOMPARE(nd.outtraffic,outtraffic);
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }
@@ -130,8 +130,8 @@ void testNetworkDescriptor::testGettingOutTraffic() {
     try {
         ulong outtraffic = (ulong)random();
         NetworkService::NetworkDescriptor nd;
-        nd.setInTraffic(outraffic);
-        QCOMPARE(nd.getOutTraffic(),outraffic);
+        nd.setOutTraffic(outtraffic);
+        QCOMPARE(nd.getOutTraffic(),outtraffic);
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }
@@ -162,7 +162,7 @@ void testNetworkDescriptor::testGettingInTraffic() {
 void testNetworkDescriptor::testGettingType() {
     try {
         NetworkService::NetworkDescriptor nd;
-        QCOMPARE(nd.getType(),std::string("File"));
+        QCOMPARE(nd.getType(),std::string("Network"));
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }
@@ -170,7 +170,7 @@ void testNetworkDescriptor::testGettingType() {
 
 void testNetworkDescriptor::testSettingLinkDuration() {
     try {
-        nduration duration(rand());
+        fduration duration(rand());
         NetworkService::NetworkDescriptor nd;
         nd.setLinkDuration(duration);
         QCOMPARE(nd.linkduration,duration);
@@ -181,7 +181,7 @@ void testNetworkDescriptor::testSettingLinkDuration() {
 
 void testNetworkDescriptor::testGettingLinkDuration() {
     try {
-        nduration duration(rand());
+        fduration duration(rand());
         NetworkService::NetworkDescriptor nd;
         nd.setLinkDuration(duration);
         QCOMPARE(nd.getLinkDuration(),duration);
@@ -197,13 +197,15 @@ void testNetworkDescriptor::testCalculatingPrice() {
         ulong costpermin = std::round(sqrt(rand()));
         srv.setCostPerMB(costpermb);
         srv.setCostPerMin(costpermin);
-        ulong traffic = std::round(sqrt(rand()));
-        nduration duration(std::round(sqrt(rand())));
+        ulong intraffic = random()/2ul;
+        ulong outtraffic = random()/2ul;
+        fduration duration(std::round(sqrt(rand())));
         NetworkService::NetworkDescriptor nd;
         nd.setServer(&srv);
-        nd.setTraffic(traffic);
+        nd.setInTraffic(intraffic);
+        nd.setOutTraffic(outtraffic);
         nd.setLinkDuration(duration);
-        QCOMPARE(nd.calculatePrice(),traffic*costpermb+(ulong)(duration.count()*minute_k)*costpermin);
+        QCOMPARE(nd.calculatePrice(),(intraffic+outtraffic)*costpermb+(ulong)(duration.count()*minute_k)*costpermin);
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }

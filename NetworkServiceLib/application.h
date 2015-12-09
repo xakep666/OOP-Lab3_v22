@@ -14,8 +14,8 @@ class Application {
 public:
     typedef Server indexT; ///<Определение типа для работы итератора
 private:
-    std::vector<indexT> servers; ///<Таблица серверов
-    std::vector<ulong> usedIPs; ///<Таблица использованных адресов
+    MyVector<indexT> servers; ///<Таблица серверов
+    MyVector<ulong> usedIPs; ///<Таблица использованных адресов
     bool isIPBusy(ulong addr) const;
 public:
     const uint ServicesNum = 3; ///<Количество возможных вариантов сервиса (почта,файлы,сеть)
@@ -25,7 +25,7 @@ public:
     Server & getServer(ulong addr);
     void SetServerAddress(Server &srv, ulong newaddr);
     void addService(ulong serveraddr,ulong abonentaddr,ServiceDescriptor *sdesc);
-    std::vector<std::string> abonentInfo(ulong abonentaddr) const;
+    MyVector<std::string> abonentInfo(ulong abonentaddr) const;
     ulong abonentTotalPrice(ulong abonentaddr) const;
     std::pair<ulong,ulong> countIOTraffic() const;
     void saveToFile(std::string &path);

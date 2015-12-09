@@ -27,10 +27,10 @@ void LinkTable::addService(ServiceDescriptor *sdesc, ulong abonentaddr) {
  *
  * Метод обходит всю "таблицу связи" (используется итератор), добавляя нужные описатель к результату
  */
-std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const {
+MyVector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const {
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
-    std::vector<ServiceDescriptor *> result;
+    MyVector<ServiceDescriptor *> result;
     std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT item){
         if (item.second==abonentaddr)
             result.push_back(item.first);
@@ -47,10 +47,10 @@ std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const
  *
  * Метод обходит всю "таблицу связи" (используется итератор), добавляя нужные описатель к результату
  */
-std::vector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftimepoint &linktime) const {
+MyVector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftimepoint &linktime) const {
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
-    std::vector<ServiceDescriptor *> result;
+    MyVector<ServiceDescriptor *> result;
     std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT item){
         if (item.second==abonentaddr && item.first->getLinkTime()==linktime)
             result.push_back(item.first);
@@ -76,8 +76,8 @@ void LinkTable::delService(uint index) {
  * Метод обходит всю "таблицу связи" (используется итератор), создавая для каждого элемента
  * описывающюю его строку и добавляя её к результату
  */
-std::vector<std::string> LinkTable::showTable() const {
-    std::vector<std::string> result;
+MyVector<std::string> LinkTable::showTable() const {
+    MyVector<std::string> result;
     std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT pair){
         std::string tmp("Type:"+pair.first->getType()+"\t"+
                         "Destination address:"+std::to_string(pair.first->getDestinationAddress())+"\t"+

@@ -194,14 +194,14 @@ Application::ConstIterator Application::end() const{
  * Второй - Общая длительность связи для сервиса (не для всех сервисов)
  * Вектор result резервируется для 3-х сервисов
  */
-std::vector<std::string> Application::abonentInfo(ulong abonentaddr) const{
+MyVector<std::string> Application::abonentInfo(ulong abonentaddr) const{
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given:"+std::to_string(abonentaddr));
     if(!isIPBusy(abonentaddr))
         throw std::invalid_argument("Abonent with IP "+std::to_string(abonentaddr)+" not found");
-    std::vector<std::string> result;
+    MyVector<std::string> result;
     //! [countervec]
-    std::vector<std::pair<ulong,ulong>> counter;
+    MyVector<std::pair<ulong,ulong>> counter;
     counter.reserve(ServicesNum);
     //! [countervec]
     std::for_each(begin(),end(),[&](const indexT &srv){

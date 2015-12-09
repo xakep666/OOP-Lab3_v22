@@ -1,5 +1,6 @@
 #ifndef MYITERATOR
 #define MYITERATOR
+#include <type_traits>
 /*!
  * \file
  * \brief Файл, содержащий шаблонных классов MyIterator, MyConstIterator
@@ -64,7 +65,7 @@ public:
      * \param toadd Число, добавляемое к текущему индексу
      * \return Новый объект итератора с измененным индексом
      */
-    MyIterator operator +(int toadd) {
+    MyIterator operator +(uint toadd) {
         MyIterator<T> tmp(*this);
         tmp.index+=toadd;
         return tmp;
@@ -91,7 +92,7 @@ public:
      * Разыменовывание с использованием перегруженного оператора [] с последующим динамическим приведением типа
      */
     typename T::indexT & operator *() {
-        return dynamic_cast<typename T::indexT &>(memb[index]);
+        return reinterpret_cast<typename T::indexT &>(memb[index]);
     }
     /*!
      * \brief Доступ к членам объекта, создающего коллекцию
@@ -100,7 +101,7 @@ public:
      * Получение указателя на элемент коллекции с помощью перегруженного оператора [] с последующим динамическим приведением типа
      */
     typename T::indexT * operator ->() {
-        return dynamic_cast<typename T::indexT *>(&memb[index]);
+        return reinterpret_cast<typename T::indexT *>(&memb[index]);
     }
     /*!
      * \brief Равенство двух итераторов
@@ -110,7 +111,7 @@ public:
      *
      * Итераторы считаются равными, если у них совпадают указатели на итерируемый объект и индексы
      */
-    friend bool operator == (MyIterator &lv, MyIterator &rv) {
+    friend bool operator == (MyIterator lv, MyIterator rv) {
         return lv.memb == rv.memb && lv.index==rv.index;
     }
     /*!
@@ -121,7 +122,7 @@ public:
      *
      * Обращение результата оператора ==
      */
-    friend bool operator != (MyIterator &lv, MyIterator &rv) {
+    friend bool operator != (MyIterator lv, MyIterator rv) {
         return !(lv==rv);
     }
     virtual ~MyIterator() {
@@ -215,7 +216,7 @@ public:
      * Разыменовывание с использованием перегруженного оператора [] с последующим динамическим приведением типа
      */
     const typename T::indexT & operator *() {
-        return dynamic_cast<const typename T::indexT &>(memb[index]);
+        return reinterpret_cast<const typename T::indexT &>(memb[index]);
     }
 
     /*!
@@ -225,7 +226,7 @@ public:
      * Получение указателя на элемент коллекции с помощью перегруженного оператора [] с последующим динамическим приведением типа
      */
     const typename T::indexT * operator ->() {
-        return dynamic_cast<const typename T::indexT *>(&memb[index]);
+        return reinterpret_cast<const typename T::indexT *>(&memb[index]);
     }
     /*!
      * \brief Равенство двух итераторов
@@ -235,7 +236,7 @@ public:
      *
      * Итераторы считаются равными, если у них совпадают указатели на итерируемый объект и индексы
      */
-    friend bool operator == (const MyConstIterator &lv, const MyConstIterator &rv) {
+    friend bool operator == (MyConstIterator lv, MyConstIterator rv) {
         return lv.memb == rv.memb && lv.index==rv.index;
     }
     /*!
@@ -246,7 +247,7 @@ public:
      *
      * Обращение результата оператора ==
      */
-    friend bool operator != (const MyConstIterator &lv, const MyConstIterator &rv) {
+    friend bool operator != (MyConstIterator lv,MyConstIterator rv) {
         return !(lv==rv);
     }
     virtual ~MyConstIterator(){
@@ -254,4 +255,3 @@ public:
 };
 }
 #endif // MYITERATOR
-

@@ -9,10 +9,10 @@ private:
 public:
     MyVector(): array(nullptr), nmemb(0),maxmemb(0) {}
     MyVector(const MyVector &mv) {
-        array = (T)calloc(size,sizeof(T));
+        array = (T *)calloc(maxmemb,sizeof(T));
         if(!array)
             throw std::bad_alloc();
-        array = memcpy(array,mv.array,mv.nmemb*sizeof(T));
+        array = (T *)memcpy(array,mv.array,mv.nmemb*sizeof(T));
         nmemb=mv.nmemb;
         maxmemb=mv.maxmemb;
     }
@@ -28,12 +28,12 @@ public:
         free(array);
     }
     MyVector & operator = (const MyVector &mv) {
-        array = (T)calloc(size,sizeof(T));
+        array = (T *)calloc(maxmemb,sizeof(T));
         if(this == &mv)
             return *this;
         if(!array)
             throw std::bad_alloc();
-        array = (T)memcpy(array,mv.array,mv.nmemb*sizeof(T));
+        array = (T *)memcpy(array,mv.array,mv.nmemb*sizeof(T));
         nmemb=mv.nmemb;
         maxmemb=mv.maxmemb;
         return *this;
@@ -50,20 +50,20 @@ public:
         return *this;
     }
     void reserve(size_t maxmemb) {
-        array = (T)calloc(maxmemb,sizeof(T));
+        array = (T *)calloc(maxmemb,sizeof(T));
         if(!array)
             throw std::bad_alloc();
         this->maxmemb=maxmemb;
     }
-    void push_back(T &item) {
+    void push_back(T item) {
         if (nmemb==maxmemb) {
             size_t _maxmemb= 2*maxmemb;
-            T *_array = (T)calloc(_maxmemb,sizeof(T));
+            T *_array = (T *)calloc(_maxmemb,sizeof(T));
             while(_array==nullptr && _maxmemb>=maxmemb+1)
-                _array = (T)calloc(--_maxmemb,sizeof(T));
+                _array = (T *)calloc(--_maxmemb,sizeof(T));
             if(_array==nullptr)
                 throw std::bad_alloc();
-            _array=(T)memcpy(_array,array,nmemb);
+            _array=(T *)memcpy(_array,array,nmemb);
             T *tmp = array;
             array = _array;
             free(tmp);
@@ -82,10 +82,10 @@ public:
     }
 
     typedef T indexT;
-    friend class MyIterator<T>;
-    friend class MyConstIterator<T>;
-    typedef MyIterator<T> Iterator;
-    typedef MyConstIterator<T> ConstIterator;
+    friend class MyIterator<MyVector>;
+    friend class MyConstIterator<MyVector>;
+    typedef MyIterator<MyVector> Iterator;
+    typedef MyConstIterator<MyVector> ConstIterator;
     Iterator begin() {
         return Iterator(this,0);
     }
@@ -98,7 +98,7 @@ public:
     ConstIterator end() const {
         return ConstIterator(this,nmemb);
     }
-    void erase(Iterator &iter) {
+    void erase(Iterator iter) {
         uint startindex = &(*iter)-array;
         T item = *iter;
         for(uint i=startindex;i<nmemb-1;i++)
@@ -107,11 +107,14 @@ public:
         nmemb--;
     }
     void shrink_to_fit() {
-        T *_array = (T)realloc(array,nmemb);
+        T *_array = (T *)realloc(array,nmemb);
         if(_array==nullptr)
             throw std::bad_alloc();
         array=_array;
         maxmemb=nmemb;
+    }
+    T & back (){
+       return array[nmemb-1];
     }
 };
 }

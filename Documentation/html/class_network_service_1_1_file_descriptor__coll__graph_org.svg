@@ -11,22 +11,23 @@
 <polygon fill="white" stroke="none" points="-4,4 -4,-969 174,-969 174,4 -4,4"/>
 <!-- Node1 -->
 <g id="node1" class="node"><title>Node1</title>
-<polygon fill="#bfbfbf" stroke="black" points="8.5,-0.5 8.5,-112.5 161.5,-112.5 161.5,-0.5 8.5,-0.5"/>
-<text text-anchor="middle" x="85" y="-100.5" font-family="Helvetica,sans-Serif" font-size="10.00">NetworkService::FileDescriptor</text>
-<polyline fill="none" stroke="black" points="8.5,-93.5 161.5,-93.5 "/>
-<text text-anchor="start" x="16.5" y="-81.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; linkduration</text>
-<polyline fill="none" stroke="black" points="8.5,-74.5 161.5,-74.5 "/>
-<text text-anchor="start" x="16.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ FileDescriptor()</text>
-<text text-anchor="start" x="16.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getLinkDuration()</text>
-<text text-anchor="start" x="16.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getType()</text>
-<text text-anchor="start" x="16.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ calculatePrice()</text>
-<text text-anchor="start" x="16.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~FileDescriptor()</text>
+<polygon fill="#bfbfbf" stroke="black" points="8.5,-0.5 8.5,-123.5 161.5,-123.5 161.5,-0.5 8.5,-0.5"/>
+<text text-anchor="middle" x="85" y="-111.5" font-family="Helvetica,sans-Serif" font-size="10.00">NetworkService::FileDescriptor</text>
+<polyline fill="none" stroke="black" points="8.5,-104.5 161.5,-104.5 "/>
+<text text-anchor="start" x="16.5" y="-92.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; linkduration</text>
+<polyline fill="none" stroke="black" points="8.5,-85.5 161.5,-85.5 "/>
+<text text-anchor="start" x="16.5" y="-73.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ FileDescriptor()</text>
+<text text-anchor="start" x="16.5" y="-62.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getLinkDuration()</text>
+<text text-anchor="start" x="16.5" y="-51.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getType()</text>
+<text text-anchor="start" x="16.5" y="-40.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ calculatePrice()</text>
+<text text-anchor="start" x="16.5" y="-29.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~FileDescriptor()</text>
+<text text-anchor="start" x="16.5" y="-18.5" font-family="Helvetica,sans-Serif" font-size="10.00"># setLinkDuration()</text>
 <text text-anchor="start" x="16.5" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; FileDescriptor()</text>
 </g>
 <!-- Node2 -->
 <g id="node2" class="node"><title>Node2</title>
 <g id="a_node2"><a xlink:href="class_network_service_1_1_post_descriptor.html" target="_top" xlink:title="Описатель сервиса &quot;почта&quot;, наследуемый от ServiceDescriptor. ">
-<polygon fill="white" stroke="black" points="6,-150.5 6,-317.5 164,-317.5 164,-150.5 6,-150.5"/>
+<polygon fill="white" stroke="black" points="6,-161.5 6,-317.5 164,-317.5 164,-161.5 6,-161.5"/>
 <text text-anchor="middle" x="85" y="-305.5" font-family="Helvetica,sans-Serif" font-size="10.00">NetworkService::PostDescriptor</text>
 <polyline fill="none" stroke="black" points="6,-298.5 164,-298.5 "/>
 <text text-anchor="start" x="14" y="-286.5" font-family="Helvetica,sans-Serif" font-size="10.00">&#45; traffic</text>
@@ -37,18 +38,17 @@
 <text text-anchor="start" x="14" y="-234.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getDirection()</text>
 <text text-anchor="start" x="14" y="-223.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getTraffic()</text>
 <text text-anchor="start" x="14" y="-212.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getType()</text>
-<text text-anchor="start" x="14" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ getLinkTime()</text>
-<text text-anchor="start" x="14" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ calculatePrice()</text>
-<text text-anchor="start" x="14" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~PostDescriptor()</text>
-<text text-anchor="start" x="14" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00"># setTraffic()</text>
-<text text-anchor="start" x="14" y="-157.5" font-family="Helvetica,sans-Serif" font-size="10.00"># setDirection()</text>
+<text text-anchor="start" x="14" y="-201.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ calculatePrice()</text>
+<text text-anchor="start" x="14" y="-190.5" font-family="Helvetica,sans-Serif" font-size="10.00">+ ~PostDescriptor()</text>
+<text text-anchor="start" x="14" y="-179.5" font-family="Helvetica,sans-Serif" font-size="10.00"># setTraffic()</text>
+<text text-anchor="start" x="14" y="-168.5" font-family="Helvetica,sans-Serif" font-size="10.00"># setDirection()</text>
 </a>
 </g>
 </g>
 <!-- Node2&#45;&gt;Node1 -->
 <g id="edge1" class="edge"><title>Node2&#45;&gt;Node1</title>
-<path fill="none" stroke="midnightblue" d="M85,-140.177C85,-130.775 85,-121.451 85,-112.638"/>
-<polygon fill="none" stroke="midnightblue" points="81.5001,-140.389 85,-150.389 88.5001,-140.389 81.5001,-140.389"/>
+<path fill="none" stroke="midnightblue" d="M85,-151.186C85,-141.874 85,-132.556 85,-123.65"/>
+<polygon fill="none" stroke="midnightblue" points="81.5001,-151.268 85,-161.268 88.5001,-151.268 81.5001,-151.268"/>
 </g>
 <!-- Node3 -->
 <g id="node3" class="node"><title>Node3</title>
@@ -74,8 +74,8 @@
 </g>
 <!-- Node3&#45;&gt;Node2 -->
 <g id="edge2" class="edge"><title>Node3&#45;&gt;Node2</title>
-<path fill="none" stroke="midnightblue" d="M85,-345.185C85,-336.06 85,-326.84 85,-317.824"/>
-<polygon fill="none" stroke="midnightblue" points="81.5001,-345.432 85,-355.432 88.5001,-345.432 81.5001,-345.432"/>
+<path fill="none" stroke="midnightblue" d="M85,-345.092C85,-335.935 85,-326.71 85,-317.734"/>
+<polygon fill="none" stroke="midnightblue" points="81.5001,-345.387 85,-355.387 88.5001,-345.387 81.5001,-345.387"/>
 </g>
 <!-- Node4 -->
 <g id="node4" class="node"><title>Node4</title>

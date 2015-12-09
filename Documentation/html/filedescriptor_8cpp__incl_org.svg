@@ -169,7 +169,7 @@
 </g>
 <!-- Node17 -->
 <g id="node17" class="node"><title>Node17</title>
-<g id="a_node17"><a xlink:href="helpers_8h.html" target="_top" xlink:title="Файл, содержащий реализацию функций&#45;помощников, не принадлежащих какому&#45;либо объекту ...">
+<g id="a_node17"><a xlink:href="helpers_8h.html" target="_top" xlink:title="Файл, содержащий объявление функций&#45;помощников, не принадлежащих какому&#45;либо объекту ...">
 <polygon fill="white" stroke="black" points="1161,-0.5 1161,-19.5 1217,-19.5 1217,-0.5 1161,-0.5"/>
 <text text-anchor="middle" x="1189" y="-7.5" font-family="Helvetica,sans-Serif" font-size="10.00">helpers.h</text>
 </a>

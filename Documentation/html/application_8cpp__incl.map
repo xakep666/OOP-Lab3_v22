@@ -1,6 +1,6 @@
 <map id="NetworkServiceLib/application.cpp" name="NetworkServiceLib/application.cpp">
 <area shape="rect" id="node2" href="$networkservice_8h.html" title="Файл, содержаший все необходимые определения и включения для работы библиотеки " alt="" coords="1138,80,1259,107"/>
-<area shape="rect" id="node17" href="$helpers_8h.html" title="Файл, содержащий реализацию функций&#45;помощников, не принадлежащих какому&#45;либо объекту ..." alt="" coords="1553,155,1628,181"/>
+<area shape="rect" id="node17" href="$helpers_8h.html" title="Файл, содержащий объявление функций&#45;помощников, не принадлежащих какому&#45;либо объекту ..." alt="" coords="1553,155,1628,181"/>
 <area shape="rect" id="node18" href="$servicedescriptor_8h.html" title="Файл, содержащий объявление абстрактного класса ServiceDescriptor. " alt="" coords="1653,155,1785,181"/>
 <area shape="rect" id="node19" href="$postdescriptor_8h.html" title="Файл, содержащий объявление класса PostDescriptor. " alt="" coords="1809,155,1924,181"/>
 <area shape="rect" id="node20" href="$filedescriptor_8h.html" title="Файл, содержащий объявление класса FileDescriptor. " alt="" coords="1948,155,2055,181"/>

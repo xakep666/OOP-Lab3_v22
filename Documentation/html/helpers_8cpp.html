@@ -86,8 +86,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#func-members">Функции</a>  </div>
   <div class="headertitle">
 <div class="title">Файл helpers.cpp</div>  </div>
 </div><!--header-->
@@ -101,119 +99,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Поиск');
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="helpers_8cpp__incl.svg" width="100%" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div></div>
 </div>
-</div><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
-Функции</h2></td></tr>
-<tr class="memitem:a30367179cf87011e4bac6b7108214178"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8cpp.html#a30367179cf87011e4bac6b7108214178">LongIPtoString</a> (ulong ip)</td></tr>
-<tr class="memdesc:a30367179cf87011e4bac6b7108214178"><td class="mdescLeft">&#160;</td><td class="mdescRight">Преобразование IP адреса из ulong-представления в строковое  <a href="#a30367179cf87011e4bac6b7108214178">Подробнее...</a><br /></td></tr>
-<tr class="separator:a30367179cf87011e4bac6b7108214178"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6be7d03d5b94d906305bcfd41a8b5f31"><td class="memItemLeft" align="right" valign="top">ulong&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8cpp.html#a6be7d03d5b94d906305bcfd41a8b5f31">stringToLongIP</a> (std::string src)</td></tr>
-<tr class="memdesc:a6be7d03d5b94d906305bcfd41a8b5f31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Преобразование IP адреса из строкового представления в ulong-представление  <a href="#a6be7d03d5b94d906305bcfd41a8b5f31">Подробнее...</a><br /></td></tr>
-<tr class="separator:a6be7d03d5b94d906305bcfd41a8b5f31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0544185232f19b60f68a2e0ab5ca5e25"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="helpers_8cpp.html#a0544185232f19b60f68a2e0ab5ca5e25">isValidIP</a> (ulong ip)</td></tr>
-<tr class="memdesc:a0544185232f19b60f68a2e0ab5ca5e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Проверка, является ли IP адрес верным  <a href="#a0544185232f19b60f68a2e0ab5ca5e25">Подробнее...</a><br /></td></tr>
-<tr class="separator:a0544185232f19b60f68a2e0ab5ca5e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
+</div><a name="details" id="details"></a><h2 class="groupheader">Подробное описание</h2>
 <div class="textblock"><p>Файл, содержащий реализацию функций-помощников, не принадлежащих какому-либо объекту </p>
-</div><h2 class="groupheader">Функции</h2>
-<a class="anchor" id="a0544185232f19b60f68a2e0ab5ca5e25"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool isValidIP </td>
-          <td>(</td>
-          <td class="paramtype">ulong&#160;</td>
-          <td class="paramname"><em>ip</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Проверка, является ли IP адрес верным </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ip</td><td>IP адрес в ulong-представлении </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>true если IP верный, false в противном случае</dd></dl>
-<p>IP адрес считается верным, если он не начинается и не заканчивается на 0 или 255. Проверка происходит с использованием битовых сдвигов, побитовых "и" и сравнений. Пример реализации проверки </p><div class="fragment"><div class="line">    <span class="keywordflow">if</span> ( (ip&amp;0xFF)==0 || (ip&amp;0xFF)==0xFF)</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">if</span> (((ip&gt;&gt;(IPSize-8))&amp;0xFF)==0 || ((ip&gt;&gt;(IPSize-8))&amp;0xFF)==0xFF)</div>
-<div class="line">        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line">    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-</div><!-- fragment --><p>[ipcode]</p>
-<p>[ipcode] </p>
-
-</div>
-</div>
-<a class="anchor" id="a30367179cf87011e4bac6b7108214178"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string LongIPtoString </td>
-          <td>(</td>
-          <td class="paramtype">ulong&#160;</td>
-          <td class="paramname"><em>ip</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Преобразование IP адреса из ulong-представления в строковое </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ip</td><td>IP в ulong-представлении </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>Строковое представление адреса </dd></dl>
-<dl class="exception"><dt>Исключения</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">logic_error</td><td>в случае ошибки преобразования</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Функция преобразует IP адрес в строковое представления, используя C функцию inet_ntop() </p>
-
-</div>
-</div>
-<a class="anchor" id="a6be7d03d5b94d906305bcfd41a8b5f31"></a>
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">ulong stringToLongIP </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>src</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Преобразование IP адреса из строкового представления в ulong-представление </p>
-<dl class="params"><dt>Аргументы</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">src</td><td>исходная строка </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Возвращает</dt><dd>ulong-представление адреса </dd></dl>
-<dl class="exception"><dt>Исключения</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">logic_error</td><td>в случае ошибки преобразования</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>Функция преобразует IP адрес из строкового представления в ulong, исползуя C функцию inet_pton() </p>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Создано системой &#160;<a href="http://www.doxygen.org/index.html">

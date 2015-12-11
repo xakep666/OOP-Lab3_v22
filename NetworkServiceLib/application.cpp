@@ -326,7 +326,8 @@ void Application::saveToFile(std::string &path) {
         Value stringv;
         stringv.SetString(LongIPtoString(s.getAddress()),doc.GetAllocator());
         server.AddMember("address",stringv,doc.GetAllocator());
-        server.AddMember("name",StringRef(s.getName().c_str()),doc.GetAllocator());
+        stringv.SetString(s.getName(),doc.GetAllocator());
+        server.AddMember("name",stringv,doc.GetAllocator());
         server.AddMember("mbcost",s.getCostPerMB(),doc.GetAllocator());
         server.AddMember("mincost",s.getCostPerMin(),doc.GetAllocator());
         Value services;
@@ -334,7 +335,8 @@ void Application::saveToFile(std::string &path) {
         std::for_each(s.cbegin(),s.cend(),[&](const indexT::indexT &p) {
             Value service;
             service.SetObject();
-            service.AddMember("type",StringRef(p.first->getType().c_str()),doc.GetAllocator());
+            stringv.SetString(p.first->getType(),doc.GetAllocator());
+            service.AddMember("type",stringv,doc.GetAllocator());
             if(typeid(*p.first)==typeid(PostDescriptor)) {
                 auto pptr = dynamic_cast<PostDescriptor *>(p.first);
                 service.AddMember("traffic",pptr->getTraffic(),doc.GetAllocator());
@@ -362,8 +364,10 @@ void Application::saveToFile(std::string &path) {
                 service.AddMember("outtraffic",nptr->getOutTraffic(),doc.GetAllocator());
                 service.AddMember("duration",nptr->getLinkDuration().count(),doc.GetAllocator());
             }
-            service.AddMember("source",StringRef(LongIPtoString(p.second).c_str()),doc.GetAllocator());
-            service.AddMember("destination",StringRef(LongIPtoString(p.first->getDestinationAddress()).c_str()),doc.GetAllocator());
+            stringv.SetString(LongIPtoString(p.second),doc.GetAllocator());
+            service.AddMember("source",stringv,doc.GetAllocator());
+            stringv.SetString(LongIPtoString(p.first->getDestinationAddress()),doc.GetAllocator());
+            service.AddMember("destination",stringv,doc.GetAllocator());
             service.AddMember("linktime",Time::to_time_t(p.first->getLinkTime()),doc.GetAllocator());
             services.PushBack(service,doc.GetAllocator());
         });

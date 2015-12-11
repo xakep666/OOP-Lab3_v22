@@ -1,6 +1,0 @@
-<map id="Иерархия классов. Графический вид." name="Иерархия классов. Графический вид.">
-<area shape="rect" id="node1" href="$class_network_service_1_1_service_descriptor.html" title="Описатель сервиса, абстрактный класс " alt="" coords="5,31,232,57"/>
-<area shape="rect" id="node2" href="$class_network_service_1_1_network_descriptor.html" title="Описатель сервиса &quot;сеть&quot;, наследуется от ServiceDescriptor. " alt="" coords="280,5,512,32"/>
-<area shape="rect" id="node3" href="$class_network_service_1_1_post_descriptor.html" title="Описатель сервиса &quot;почта&quot;, наследуемый от ServiceDescriptor. " alt="" coords="291,56,501,83"/>
-<area shape="rect" id="node4" href="$class_network_service_1_1_file_descriptor.html" title="Класс, описывающий сервис &quot;файл&quot;. " alt="" coords="560,56,764,83"/>
-</map>

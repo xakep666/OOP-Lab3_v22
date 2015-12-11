@@ -205,7 +205,7 @@ void testNetworkDescriptor::testCalculatingPrice() {
         nd.setInTraffic(intraffic);
         nd.setOutTraffic(outtraffic);
         nd.setLinkDuration(duration);
-        QCOMPARE(nd.calculatePrice(),(intraffic+outtraffic)*costpermb+(ulong)(duration.count()*minute_k)*costpermin);
+        QCOMPARE(nd.calculatePrice(),(intraffic+outtraffic)*costpermb+(ulong)(duration.count()/minute_k)*costpermin);
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }

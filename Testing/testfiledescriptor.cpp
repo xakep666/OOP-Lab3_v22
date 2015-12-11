@@ -206,7 +206,7 @@ void testFileDescriptor::testCalculatingPrice() {
         fd.setServer(&srv);
         fd.setTraffic(traffic);
         fd.setLinkDuration(duration);
-        QCOMPARE(fd.calculatePrice(),traffic*costpermb+(ulong)(duration.count()*minute_k)*costpermin);
+        QCOMPARE(fd.calculatePrice(),traffic*costpermb+(ulong)(duration.count()/minute_k)*costpermin);
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }

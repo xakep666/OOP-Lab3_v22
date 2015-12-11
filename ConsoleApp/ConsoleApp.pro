@@ -3,7 +3,8 @@ CONFIG += console c++11
 CONFIG -= app_bundle
 CONFIG -= qt
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    menufuncs.cpp
 
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/release/ -lNetworkServiceLib
@@ -14,4 +15,6 @@ INCLUDEPATH += $$PWD/../NetworkServiceLib
 DEPENDPATH += $$PWD/../NetworkServiceLib
 
 HEADERS += \
-    menus.h
+    menus.h \
+    menufuncs.h \
+    dependentmenus.h

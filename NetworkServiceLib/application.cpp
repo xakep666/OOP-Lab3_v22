@@ -109,27 +109,23 @@ void Application::SetServerAddress(Server &srv, ulong newaddr) {
 
 /*!
  * \brief Добавление записи об оказанной услуге в "таблицу связи" сервера
- * \param serveraddr IP адрес сервера
  * \param abonentaddr IP адрес клиента
  * \param sdesc Указатель на описатель сервиса (полиморфный ServiceDescriptor)
  * \throw invalid_argument Если:
- * - Неверный IP сервера
  * - Неверный IP клиента
  * - В качестве указателя на ServiceDescriptor передан нулевой указатель
  *
  * Метод ищет сервер в таблице серверов и добавляет в его "таблицу связи" информацию об оказанной услуге.
  * Также метод добавляет IP адрес клиента в таблицу занятых адресов, если такого адреса там еще нет
  */
-void Application::addService(ulong serveraddr, ulong abonentaddr, ServiceDescriptor *sdesc) {
-    if(!isValidIP(serveraddr))
-        throw std::invalid_argument("Invalid server IP given: "+std::to_string(serveraddr));
+void Application::addService(ulong abonentaddr, ServiceDescriptor *sdesc) {
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
     if(sdesc==nullptr)
         throw std::invalid_argument("Cannot use nullptr as service descriptor");
     if(!isIPBusy(abonentaddr))
         usedIPs.push_back(abonentaddr);
-    getServer(serveraddr).addService(sdesc,abonentaddr);
+    getServer(sdesc->getServer()->getAddress()).addService(sdesc,abonentaddr);
 }
 
 /*!
@@ -311,6 +307,26 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
  *
  * Метод проходит по всем серверам и их "таблицам связи" (используются итераторы), сохраняя информацию в
  * JSON формате в текстовый файл
+ * Формат файла
+ * \code
+ * [
+{
+    "address":"1.2.3.4",
+    "name":"a",
+    "mbcost":1,
+    "mincost":1,
+    "linktable":[
+    {
+        "type":"Post",
+        "traffic":3,
+        "direciton":"recv",
+        "source":"4.5.6.7",
+        "destination":"3.4.5.6",
+        "linktime":144984388}
+    ]
+}
+]
+ * \endcode
  */
 void Application::saveToFile(std::string &path) {
     std::ofstream destfile (path);
@@ -404,7 +420,27 @@ void Application::saveToFile(std::string &path) {
  * \throws invalid_argument если не удалось открыть файл на чтение
  * \throws logic_error в случае ошибки разбора
  *
- * Метод разбирает JSON представление, взятое из файла, восстанавливая информацию о серверах и оказанных услугах
+ * Метод разбирает JSON представление, взятое из файла, восстанавливая информацию о серверах и оказанных услугах.
+ * Формат файла
+ * \code
+ * [
+{
+    "address":"1.2.3.4",
+    "name":"a",
+    "mbcost":1,
+    "mincost":1,
+    "linktable":[
+    {
+        "type":"Post",
+        "traffic":3,
+        "direciton":"recv",
+        "source":"4.5.6.7",
+        "destination":"3.4.5.6",
+        "linktime":144984388}
+    ]
+}
+]
+ * \endcode
  */
 void Application::readFromFile(std::string &path) {
     std::ifstream srcfile(path);
@@ -443,12 +479,12 @@ void Application::readFromFile(std::string &path) {
             if(!service["type"].IsString())
                 throw std::logic_error("Service type must be string");
             std::string servicetype = service["type"].GetString();
-            if(servicetype!="Post" || servicetype!="Network" || servicetype!="File")
+            if(servicetype!="Post" && servicetype!="Network" && servicetype!="File")
                 throw std::logic_error("Service type must be \"Post\", \"File\" or \"Network\"");
-            if(!service["source"].IsUint() || !isValidIP(stringToLongIP(service["source"].GetString())))
+            if(!service["source"].IsString() || !isValidIP(stringToLongIP(service["source"].GetString())))
                 throw std::logic_error("Source address is invalid");
             ulong srcip = stringToLongIP(service["source"].GetString());
-            if(!service["destination"].IsUint() || !isValidIP(stringToLongIP(service["destination"].GetString())))
+            if(!service["destination"].IsString() || !isValidIP(stringToLongIP(service["destination"].GetString())))
                 throw std::logic_error("Destination address is invalid");
             ulong dstip = stringToLongIP(service["destination"].GetString());
             if(!service["linktime"].IsUint())
@@ -463,10 +499,10 @@ void Application::readFromFile(std::string &path) {
                 std::string directionstr = service["direction"].GetString();
                 if(directionstr=="send") {
                     ServiceDescriptor *postdesc = new PostDescriptor(traffic,SEND,dstip,linktime,cur_server);
-                    addService(srvip,srcip,postdesc);
+                    addService(srcip,postdesc);
                 } else if (directionstr=="recv") {
                     ServiceDescriptor *postdesc = new PostDescriptor(traffic,RECV,dstip,linktime,cur_server);
-                    addService(srvip,srcip,postdesc);
+                    addService(srcip,postdesc);
                 } else {
                     throw std::logic_error("Direction must be \"send\" or \"recv\"");
                 }
@@ -483,10 +519,10 @@ void Application::readFromFile(std::string &path) {
                 fduration duration(service["duration"].GetUint());
                 if(directionstr=="send") {
                     ServiceDescriptor *postdesc = new FileDescriptor(traffic,SEND,dstip,linktime,duration,cur_server);
-                    addService(srvip,srcip,postdesc);
+                    addService(srcip,postdesc);
                 } else if (directionstr=="recv") {
                     ServiceDescriptor *postdesc = new FileDescriptor(traffic,RECV,dstip,linktime,duration,cur_server);
-                    addService(srvip,srcip,postdesc);
+                    addService(srcip,postdesc);
                 } else {
                     throw std::logic_error("Direction must be \"send\" or \"recv\"");
                 }
@@ -501,7 +537,7 @@ void Application::readFromFile(std::string &path) {
                 if(!service["duration"].IsUint())
                     throw std::logic_error("Duration must be unsigned number");
                 fduration duration(service["duration"].GetUint());
-                addService(srvip,srcip,new NetworkDescriptor(intraffic,outtraffic,dstip,linktime,duration,cur_server));
+                addService(srcip,new NetworkDescriptor(intraffic,outtraffic,dstip,linktime,duration,cur_server));
             }
         });
     });

@@ -51,7 +51,7 @@ std::string FileDescriptor::getType() const {
  * Рассчет стоимости оказанных услуг, на основании стоимости 1 минуты и 1MB, установленной сервером
  */
 ulong FileDescriptor::calculatePrice() const {
-    return getTraffic()*getServer()->getCostPerMB() + (ulong)(linkduration.count()*minute_k)*getServer()->getCostPerMin();
+    return getTraffic()*getServer()->getCostPerMB() + (ulong)(linkduration.count()/minute_k)*getServer()->getCostPerMin();
 }
 
 

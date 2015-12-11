@@ -24,7 +24,7 @@ public:
     void delServer(ulong addr);
     Server & getServer(ulong addr);
     void SetServerAddress(Server &srv, ulong newaddr);
-    void addService(ulong serveraddr,ulong abonentaddr,ServiceDescriptor *sdesc);
+    void addService(ulong abonentaddr,ServiceDescriptor *sdesc);
     MyVector<std::string> abonentInfo(ulong abonentaddr) const;
     ulong abonentTotalPrice(ulong abonentaddr) const;
     std::pair<ulong,ulong> countIOTraffic() const;

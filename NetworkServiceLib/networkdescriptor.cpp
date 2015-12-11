@@ -58,7 +58,7 @@ std::string NetworkDescriptor::getType() const {
  * Рассчет стоимости оказанных услуг, на основании стоимости 1 минуты и 1MB, установленной сервером
  */
 ulong NetworkDescriptor::calculatePrice() const {
-    return getServer()->getCostPerMB()*(intraffic+outtraffic)+getServer()->getCostPerMin()*(ulong)(linkduration.count()*minute_k);
+    return getServer()->getCostPerMB()*(intraffic+outtraffic)+getServer()->getCostPerMin()*(ulong)(linkduration.count()/minute_k);
 }
 
 /*!

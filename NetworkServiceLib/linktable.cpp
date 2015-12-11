@@ -79,34 +79,48 @@ void LinkTable::delService(uint index) {
 MyVector<std::string> LinkTable::showTable() const {
     MyVector<std::string> result;
     std::for_each(linktable.cbegin(),linktable.cend(),[&](const LinkTable::indexT pair){
-        std::string tmp("Type:"+pair.first->getType()+"\t"+
-                        "Destination address:"+std::to_string(pair.first->getDestinationAddress())+"\t"+
-                        "Price:"+std::to_string(pair.first->calculatePrice())+"\t");
+        std::string tmp("Type:"+pair.first->getType()+"\n"+
+                        "Source address: "+LongIPtoString(pair.second)+'\n'+
+                        "Destination address:"+LongIPtoString(pair.first->getDestinationAddress())+"\n"+
+                        "Price:"+std::to_string(pair.first->calculatePrice())+"\n");
         if(typeid(*pair.first)==typeid(PostDescriptor)) {
             auto tmpdesc = dynamic_cast<PostDescriptor *>(pair.first);
             switch (tmpdesc->getDirection()) {
-                case SEND:
-                    tmp += "Send\t";
-                case RECV:
-                    tmp += "Recive\t";
+            case SEND:
+            {
+                tmp += "Send: ";
+                break;
             }
-            tmp+=std::to_string(tmpdesc->getTraffic())+"MB\t";
+            case RECV:
+            {
+                tmp += "Recive: ";
+                break;
+            }
+            }
+            tmp+=std::to_string(tmpdesc->getTraffic())+"MB\n";
         }
         if(typeid(*pair.first)==typeid(FileDescriptor)) {
             auto tmpdesc = dynamic_cast<FileDescriptor *>(pair.first);
             switch (tmpdesc->getDirection()) {
-                case SEND:
-                    tmp += "Send\t";
-                case RECV:
-                    tmp += "Recive\t";
+            case SEND:
+            {
+                tmp += "Send: ";
+                break;
             }
-            tmp+=std::to_string(tmpdesc->getTraffic())+"MB\t";
-            tmp+=std::to_string(tmpdesc->getLinkDuration().count())+"Min\t";
+            case RECV:
+            {
+                tmp += "Recive: ";
+                break;
+            }
+            }
+            tmp+=std::to_string(tmpdesc->getTraffic())+"MB\n";
+            tmp+="Duration: "+std::to_string(tmpdesc->getLinkDuration().count()/minute_k)+"Min\n";
         }
         if(typeid(*pair.first)==typeid(NetworkDescriptor)) {
             auto tmpdesc = dynamic_cast<NetworkDescriptor *>(pair.first);
-            tmp += "Send: "+std::to_string(tmpdesc->getOutTraffic())+"MB\t";
-            tmp += "Recived: "+std::to_string(tmpdesc->getInTraffic())+"MB\t";
+            tmp += "Send: "+std::to_string(tmpdesc->getOutTraffic())+"MB\n";
+            tmp += "Recived: "+std::to_string(tmpdesc->getInTraffic())+"MB\n";
+            tmp+=" Duration: "+std::to_string(tmpdesc->getLinkDuration().count()/minute_k)+"Min\n";
         }
         result.push_back(tmp);
     });

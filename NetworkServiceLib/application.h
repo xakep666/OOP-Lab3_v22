@@ -35,10 +35,11 @@ public:
     friend class MyIterator<Application>;
     friend class MyConstIterator<Application>;
     Iterator begin();
-    ConstIterator begin() const;
+    ConstIterator cbegin() const;
     Iterator end();
-    ConstIterator end() const;
+    ConstIterator cend() const;
     Server & operator [](uint index);
+    const Server & operator [](uint index) const;
     virtual ~Application();
 };
 }

@@ -14,10 +14,10 @@ using namespace NetworkService;
  * Метод ищет проверяемый адрес в таблице используемых адресов
  */
 bool Application::isIPBusy(ulong addr) const {
-    auto pos = std::find_if(usedIPs.begin(),usedIPs.end(),[addr](ulong _addr){
+    auto pos = std::find_if(usedIPs.cbegin(),usedIPs.cend(),[addr](ulong _addr){
         return _addr==addr;
     });
-    if(pos == usedIPs.end())
+    if(pos == usedIPs.cend())
         return false;
     else
         return true;
@@ -139,9 +139,26 @@ void Application::addService(ulong serveraddr, ulong abonentaddr, ServiceDescrip
  * \throw invalid_argument если index больше, чем размер таблицы
  *
  * Метод использует перегруженный оператор для [] для таблицы серверов.
- * Метод необходим для работы итераторов
+ * Метод необходим для работы итератора
  */
 Server & Application::operator [](uint index) {
+    if(index>=servers.size())
+        throw std::invalid_argument("Index ("+std::to_string(index)+
+                                    ") is greater then table size ("+std::to_string(servers.size()));
+    return servers[index];
+}
+
+/*!
+ * \brief Оператор индексирования таблицы серверов
+ * \param index Индекс
+ * \return Константная ссылка на объект Server
+ * \throw invalid_argument если index больше, чем размер таблицы
+ *
+ * Метод использует перегруженный оператор для [] для таблицы серверов.
+ * Метод необходим для работы константного итератора
+ */
+const Server &Application::operator [](uint index) const
+{
     if(index>=servers.size())
         throw std::invalid_argument("Index ("+std::to_string(index)+
                                     ") is greater then table size ("+std::to_string(servers.size()));
@@ -160,7 +177,7 @@ Application::Iterator Application::begin() {
  * \brief Константный итератор, указывающий на первый элемент таблицы
  * \return объект ConstIterator
  */
-Application::ConstIterator Application::begin() const{
+Application::ConstIterator Application::cbegin() const{
     return Application::ConstIterator(this,0);
 }
 
@@ -177,7 +194,7 @@ Application::Iterator Application::end(){
  * \brief Константный итератор, указывающий на конец таблицы (индекс, равный размеру)
  * \return объект ConstIterator
  */
-Application::ConstIterator Application::end() const{
+Application::ConstIterator Application::cend() const{
     return Application::ConstIterator(this,0);
 }
 
@@ -204,8 +221,8 @@ MyVector<std::string> Application::abonentInfo(ulong abonentaddr) const{
     MyVector<std::pair<ulong,ulong>> counter;
     counter.reserve(ServicesNum);
     //! [countervec]
-    std::for_each(begin(),end(),[&](const indexT &srv){
-        std::for_each(srv.begin(),srv.end(),[&](const LinkTable::indexT &p){
+    std::for_each(cbegin(),cend(),[&](const indexT &srv){
+        std::for_each(srv.cbegin(),srv.cend(),[&](const LinkTable::indexT &p){
             if(p.second==abonentaddr) {
                 if(typeid(*p.first)==typeid(PostDescriptor)) {
                     counter[0].first+=dynamic_cast<PostDescriptor *>(p.first)->getTraffic();
@@ -247,8 +264,8 @@ ulong Application::abonentTotalPrice(ulong abonentaddr) const {
     if(!isIPBusy(abonentaddr))
         throw std::invalid_argument("Abonent with IP "+std::to_string(abonentaddr)+" not found");
     ulong result=0;
-    std::for_each(begin(),end(),[&](const indexT &s){
-        std::for_each(s.begin(),s.end(),[&](const indexT::indexT &p){
+    std::for_each(cbegin(),cend(),[&](const indexT &s){
+        std::for_each(s.cbegin(),s.cend(),[&](const indexT::indexT &p){
             if(p.second == abonentaddr)
                 result+= p.first->calculatePrice();
         });
@@ -265,8 +282,8 @@ ulong Application::abonentTotalPrice(ulong abonentaddr) const {
  */
 std::pair<ulong,ulong> Application::countIOTraffic() const {
     std::pair<ulong,ulong> result(0,0);
-    std::for_each(begin(),end(),[&](const indexT &s){
-        std::for_each(s.begin(),s.end(),[&](const indexT::indexT &p){
+    std::for_each(cbegin(),cend(),[&](const indexT &s){
+        std::for_each(s.cbegin(),s.cend(),[&](const indexT::indexT &p){
             if(typeid(*p.first)==typeid(PostDescriptor) ||
                typeid(*p.first)==typeid(FileDescriptor)) {
                 auto pptr = dynamic_cast<PostDescriptor *>(p.first);
@@ -312,7 +329,7 @@ void Application::saveToFile(std::string &path) {
         server.AddMember("mincost",s.getCostPerMin(),doc.GetAllocator());
         Value services;
         services.SetArray();
-        std::for_each(s.begin(),s.end(),[&](const indexT::indexT &p) {
+        std::for_each(s.cbegin(),s.cend(),[&](const indexT::indexT &p) {
             Value service;
             service.SetObject();
             service.AddMember("type",StringRef(p.first->getType().c_str()),doc.GetAllocator());

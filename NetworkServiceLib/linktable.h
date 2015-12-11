@@ -21,14 +21,15 @@ namespace NetworkService {
         void delService(uint index);
         MyVector<std::string> showTable() const;
         indexT & operator [] (uint index);
+        const indexT & operator [] (uint index) const;
         friend class MyIterator<LinkTable>;
         friend class MyConstIterator<LinkTable>;
         typedef MyIterator<LinkTable> Iterator; ///<Специализация шаблонного типа MyIterator
         typedef MyConstIterator<LinkTable> ConstIterator; ///<Специализация шаблонного типа MyConstIterator
         Iterator begin();
-        ConstIterator begin() const;
+        ConstIterator cbegin() const;
         Iterator end();
-        ConstIterator end() const;
+        ConstIterator cend() const;
         virtual ~LinkTable();
     };
 }

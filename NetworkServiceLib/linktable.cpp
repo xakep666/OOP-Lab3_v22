@@ -31,7 +31,7 @@ MyVector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr) const {
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
     MyVector<ServiceDescriptor *> result;
-    std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT item){
+    std::for_each(linktable.cbegin(),linktable.cend(),[&](const LinkTable::indexT item){
         if (item.second==abonentaddr)
             result.push_back(item.first);
     });
@@ -51,7 +51,7 @@ MyVector<ServiceDescriptor *> LinkTable::getServices(ulong abonentaddr, ftimepoi
     if(!isValidIP(abonentaddr))
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
     MyVector<ServiceDescriptor *> result;
-    std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT item){
+    std::for_each(linktable.cbegin(),linktable.cend(),[&](const LinkTable::indexT item){
         if (item.second==abonentaddr && item.first->getLinkTime()==linktime)
             result.push_back(item.first);
     });
@@ -78,7 +78,7 @@ void LinkTable::delService(uint index) {
  */
 MyVector<std::string> LinkTable::showTable() const {
     MyVector<std::string> result;
-    std::for_each(linktable.begin(),linktable.end(),[&](LinkTable::indexT pair){
+    std::for_each(linktable.cbegin(),linktable.cend(),[&](const LinkTable::indexT pair){
         std::string tmp("Type:"+pair.first->getType()+"\t"+
                         "Destination address:"+std::to_string(pair.first->getDestinationAddress())+"\t"+
                         "Price:"+std::to_string(pair.first->calculatePrice())+"\t");
@@ -117,9 +117,23 @@ MyVector<std::string> LinkTable::showTable() const {
  * \brief Оператор индексирования
  * \param index Индекс
  * \return Ссылка на пару из указателя на описатель сервиса (полиморфный ServiceDescriptor) и адреса абонента
- * \throws invalid_argument if index is greater then table size
+ * \throws invalid_argument если индекс больше или равен размеру таблицы
  */
 NetworkService::LinkTable::indexT &LinkTable::operator [](uint index) {
+    if(index>=linktable.size())
+        throw std::invalid_argument("Index ("+std::to_string(index)+
+                                    ") is greater then size of table ("+std::to_string(linktable.size())+")");
+    return linktable[index];
+}
+
+/*!
+ * \brief Оператор индексирования
+ * \param index Индекс
+ * \return Константная ссылка на пару из указателя на описатель сервиса (полиморфный ServiceDescriptor) и адреса абонента
+ * \throws invalid_argument если индекс больше или равен размеру таблицы
+ */
+const NetworkService::LinkTable::indexT &LinkTable::operator [](uint index) const
+{
     if(index>=linktable.size())
         throw std::invalid_argument("Index ("+std::to_string(index)+
                                     ") is greater then size of table ("+std::to_string(linktable.size())+")");
@@ -138,7 +152,7 @@ LinkTable::Iterator LinkTable::begin(){
  * \brief Константный итератор для первого элемента
  * \return Объект ConstIterator
  */
-LinkTable::ConstIterator LinkTable::begin() const{
+LinkTable::ConstIterator LinkTable::cbegin() const{
     return LinkTable::ConstIterator(this,0);
 }
 
@@ -154,7 +168,7 @@ LinkTable::Iterator LinkTable::end(){
  * \brief Константный итератор, указывающий на конец таблицы (индекс, равный размеру)
  * \return объект ConstIterator
  */
-LinkTable::ConstIterator LinkTable::end() const{
+LinkTable::ConstIterator LinkTable::cend() const{
     return LinkTable::ConstIterator(this,linktable.size());
 }
 

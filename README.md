@@ -19,6 +19,7 @@
 * make
 * doxygen
 * qhelpgeneator
+* graphviz
 
 Компиляция: qmake, затем make
 

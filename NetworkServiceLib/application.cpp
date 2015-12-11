@@ -424,7 +424,7 @@ void Application::readFromFile(std::string &path) {
     std::for_each(doc.Begin(),doc.End(),[&](Value &server){
         if(!server.IsObject())
             throw std::logic_error("JSON Array contains corrupted server object");
-        if(!server["address"].IsString() || isValidIP(stringToLongIP(server["address"].GetString())))
+        if(!server["address"].IsString() || !isValidIP(stringToLongIP(server["address"].GetString())))
             throw std::logic_error("Server object contains invalid IP");
         ulong srvip = stringToLongIP(server["address"].GetString());
         if(!server["name"].IsString())

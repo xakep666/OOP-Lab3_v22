@@ -44,6 +44,28 @@ void SaveToFile(NetworkService::Application &app) {
     app.saveToFile(path);
 }
 
+void LoadFromFile(NetworkService::Application &app) {
+    cout << "Введите имя файла: ";
+    std::string path = getCin<std::string>();
+    app.readFromFile(path);
+}
+
+void ServerInfo(NetworkService::Application &app) {
+    cout << "Введите IP сервера: ";
+    std::string ipstr = getCin<std::string>();
+    auto srv = app.getServer(NetworkService::stringToLongIP(ipstr));
+    cout <<"---------------------------------------------\n";
+    cout << "IP: "<<NetworkService::LongIPtoString(srv.getAddress())<<endl<<
+            "Имя: "<<srv.getName()<<endl<<
+            "Стоимость минуты: "<<srv.getCostPerMin()<<endl<<
+            "Стоимость MB: "<<srv.getCostPerMB()<<endl;
+    cout << "Таблица связи:\n";
+    auto table = srv.showTable();
+    std::for_each(table.begin(),table.end(),[](std::string &info){
+        cout << info;
+    });
+}
+
 void Exit(NetworkService::Application &){
     exit(0);
 }

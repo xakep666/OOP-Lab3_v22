@@ -7,12 +7,16 @@ const menufunc mainmenufuncs [] = {
     AddServer,
     ShowServers,
     SaveToFile,
+    LoadFromFile,
+    ServerInfo,
 };
 const std::string mainmenutext [] = {
     "Выход",
     "Добавить сервер",
     "Показать сервера",
-    "Сохранить в файл"
+    "Сохранить в файл",
+    "Загрузить из файла",
+    "Информация о сервере",
 };
 void PrintMenu(const std::string text[],size_t size) {
     for(size_t i=0;i<size;i++) {

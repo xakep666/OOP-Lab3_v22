@@ -375,7 +375,9 @@ void Application::saveToFile(std::string &path) {
     doc.Accept(writer);
     std::string srcstr = strbuf.GetString();
     std::string tabs;
+    tabs.reserve(10);
     std::string dststr;
+    dststr.reserve(srcstr.size());
     std::for_each(srcstr.begin(),srcstr.end(),[&](char c) {
         dststr.push_back(c);
         if (c=='{') tabs.insert(tabs.end(),'\t');

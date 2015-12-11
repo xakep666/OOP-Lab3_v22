@@ -323,7 +323,9 @@ void Application::saveToFile(std::string &path) {
         using namespace rapidjson;
         Value server;
         server.SetObject();
-        server.AddMember("address",StringRef(LongIPtoString(s.getAddress()).c_str()),doc.GetAllocator());
+        Value stringv;
+        stringv.SetString(LongIPtoString(s.getAddress()),doc.GetAllocator());
+        server.AddMember("address",stringv,doc.GetAllocator());
         server.AddMember("name",StringRef(s.getName().c_str()),doc.GetAllocator());
         server.AddMember("mbcost",s.getCostPerMB(),doc.GetAllocator());
         server.AddMember("mincost",s.getCostPerMin(),doc.GetAllocator());
@@ -371,7 +373,22 @@ void Application::saveToFile(std::string &path) {
     StringBuffer strbuf;
     Writer<StringBuffer> writer(strbuf);
     doc.Accept(writer);
-    destfile << strbuf.GetString();
+    std::string srcstr = strbuf.GetString();
+    std::string tabs;
+    std::string dststr;
+    std::for_each(srcstr.begin(),srcstr.end(),[&](char c) {
+        dststr.push_back(c);
+        if (c=='{') tabs.insert(tabs.end(),'\t');
+        if (c=='}') {
+            tabs.erase(tabs.end()-1);
+            dststr.erase(dststr.end()-2);
+        }
+        if (c=='[' || c =='{' || c == '}' || c == ']' || c == ',' ) {
+            dststr.push_back('\n');
+            dststr+=tabs;
+        }
+    });
+    destfile << dststr;
     destfile.close();
 }
 

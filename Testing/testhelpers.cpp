@@ -9,17 +9,22 @@
 
 void testHelpers::testIsValidIP() {
     try {
-        ulong validIP = IP(rand()%254+1,rand()%255,rand()%255,rand()%254+1);
-        ulong invalidIP [] = {
-            IP(0,rand()%255,rand()%255,rand()%254+1),
-            IP(255,rand()%255,rand()%255,rand()%254+1),
-            IP(rand()%254+1,rand()%255,rand()%255,0),
-            IP(rand()%254+1,rand()%255,rand()%255,255),
-        };
-        QVERIFY(NetworkService::isValidIP(validIP));
-        for(int i=0;i<4;i++) {
-            QVERIFY(!NetworkService::isValidIP(invalidIP[i]));
-        }
+        std::vector<ulong> ips;
+        ips.reserve(20);
+        for(int i=0;i<20;i++)
+            ips.push_back(IP(rand()%3,rand()%255,rand()%255,rand()%3));
+        const uint IPSize=32;
+        int invalidipsnum = std::count_if(ips.begin(),ips.end(),[](ulong ip){
+                if ( (ip&0xFF)==0 || (ip&0xFF)==0xFF)
+                    return false;
+                if (((ip>>(IPSize-8))&0xFF)==0 || ((ip>>(IPSize-8))&0xFF)==0xFF)
+                    return false;
+                return true;
+        });
+        int invalidipsregistered = std::count_if(ips.begin(),ips.end(),[](ulong ip){
+            return NetworkService::isValidIP(ip);
+        });
+        QCOMPARE(invalidipsnum,invalidipsregistered);
     } catch (...) {
         QFAIL("Unchecked exception thrown");
     }

@@ -16,8 +16,8 @@ private:
     ulong address; ///<IP адрес сервера
     std::string name; ///<Имя сервера
     ulong costpermin,costpermb; ///<Стоимость 1 минуты связи и 1MB переданных данных
-    Server();
 public:
+    Server();
     friend class Application; ///<Необходимо для изменения адреса
     explicit Server(ulong address);
     ulong getAddress() const;

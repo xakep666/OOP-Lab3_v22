@@ -153,7 +153,7 @@ void AbonentTotalPrice(NetworkService::Application &app) {
     cout << "Введите IP абонента: ";
     std::string ipstr = getCin<std::string>();
     ulong ip = NetworkService::stringToLongIP(ipstr);
-    cout << "Итоговая цена услуг абонента: "<<app.abonentTotalPrice(ip);
+    cout << "Итоговая цена услуг абонента: "<<app.abonentTotalPrice(ip)<<endl;
 }
 
 void IOTraffic(NetworkService::Application &app) {

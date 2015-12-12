@@ -191,7 +191,7 @@ Application::Iterator Application::end(){
  * \return объект ConstIterator
  */
 Application::ConstIterator Application::cend() const{
-    return Application::ConstIterator(this,0);
+    return Application::ConstIterator(this,servers.size());
 }
 
 /*!
@@ -226,12 +226,12 @@ MyVector<std::string> Application::abonentInfo(ulong abonentaddr) const{
                 if(typeid(*p.first)==typeid(FileDescriptor)) {
                     auto fptr = dynamic_cast<FileDescriptor *>(p.first);
                     counter[1].first+=fptr->getTraffic();
-                    counter[1].second+=fptr->getLinkDuration().count();
+                    counter[1].second+=fptr->getLinkDuration().count()/minute_k;
                 }
                 if(typeid(*p.first)==typeid(NetworkDescriptor)) {
                     auto nptr = dynamic_cast<NetworkDescriptor *>(p.first);
                     counter[2].first+=nptr->getInTraffic()+nptr->getOutTraffic();
-                    counter[2].second+=nptr->getLinkDuration().count();
+                    counter[2].second+=nptr->getLinkDuration().count()/minute_k;
                 }
             }
         });
@@ -277,7 +277,7 @@ ulong Application::abonentTotalPrice(ulong abonentaddr) const {
  * и направление их передачи, добавляя к результату
  */
 std::pair<ulong,ulong> Application::countIOTraffic() const {
-    std::pair<ulong,ulong> result(0,0);
+    std::pair<ulong,ulong> result(std::make_pair(0,0));
     std::for_each(cbegin(),cend(),[&](const indexT &s){
         std::for_each(s.cbegin(),s.cend(),[&](const indexT::indexT &p){
             if(typeid(*p.first)==typeid(PostDescriptor) ||
@@ -358,9 +358,9 @@ void Application::saveToFile(std::string &path) {
                 service.AddMember("traffic",pptr->getTraffic(),doc.GetAllocator());
                 switch (pptr->getDirection()) {
                 case SEND:
-                    service.AddMember("direction","send",doc.GetAllocator());
+                    service.AddMember("direction",StringRef("send"),doc.GetAllocator());
                 case RECV:
-                    service.AddMember("direciton","recv",doc.GetAllocator());
+                    service.AddMember("direciton",StringRef("recv"),doc.GetAllocator());
                 }
             }
             if(typeid(*p.first)==typeid(FileDescriptor)) {
@@ -369,9 +369,9 @@ void Application::saveToFile(std::string &path) {
                 service.AddMember("duration",fptr->getLinkDuration().count(),doc.GetAllocator());
                 switch (fptr->getDirection()) {
                 case SEND:
-                    service.AddMember("direction","send",doc.GetAllocator());
+                    service.AddMember("direction",StringRef("send"),doc.GetAllocator());
                 case RECV:
-                    service.AddMember("direciton","recv",doc.GetAllocator());
+                    service.AddMember("direciton",StringRef("recv"),doc.GetAllocator());
                 }
             }
             if(typeid(*p.first)==typeid(NetworkDescriptor)) {
@@ -465,9 +465,9 @@ void Application::readFromFile(std::string &path) {
         ulong srvip = stringToLongIP(server["address"].GetString());
         if(!server["name"].IsString())
             throw std::logic_error("Server name must be string");
-        if(!server["mbcost"].IsUint())
+        if(!server["mbcost"].IsNumber())
             throw std::logic_error("Cost per MB must be unsigned number");
-        if(!server["mincost"].IsUint())
+        if(!server["mincost"].IsNumber())
             throw std::logic_error("Cost per minute must be unsigned number");
         if(!server["linktable"].IsArray())
             throw std::logic_error("Linktable array is corrupted");
@@ -487,16 +487,16 @@ void Application::readFromFile(std::string &path) {
             if(!service["destination"].IsString() || !isValidIP(stringToLongIP(service["destination"].GetString())))
                 throw std::logic_error("Destination address is invalid");
             ulong dstip = stringToLongIP(service["destination"].GetString());
-            if(!service["linktime"].IsUint())
+            if(!service["linktime"].IsNumber())
                 throw std::logic_error("Linktime must be unsigned number");
             auto linktime = Time::from_time_t(service["linktime"].GetUint());
             if(servicetype=="Post") {
-                if(!service["traffic"].IsUint())
+                if(!service["traffic"].IsNumber())
                     throw std::logic_error("Traffic must be unsigned number");
                 ulong traffic = service["traffic"].GetUint();
                 if(!service["direction"].IsString())
                     throw std::logic_error("Direction must be string");
-                std::string directionstr = service["direction"].GetString();
+                std::string directionstr(service["direction"].GetString());
                 if(directionstr=="send") {
                     ServiceDescriptor *postdesc = new PostDescriptor(traffic,SEND,dstip,linktime,cur_server);
                     addService(srcip,postdesc);
@@ -508,13 +508,13 @@ void Application::readFromFile(std::string &path) {
                 }
             }
             if(servicetype=="File") {
-                if(!service["traffic"].IsUint())
+                if(!service["traffic"].IsNumber())
                     throw std::logic_error("Traffic must be unsigned number");
                 ulong traffic = service["traffic"].GetUint();
-                if(!service["direction"].IsString())
+                if(!service["direction"].IsNumber())
                     throw std::logic_error("Direction must be string");
                 std::string directionstr = service["direction"].GetString();
-                if(!service["duration"].IsUint())
+                if(!service["duration"].IsNumber())
                     throw std::logic_error("Duration must be unsigned number");
                 fduration duration(service["duration"].GetUint());
                 if(directionstr=="send") {
@@ -528,15 +528,15 @@ void Application::readFromFile(std::string &path) {
                 }
             }
             if(servicetype=="Network") {
-                if(!service["intraffic"].IsUint())
+                if(!service["intraffic"].IsNumber())
                     throw std::logic_error("Input Traffic must be unsigned number");
                 ulong intraffic = service["intraffic"].GetUint();
-                if(!service["outtraffic"].IsUint())
+                if(!service["outtraffic"].IsNumber())
                     throw std::logic_error("Output Traffic must be unsigned number");
                 ulong outtraffic = service["outtraffic"].GetUint();
-                if(!service["duration"].IsUint())
+                if(!service["duration"].IsNumber())
                     throw std::logic_error("Duration must be unsigned number");
-                fduration duration(service["duration"].GetUint());
+                fduration duration(std::floor(service["duration"].GetDouble()));
                 addService(srcip,new NetworkDescriptor(intraffic,outtraffic,dstip,linktime,duration,cur_server));
             }
         });

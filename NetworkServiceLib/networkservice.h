@@ -12,7 +12,6 @@
 #endif
 #include <chrono>
 #include <string>
-#include <vector>
 #include <utility>
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -27,8 +26,6 @@
 #include <stdexcept>
 #include <new>
 #include <fstream>
-#include <memory.h>
-#include <malloc.h>
 typedef std::chrono::system_clock Time; ///<Системные часы
 typedef std::chrono::milliseconds ms; ///<Милисекунда
 typedef std::chrono::time_point<Time> ftimepoint; ///<Специализация time_point для системных часов

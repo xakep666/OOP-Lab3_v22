@@ -103,6 +103,15 @@ public:
     typename T::indexT * operator ->() {
         return &memb->operator [](index);
     }
+
+    /*!
+     * \brief Получение текущего индекса
+     * \return Текущий индекс
+     */
+    uint getIndex() const {
+        return index;
+    }
+
     /*!
      * \brief Равенство двух итераторов
      * \param lv Итератор слева от знака ==
@@ -228,6 +237,15 @@ public:
     const typename T::indexT * operator ->(){
         return &memb->operator [](index);
     }
+
+    /*!
+     * \brief Получение текущего индекса
+     * \return Текущий индекс
+     */
+    uint getIndex() const {
+        return index;
+    }
+
     /*!
      * \brief Равенство двух итераторов
      * \param lv Итератор слева от знака ==

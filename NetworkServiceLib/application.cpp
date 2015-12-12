@@ -309,7 +309,7 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
  * JSON формате в текстовый файл
  * Формат файла
  * \code
- * [
+[
 {
     "address":"1.2.3.4",
     "name":"a",
@@ -423,7 +423,7 @@ void Application::saveToFile(std::string &path) {
  * Метод разбирает JSON представление, взятое из файла, восстанавливая информацию о серверах и оказанных услугах.
  * Формат файла
  * \code
- * [
+[
 {
     "address":"1.2.3.4",
     "name":"a",
@@ -441,11 +441,14 @@ void Application::saveToFile(std::string &path) {
 }
 ]
  * \endcode
+ * \warning Метод очищает таблицу серверов
  */
 void Application::readFromFile(std::string &path) {
     std::ifstream srcfile(path);
     if (!srcfile.is_open())
         throw std::invalid_argument("Cannot open file \""+path+"\"for reading");
+    servers.eraseAll();
+    usedIPs.eraseAll();
     std::string docstr;
     srcfile.seekg(0,std::ios::end);
     docstr.reserve(srcfile.tellg());
@@ -542,10 +545,4 @@ void Application::readFromFile(std::string &path) {
         });
     });
     srcfile.close();
-}
-
-Application::Application() {
-}
-
-Application::~Application() {
 }

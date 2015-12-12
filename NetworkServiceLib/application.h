@@ -7,8 +7,9 @@
 namespace NetworkService {
 /*!
  * \brief Класс, реализующий работу приложения
+ * \note Класс является одиночкой, обращение осуществлять через метод getInstance()
  *
- * Отвечает за взаимодействия прикладной программы с библиотекой
+ * Отвечает за взаимодействия прикладной программы с библиотекой 
  */
 class Application {
 public:
@@ -17,9 +18,16 @@ private:
     MyVector<indexT> servers; ///<Таблица серверов
     MyVector<ulong> usedIPs; ///<Таблица использованных адресов
     bool isIPBusy(ulong addr) const;
+    Application() {}
+    Application(const Application &);
+    Application &operator=(const Application&);
+    ~Application() {}
 public:
+    static Application &getInstance() { ///<Статический метод, возвращающий объект
+        static Application instance;
+        return instance;
+    }
     const uint ServicesNum = 3; ///<Количество возможных вариантов сервиса (почта,файлы,сеть)
-    Application();
     void addServer(ulong addr,std::string name,ulong costpermin,ulong costpermb);
     void delServer(ulong addr);
     Server & getServer(ulong addr);
@@ -40,7 +48,6 @@ public:
     ConstIterator cend() const;
     Server & operator [](uint index);
     const Server & operator [](uint index) const;
-    virtual ~Application();
 };
 }
 #endif // APPLICATION

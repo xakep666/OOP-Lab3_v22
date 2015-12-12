@@ -3,4 +3,5 @@ TEMPLATE = subdirs
 SUBDIRS += \
     NetworkServiceLib \
     Testing \
-    ConsoleApp
+    ConsoleApp \
+    GuiApp

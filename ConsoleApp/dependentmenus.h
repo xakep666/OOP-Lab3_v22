@@ -1,6 +1,6 @@
 #ifndef DEPENDENTMENUS
 #define DEPENDENTMENUS
-typedef void (*menufunc)(NetworkService::Application &);
+typedef void (*menufunc)(void);
 const menufunc mainmenufuncs [] = {
     Exit,
     AddServer,

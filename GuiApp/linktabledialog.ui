@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>614</width>
+    <width>623</width>
     <height>541</height>
    </rect>
   </property>
@@ -37,26 +37,13 @@
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>490</y>
-     <width>171</width>
-     <height>41</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Закрыть</string>
-   </property>
-  </widget>
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>430</x>
-     <y>10</y>
+     <y>11</y>
      <width>188</width>
-     <height>140</height>
+     <height>172</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -81,6 +68,13 @@
       <property name="text">
        <string>Удалить запись
 об оказанной услуге</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Закрыть</string>
       </property>
      </widget>
     </item>

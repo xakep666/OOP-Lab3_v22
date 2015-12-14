@@ -1,8 +1,11 @@
 #include "addserverdialog.h"
 #include "ui_addserverdialog.h"
 #include <QRegExpValidator>
+#include <QIntValidator>
 #include <QMessageBox>
+#include <QPushButton>
 #include "networkservice.h"
+#include "linktabledialog.h"
 AddServerDialog::AddServerDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AddServerDialog)
@@ -15,8 +18,10 @@ AddServerDialog::AddServerDialog(QWidget *parent) :
                                       "(   |[0-9]  | [0-9] |  [0-9]|[0-9][0-9] | [0-9][0-9]|[0-1][0-9][0-9]|2[0-4][0-9]|25[0-5])" );
     QRegExpValidator *validator = new QRegExpValidator(QRegExp(rx), ui->ipEdit);
     ui->ipEdit->setValidator(validator);
-    ui->costmbEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{10}"),ui->costmbEdit));
-    ui->costminEdit->setValidator(new QRegExpValidator(QRegExp("[0-9]{10}"),ui->costminEdit));
+    ui->costmbEdit->setValidator(new QIntValidator(0,INT_MAX,ui->costmbEdit));
+    ui->costminEdit->setValidator(new QIntValidator(0,INT_MAX,ui->costminEdit));
+    //disable OK button until we enter valid IP
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
 }
 
 AddServerDialog::~AddServerDialog()
@@ -53,4 +58,18 @@ void AddServerDialog::on_buttonBox_clicked(QAbstractButton *button)
         ui->costmbEdit->setText("");
         ui->costminEdit->setText("");
     }
+}
+
+void AddServerDialog::on_ipEdit_textChanged(const QString &arg1)
+{
+    //try to convert text to IP
+    try {
+        NetworkService::stringToLongIP(std::string(arg1.toUtf8().data()));
+    } catch (std::invalid_argument) {
+        //if fails, disable OK button
+        ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(false);
+        return;
+    }
+    //if not fails, enable OK button
+    ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(true);
 }

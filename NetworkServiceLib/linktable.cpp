@@ -79,8 +79,10 @@ void LinkTable::delService(uint index) {
 MyVector<std::string> LinkTable::showTable() const {
     MyVector<std::string> result;
     std::for_each(linktable.cbegin(),linktable.cend(),[&](const LinkTable::indexT &pair){
+        time_t linktime = Time::to_time_t(pair.first->getLinkTime());
         std::string tmp("------------------------------------------------------------------------------\nType:"
-                        +pair.first->getType()+"\n"+
+                        +pair.first->getType()+'\n'+
+                        "Time: "+std::string(std::ctime(&linktime))+
                         "Abonent address: "+LongIPtoString(pair.second)+'\n'+
                         "Destination address:"+LongIPtoString(pair.first->getDestinationAddress())+"\n"+
                         "Price:"+std::to_string(pair.first->calculatePrice())+"\n");
@@ -190,12 +192,8 @@ LinkTable::ConstIterator LinkTable::cend() const{
 
 /*!
  * \brief Деструктор
- * Применяет к указателям на ServiceDescriptor оператор delete;
  */
 LinkTable::~LinkTable() {
-    std::for_each(linktable.begin(),linktable.end(),[](LinkTable::indexT pair) {
-        delete pair.first;
-    });
 }
 
 LinkTable::LinkTable() {

@@ -29,3 +29,14 @@ void EditServerDialog::on_buttonBox_accepted() {
         QMessageBox::critical(this,"Error",e.what(),QMessageBox::Ok);
     }
 }
+
+void EditServerDialog::on_buttonBox_clicked(QAbstractButton *button) {
+    //reset button
+    if (ui->buttonBox->standardButton(button)==QDialogButtonBox::Reset) {
+        //restore original values
+        ui->ipEdit->setText(NetworkService::LongIPtoString(NetworkService::Application::getInstance()[index].getAddress()).c_str());
+        ui->nameEdit->setText(NetworkService::Application::getInstance()[index].getName().c_str());
+        ui->costmbEdit->setText(QString::number(NetworkService::Application::getInstance()[index].getCostPerMB()));
+        ui->costminEdit->setText(QString::number(NetworkService::Application::getInstance()[index].getCostPerMin()));
+    }
+}

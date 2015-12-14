@@ -23,7 +23,9 @@ private slots:
 
     virtual void on_buttonBox_accepted();
 
-    void on_buttonBox_clicked(QAbstractButton *button);
+    virtual void on_buttonBox_clicked(QAbstractButton *button);
+
+    void on_ipEdit_textChanged(const QString &arg1);
 
 protected:
     Ui::AddServerDialog *ui;

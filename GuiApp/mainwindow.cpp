@@ -91,6 +91,7 @@ void MainWindow::on_linktableShow_clicked()
         QMessageBox::warning(this,"Информация","Выберете хотя бы один сервер",QMessageBox::Ok);
     foreach (QModelIndex index,selected) {
         auto ltf = new LinkTableDialog(this,index.row());
+        connect(ltf,SIGNAL(UpdateAbonentListSignal()),ui->abonentList,SLOT(Update()));
         ltf->show();
     }
 }

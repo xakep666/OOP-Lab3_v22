@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AddServiceDialog</class>
+ <widget class="QDialog" name="AddServiceDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>390</width>
+    <height>319</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>Добавление записи об услуге</string>
+  </property>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>371</width>
+     <height>301</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="dialogLayout">
+    <item>
+     <widget class="QTabWidget" name="services">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="postTab">
+       <attribute name="title">
+        <string>Почта</string>
+       </attribute>
+       <widget class="QSplitter" name="postSplitter">
+        <property name="geometry">
+         <rect>
+          <x>1</x>
+          <y>1</y>
+          <width>361</width>
+          <height>191</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QCheckBox" name="addPost">
+         <property name="text">
+          <string>Добавить</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <layout class="QFormLayout" name="formLayout">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="labelLayout_post">
+            <item>
+             <widget class="QLabel" name="directionLabel_post">
+              <property name="text">
+               <string>Направление</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="srcdestLabel_post">
+              <property name="text">
+               <string>Отправитель</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="sendrecvDataLabel_post">
+              <property name="text">
+               <string>Получено (MB)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="dateTimeLabel_post">
+              <property name="text">
+               <string>Время оказания услуги</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <layout class="QVBoxLayout" name="editLayout_post">
+            <item>
+             <layout class="QHBoxLayout" name="directionLayout_post">
+              <item>
+               <widget class="QRadioButton" name="recvToggle_post">
+                <property name="text">
+                 <string>Прием</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="sendToggle_post">
+                <property name="text">
+                 <string>Передача</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="sendrecvEdit_post">
+              <property name="inputMask">
+               <string>000.000.000.000</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="sendrecvDataEdit_post"/>
+            </item>
+            <item>
+             <widget class="QDateTimeEdit" name="dateTimeEdit_post"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="fileTab">
+       <attribute name="title">
+        <string>Файлы</string>
+       </attribute>
+       <widget class="QSplitter" name="fileSplitter">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-2</y>
+          <width>361</width>
+          <height>201</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QCheckBox" name="addFiles">
+         <property name="text">
+          <string>Добавить</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <layout class="QFormLayout" name="filesLayout">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="labelLayout_files">
+            <item>
+             <widget class="QLabel" name="directionLabel_files">
+              <property name="text">
+               <string>Направление</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="srcdestLabel_files">
+              <property name="text">
+               <string>Отправитель</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="sendrecvDataLabel_files">
+              <property name="text">
+               <string>Получено (MB)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="durationLabel_files">
+              <property name="text">
+               <string>Длительность (мин)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="dateTimeLabel_files">
+              <property name="text">
+               <string>Время оказания услуги</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <layout class="QVBoxLayout" name="editLayout_files">
+            <item>
+             <layout class="QHBoxLayout" name="directionLayout_files">
+              <item>
+               <widget class="QRadioButton" name="recvToggle_files">
+                <property name="text">
+                 <string>Прием</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QRadioButton" name="sendToggle_files">
+                <property name="text">
+                 <string>Передача</string>
+                </property>
+                <property name="checked">
+                 <bool>false</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="sendrecvEdit_files">
+              <property name="inputMask">
+               <string>000.000.000.000</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="sendrecvDataEdit_files"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="durationEdit_files"/>
+            </item>
+            <item>
+             <widget class="QDateTimeEdit" name="dateTimeEdit_files"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="netTab">
+       <attribute name="title">
+        <string>Сеть</string>
+       </attribute>
+       <widget class="QSplitter" name="netSplitter">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-2</y>
+          <width>361</width>
+          <height>201</height>
+         </rect>
+        </property>
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QCheckBox" name="addNet">
+         <property name="text">
+          <string>Добавить</string>
+         </property>
+        </widget>
+        <widget class="QWidget" name="layoutWidget">
+         <layout class="QFormLayout" name="formLayout_net">
+          <item row="0" column="0">
+           <layout class="QVBoxLayout" name="labelLayout_net">
+            <item>
+             <widget class="QLabel" name="destLabel_net">
+              <property name="text">
+               <string>Адрес назначения</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="sendLabel_net">
+              <property name="text">
+               <string>Отправлено (MB)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="recvLabel_net">
+              <property name="text">
+               <string>Получено (MB)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="durationLabel_net">
+              <property name="text">
+               <string>Длительность (мин)</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="dateTimeLabel_network">
+              <property name="text">
+               <string>Время оказания услуги</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item row="0" column="1">
+           <layout class="QVBoxLayout" name="editLayout_net">
+            <item>
+             <widget class="QLineEdit" name="destEdit_net">
+              <property name="inputMask">
+               <string>000.000.000.000</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="sendEdit_net"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="recvEdit_net"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="durationEdit_net"/>
+            </item>
+            <item>
+             <widget class="QDateTimeEdit" name="dateTimeEdit_network"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </widget>
+     </widget>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="abonentLayout">
+      <item>
+       <widget class="QLabel" name="abonentLabel">
+        <property name="text">
+         <string>Абонент</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="abonentEdit">
+        <property name="inputMask">
+         <string>000.000.000.000</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QDialogButtonBox" name="buttonBox">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="standardButtons">
+       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok|QDialogButtonBox::Reset</set>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>AddServiceDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>230</x>
+     <y>309</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>AddServiceDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>297</x>
+     <y>284</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

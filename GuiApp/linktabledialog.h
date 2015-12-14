@@ -17,6 +17,18 @@ public:
     uint getIndex() const;
     ~LinkTableDialog();
 
+signals:
+    void UpdateAbonentListSignal();
+
+private slots:
+    void on_addService_clicked();
+
+    void on_editService_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_removeService_clicked();
+
 private:
     Ui::LinkTableDialog *ui;
     uint index;

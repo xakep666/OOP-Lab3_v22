@@ -32,7 +32,7 @@
     <item>
      <widget class="QTabWidget" name="services">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="postTab">
        <attribute name="title">
@@ -360,6 +360,29 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>services</tabstop>
+  <tabstop>addPost</tabstop>
+  <tabstop>recvToggle_post</tabstop>
+  <tabstop>sendToggle_post</tabstop>
+  <tabstop>sendrecvEdit_post</tabstop>
+  <tabstop>sendrecvDataEdit_post</tabstop>
+  <tabstop>dateTimeEdit_post</tabstop>
+  <tabstop>addFiles</tabstop>
+  <tabstop>recvToggle_files</tabstop>
+  <tabstop>sendToggle_files</tabstop>
+  <tabstop>sendrecvEdit_files</tabstop>
+  <tabstop>sendrecvDataEdit_files</tabstop>
+  <tabstop>durationEdit_files</tabstop>
+  <tabstop>dateTimeEdit_files</tabstop>
+  <tabstop>addNet</tabstop>
+  <tabstop>destEdit_net</tabstop>
+  <tabstop>sendEdit_net</tabstop>
+  <tabstop>recvEdit_net</tabstop>
+  <tabstop>durationEdit_net</tabstop>
+  <tabstop>dateTimeEdit_network</tabstop>
+  <tabstop>abonentEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

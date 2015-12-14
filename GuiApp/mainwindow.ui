@@ -65,133 +65,92 @@
      </property>
     </column>
    </widget>
-   <widget class="QPushButton" name="addserver">
+   <widget class="QWidget" name="">
     <property name="geometry">
      <rect>
       <x>640</x>
       <y>0</y>
-      <width>171</width>
-      <height>31</height>
+      <width>188</width>
+      <height>331</height>
      </rect>
     </property>
-    <property name="text">
-     <string>Добавить сервер</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="removeServer">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>40</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Удалить сервер</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="linktableShow">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>80</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Таблица связи</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="aboninfoLabel">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>150</y>
-      <width>191</width>
-      <height>17</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Информация об абоненте</string>
-    </property>
-   </widget>
-   <widget class="AbonentList" name="abonentList">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>170</y>
-      <width>78</width>
-      <height>51</height>
-     </rect>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="abonentInfo">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>200</y>
-      <width>96</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Итог</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="editServer">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>120</y>
-      <width>171</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Редактировать сервер</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="servicesButton">
-    <property name="geometry">
-     <rect>
-      <x>720</x>
-      <y>170</y>
-      <width>96</width>
-      <height>26</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Услуги</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="exitButton">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>290</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Выход</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="IOTrafficButton">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>230</y>
-      <width>171</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Входящий/исходящий
+    <layout class="QVBoxLayout" name="verticalLayout_2">
+     <item>
+      <widget class="QPushButton" name="addserver">
+       <property name="text">
+        <string>Добавить сервер</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="removeServer">
+       <property name="text">
+        <string>Удалить сервер</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="linktableShow">
+       <property name="text">
+        <string>Таблица связи</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="editServer">
+       <property name="text">
+        <string>Редактировать сервер</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="IOTrafficButton">
+       <property name="text">
+        <string>Входящий/исходящий
 траффик</string>
-    </property>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="aboninfoLabel">
+       <property name="text">
+        <string>Информация об абоненте</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="AbonentList" name="abonentList"/>
+       </item>
+       <item>
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QPushButton" name="servicesButton">
+           <property name="text">
+            <string>Услуги</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="abonentInfo">
+           <property name="text">
+            <string>Итог</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QPushButton" name="exitButton">
+       <property name="text">
+        <string>Выход</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -267,6 +226,18 @@
    </slots>
   </customwidget>
  </customwidgets>
+ <tabstops>
+  <tabstop>servertable</tabstop>
+  <tabstop>addserver</tabstop>
+  <tabstop>removeServer</tabstop>
+  <tabstop>linktableShow</tabstop>
+  <tabstop>editServer</tabstop>
+  <tabstop>IOTrafficButton</tabstop>
+  <tabstop>abonentList</tabstop>
+  <tabstop>servicesButton</tabstop>
+  <tabstop>abonentInfo</tabstop>
+  <tabstop>exitButton</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

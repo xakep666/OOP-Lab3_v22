@@ -94,6 +94,12 @@
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>ipEdit</tabstop>
+  <tabstop>nameEdit</tabstop>
+  <tabstop>costminEdit</tabstop>
+  <tabstop>costmbEdit</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>

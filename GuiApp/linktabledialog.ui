@@ -37,48 +37,6 @@
     <enum>Qt::ScrollBarAlwaysOff</enum>
    </property>
   </widget>
-  <widget class="QPushButton" name="addService">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>10</y>
-     <width>181</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Добавить информацию
-об оказанной услуге</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="editService">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>80</y>
-     <width>181</width>
-     <height>61</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Изменить информацию
-об оказанной услуге</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="removeService">
-   <property name="geometry">
-    <rect>
-     <x>430</x>
-     <y>150</y>
-     <width>181</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Удалить запись
-об оказанной услуге</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="pushButton">
    <property name="geometry">
     <rect>
@@ -91,6 +49,42 @@
    <property name="text">
     <string>Закрыть</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>430</x>
+     <y>10</y>
+     <width>188</width>
+     <height>140</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="addService">
+      <property name="text">
+       <string>Добавить информацию
+об оказанной услуге</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="editService">
+      <property name="text">
+       <string>Изменить информацию
+об оказанной услуге</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="removeService">
+      <property name="text">
+       <string>Удалить запись
+об оказанной услуге</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <customwidgets>

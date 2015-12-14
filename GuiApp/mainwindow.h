@@ -32,6 +32,12 @@ private slots:
 
     void on_editServer_clicked();
 
+    void on_servicesButton_clicked();
+
+    void on_exitButton_clicked();
+
+    void on_IOTrafficButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -9,6 +9,7 @@
 #include <QMessageBox>
 #include <QShortcut>
 #include "networkservice.h"
+#include "abonentservices.h"
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -127,5 +128,32 @@ void MainWindow::on_editServer_clicked()
         //connect UpdateItem slot
         connect(editd,SIGNAL(UpdateItemSignal(uint,ulong,QString &,uint,uint)),ui->servertable,SLOT(UpdateItem(uint,ulong,QString&,uint,uint)));
         editd->show();
+    }
+}
+
+void MainWindow::on_servicesButton_clicked()
+{
+    if(ui->abonentList->currentData().isNull()) {
+        QMessageBox::critical(this,"Ошибка","Список абонентов пуст",QMessageBox::Ok);
+        return;
+    }
+    AbonentServices *as = new AbonentServices(this,(ulong)ui->abonentList->currentData().toULongLong());
+    as->show();
+}
+
+void MainWindow::on_exitButton_clicked()
+{
+    close();
+}
+
+void MainWindow::on_IOTrafficButton_clicked()
+{
+    try {
+        auto IOTraffic = NetworkService::Application::getInstance().countIOTraffic();
+        QMessageBox::information(this,"Входящий/исходящий траффик",tr("Исходящий траффик: ")+QString::number(IOTraffic.first)+tr(" MB\n")+
+                                                                   tr("Входящий траффик: ")+QString::number(IOTraffic.second)+tr(" MB"),
+                                 QMessageBox::Ok);
+    } catch (std::exception &e) {
+        QMessageBox::critical(this,"Ошибка",e.what(),QMessageBox::Ok);
     }
 }

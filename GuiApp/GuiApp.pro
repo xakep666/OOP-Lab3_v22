@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     abonentlist.cpp \
     editserverdialog.cpp \
     addservicedialog.cpp \
-    editservicedialog.cpp
+    editservicedialog.cpp \
+    abonentservices.cpp
 
 HEADERS  += mainwindow.h \
     servertable.h \
@@ -31,12 +32,14 @@ HEADERS  += mainwindow.h \
     abonentlist.h \
     editserverdialog.h \
     addservicedialog.h \
-    editservicedialog.h
+    editservicedialog.h \
+    abonentservices.h
 
 FORMS    += mainwindow.ui \
     addserverdialog.ui \
     linktabledialog.ui \
-    addservicedialog.ui
+    addservicedialog.ui \
+    abonentservices.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/release/ -lNetworkServiceLib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/debug/ -lNetworkServiceLib

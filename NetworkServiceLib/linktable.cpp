@@ -123,7 +123,7 @@ MyVector<std::string> LinkTable::showTable() const {
             auto tmpdesc = dynamic_cast<const NetworkDescriptor *>(pair.first);
             tmp += "Send: "+std::to_string(tmpdesc->getOutTraffic())+"MB\n";
             tmp += "Recived: "+std::to_string(tmpdesc->getInTraffic())+"MB\n";
-            tmp+=" Duration: "+std::to_string(tmpdesc->getLinkDuration().count()/minute_k)+"Min\n";
+            tmp+="Duration: "+std::to_string(tmpdesc->getLinkDuration().count()/minute_k)+"Min\n";
         }
         tmp+="------------------------------------------------------------------------------\n";
         result.push_back(tmp);

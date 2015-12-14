@@ -73,6 +73,3 @@ ulong Server::getCostPerMin() const {
 void Server::setCostPerMin(ulong cost) {
     costpermin=cost;
 }
-
-Server::~Server() {
-}

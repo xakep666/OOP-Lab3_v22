@@ -15,13 +15,23 @@ CONFIG += c++11
 SOURCES += main.cpp\
         mainwindow.cpp \
     servertable.cpp \
-    filemenu.cpp
+    addserverdialog.cpp \
+    linktablewidget.cpp \
+    linktabledialog.cpp \
+    abonentlist.cpp \
+    editserverdialog.cpp
 
 HEADERS  += mainwindow.h \
     servertable.h \
-    filemenu.h
+    addserverdialog.h \
+    linktablewidget.h \
+    linktabledialog.h \
+    abonentlist.h \
+    editserverdialog.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    addserverdialog.ui \
+    linktabledialog.ui
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/release/ -lNetworkServiceLib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../NetworkServiceLib/debug/ -lNetworkServiceLib

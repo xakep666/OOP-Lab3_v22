@@ -14,6 +14,8 @@ signals:
 
 public slots:
     void UpdateTable();
+    void AddLastItem();
+    void UpdateItem(uint index,ulong newip,QString &newname,uint newcostpermin,uint newcostpermb);
 };
 
 #endif // SERVERTABLE_H

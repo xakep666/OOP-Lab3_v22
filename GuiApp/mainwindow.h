@@ -22,6 +22,16 @@ private slots:
 
     void on_SaveFile_triggered();
 
+    void on_addserver_clicked();
+
+    void on_removeServer_clicked();
+
+    void on_linktableShow_clicked();
+
+    void on_abonentInfo_clicked();
+
+    void on_editServer_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

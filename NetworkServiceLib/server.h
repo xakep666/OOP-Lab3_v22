@@ -27,7 +27,6 @@ public:
     ulong getCostPerMB() const;
     void setCostPerMin(ulong cost);
     void setCostPerMB(ulong cost);
-    virtual ~Server();
 };
 }
 #endif // SERVER

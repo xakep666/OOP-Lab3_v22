@@ -79,8 +79,9 @@ void LinkTable::delService(uint index) {
 MyVector<std::string> LinkTable::showTable() const {
     MyVector<std::string> result;
     std::for_each(linktable.cbegin(),linktable.cend(),[&](const LinkTable::indexT &pair){
-        std::string tmp("Type:"+pair.first->getType()+"\n"+
-                        "Source address: "+LongIPtoString(pair.second)+'\n'+
+        std::string tmp("------------------------------------------------------------------------------\nType:"
+                        +pair.first->getType()+"\n"+
+                        "Abonent address: "+LongIPtoString(pair.second)+'\n'+
                         "Destination address:"+LongIPtoString(pair.first->getDestinationAddress())+"\n"+
                         "Price:"+std::to_string(pair.first->calculatePrice())+"\n");
         if(typeid(*pair.first)==typeid(PostDescriptor)) {
@@ -122,6 +123,7 @@ MyVector<std::string> LinkTable::showTable() const {
             tmp += "Recived: "+std::to_string(tmpdesc->getInTraffic())+"MB\n";
             tmp+=" Duration: "+std::to_string(tmpdesc->getLinkDuration().count()/minute_k)+"Min\n";
         }
+        tmp+="------------------------------------------------------------------------------\n";
         result.push_back(tmp);
     });
     return result;

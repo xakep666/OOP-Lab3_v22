@@ -14,8 +14,8 @@ using namespace NetworkService;
  * Метод ищет проверяемый адрес в таблице используемых адресов
  */
 bool Application::isIPBusy(ulong addr) const {
-    auto pos = std::find_if(usedIPs.cbegin(),usedIPs.cend(),[addr](ulong _addr){
-        return _addr==addr;
+    auto pos = std::find_if(usedIPs.cbegin(),usedIPs.cend(),[addr](const std::pair<ulong,bool> &p){
+        return p.first==addr;
     });
     if(pos == usedIPs.cend())
         return false;
@@ -39,8 +39,9 @@ void Application::addServer(ulong addr, std::string name, ulong costpermin, ulon
     if(!isValidIP(addr))
         throw std::invalid_argument("Cannot use this IP "+std::to_string(addr));
     if(isIPBusy(addr))
-        throw std::logic_error("IP "+std::to_string(addr)+" is already used");
-    usedIPs.push_back(addr);
+        throw std::logic_error("IP "+LongIPtoString(addr)+" is already used");
+    auto newpair = std::pair<ulong,bool>(addr,true);
+    usedIPs.push_back(newpair);
     Server newserv(addr);
     newserv.setName(name);
     newserv.setCostPerMB(costpermb);
@@ -65,7 +66,18 @@ void Application::delServer(ulong addr) {
         throw std::invalid_argument("Server with IP "+std::to_string(addr)+" not found");
     else
         servers.erase(pos);
-    usedIPs.erase(std::find_if(usedIPs.begin(),usedIPs.end(),[addr](ulong _addr){ return _addr==addr; }));
+    usedIPs.erase(std::find_if(usedIPs.begin(),usedIPs.end(),[addr](std::pair<ulong,bool> &p){ return p.first==addr; }));
+}
+
+/*!
+ * \brief Удаление сервера по индексу
+ * \param index Индекс записи
+ */
+void Application::delServerIndex(uint index)
+{
+    ulong addr = servers[index].getAddress();
+    servers.erase(servers.begin()+index);
+    usedIPs.erase(std::find_if(usedIPs.begin(),usedIPs.end(),[addr](std::pair<ulong,bool> &p){ return p.first==addr; }));
 }
 
 /*!
@@ -100,10 +112,10 @@ void Application::SetServerAddress(Server &srv, ulong newaddr) {
         throw std::invalid_argument("Invalid IP given "+std::to_string(newaddr));
     if(isIPBusy(newaddr))
         throw std::invalid_argument("New IP "+std::to_string(newaddr)+" is already used");
-    auto pos = std::find_if(usedIPs.begin(),usedIPs.end(),[&srv](ulong _addr){
-            return srv.getAddress()==_addr;
+    auto pos = std::find_if(usedIPs.begin(),usedIPs.end(),[&srv](std::pair<ulong,bool> &p){
+            return srv.getAddress()==p.first;
     });
-    *pos=newaddr;
+    pos->first=newaddr;
     srv.address=newaddr;
 }
 
@@ -123,8 +135,9 @@ void Application::addService(ulong abonentaddr, ServiceDescriptor *sdesc) {
         throw std::invalid_argument("Invalid abonent IP given "+std::to_string(abonentaddr));
     if(sdesc==nullptr)
         throw std::invalid_argument("Cannot use nullptr as service descriptor");
+    std::pair<ulong,bool> newpair(abonentaddr,false);
     if(!isIPBusy(abonentaddr))
-        usedIPs.push_back(abonentaddr);
+        usedIPs.push_back(newpair);
     getServer(sdesc->getServer()->getAddress()).addService(sdesc,abonentaddr);
 }
 
@@ -192,6 +205,24 @@ Application::Iterator Application::end(){
  */
 Application::ConstIterator Application::cend() const{
     return Application::ConstIterator(this,servers.size());
+}
+
+/*!
+ * \brief Получение последнего добавленного сервера
+ * \return Ссыллка на объект последнего добавленного сервера
+ */
+Server &Application::back()
+{
+    return servers.back();
+}
+
+/*!
+ * \brief Получение последнего добавленного сервера
+ * \return Константная сыллка на объект последнего добавленного сервера
+ */
+const Server &Application::back() const
+{
+    return servers.back();
 }
 
 /*!
@@ -298,6 +329,14 @@ std::pair<ulong,ulong> Application::countIOTraffic() const {
         });
     });
     return result;
+}
+
+/*!
+ * \brief Получение таблицы с занятыми адресами
+ * \return Ссылка на таблицу с занятыми адресами
+ */
+const MyVector<std::pair<ulong,bool>> &Application::getUsedIPs() const{
+    return usedIPs;
 }
 
 /*!

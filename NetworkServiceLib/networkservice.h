@@ -26,6 +26,7 @@
 #include <stdexcept>
 #include <new>
 #include <fstream>
+#include <type_traits>
 typedef std::chrono::system_clock Time; ///<Системные часы
 typedef std::chrono::milliseconds ms; ///<Милисекунда
 typedef std::chrono::time_point<Time> ftimepoint; ///<Специализация time_point для системных часов
